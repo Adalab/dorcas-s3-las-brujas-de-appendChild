@@ -5,7 +5,11 @@ class App extends Component {
   render() {
     return (
       <div>
-      <Preview/>
+      <Preview
+        reset="RESET"
+        firstName="Nombre Apellido"
+        job="Profesión"
+      />
       </div>
     );
   }
