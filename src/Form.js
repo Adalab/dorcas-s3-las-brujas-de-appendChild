@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import './Form.css';
 
 class Form extends Component {
   render() {
