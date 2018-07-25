@@ -3,7 +3,7 @@
     padding-left: 40px;
     padding-bottom: 30px;
   }
-  
+
   .cardGenerator__image {
     height: 51px;
     width: 201px;
@@ -11,13 +11,13 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
-  
+
   .index__link {
     display: block;
     height: 100%;
     width: 100%;
   }
-  
+
   .section-card {
     background: -webkit-gradient(linear, left top, left bottom, from(lightblue), to(pink));
     background: linear-gradient(lightblue, pink);
@@ -25,7 +25,7 @@
     height: 457px;
     padding-top: 10px;
   }
-  
+
   .resetbutton {
     width: 75px;
     height: 30px;
@@ -34,7 +34,7 @@
     background: none;
     margin-left: 45px;
   }
-  
+
   .card {
     background-color: #fff;
     width: 240px;
@@ -44,7 +44,7 @@
     margin: auto;
     margin-top: 25px;
   }
-  
+
   .card__top {
     height: 75px;
     display: -webkit-box;
@@ -55,7 +55,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
   }
-  
+
   .card-info {
     height: 75px;
     display: -webkit-box;
@@ -70,7 +70,7 @@
     padding-left: 15px;
     border-left: 5px solid #a2deaf;
   }
-  
+
   .card__top--name {
     font-family: "Chilanka", "Comic Sans MS", sans-serif;
     font-weight: 700px;
@@ -79,7 +79,7 @@
     margin-bottom: 0;
     margin-top: 10px;
   }
-  
+
   .card__top--career {
     font-family: "Chilanka", "Comic Sans MS", sans-serif;
     font-size: 16px;
@@ -87,27 +87,27 @@
     margin-bottom: 10px;
     margin-top: 5px;
   }
-  
+
   .card__image {
     width: 100%;
     height: 200px;
     background-image: url("images/image-card.png");
     background-size: cover;
   }
-  
+
   .card__social {
     height: 50px;
     margin: 0;
     padding-right: 62px;
     padding-left: 20px;
   }
-  
+
   .card__skills {
     border-top: 2px solid rgba(67, 135, 146, 0.2);
     text-decoration: none;
     list-style: none;
   }
-  
+
   .card_skills--list {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -122,11 +122,11 @@
     padding-left: 20px;
     padding-right: 40px;
   }
-  
+
   .card__social--li {
     height: 32px;
   }
-  
+
   .skill {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -147,18 +147,18 @@
     list-style: none;
     text-align: center;
   }
-  
+
   .design__container {
     border: none;
     padding: 0;
     margin: 0;
     border-bottom: 1px solid #d8d8d8;
   }
-  
+
   .design-title__legend {
     padding: 0;
   }
-  
+
   .design__title {
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -172,7 +172,7 @@
     -ms-flex-pack: justify;
     justify-content: space-between;
   }
-  
+
   .design__form-colors {
     -webkit-box-align: start;
     -ms-flex-align: start;
@@ -186,7 +186,7 @@
     -ms-flex-pack: justify;
     justify-content: space-between;
   }
-  
+
   .design__palette {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -196,21 +196,21 @@
     align-items: center;
     padding: 10px 0;
   }
-  
+
   .design__check-radio {
     margin: 0;
     margin-right: 10px;
     width: 17px;
     height: 17px;
   }
-  
+
   .palette1__greens::before {
     content: '';
     width: 30px;
     height: 25px;
     background-color: #114e4e;
   }
-  
+
   .palette1__greens {
     width: 90px;
     height: 25px;
@@ -222,21 +222,21 @@
     -ms-flex-pack: justify;
     justify-content: space-between;
   }
-  
+
   .palette1__greens::after {
     content: '';
     width: 30px;
     height: 25px;
     background-color: #a2deaf;
   }
-  
+
   .palette2__reds::before {
     content: '';
     width: 30px;
     height: 25px;
     background-color: #420101;
   }
-  
+
   .palette2__reds {
     width: 90px;
     height: 25px;
@@ -248,21 +248,21 @@
     -ms-flex-pack: justify;
     justify-content: space-between;
   }
-  
+
   .palette2__reds::after {
     content: '';
     width: 30px;
     height: 25px;
     background-color: #e95626;
   }
-  
+
   .palette3__blues::before {
     content: '';
     width: 30px;
     height: 25px;
     background-color: #3e5b65;
   }
-  
+
   .palette3__blues {
     width: 90px;
     height: 25px;
@@ -274,14 +274,14 @@
     -ms-flex-pack: justify;
     justify-content: space-between;
   }
-  
+
   .palette3__blues::after {
     content: '';
     width: 30px;
     height: 25px;
     background-color: #a0c0cf;
   }
-  
+
   .design__form-fonts {
     -webkit-box-align: start;
     -ms-flex-align: start;
@@ -294,15 +294,15 @@
     -ms-flex-pack: justify;
     justify-content: space-between;
   }
-  
+
   .design__letter-type {
     width: 117px;
   }
-  
+
   .design__type--common {
     padding: 7px 0;
   }
-  
+
   .btn-chubby {
     display: block;
     width: 129px;
@@ -320,7 +320,7 @@
     line-height: 42px;
     margin: 0 auto 30px auto;
   }
-  
+
   .resetbutton {
     width: 75px;
     height: 30px;
@@ -341,15 +341,15 @@
     -ms-flex-align: center;
     align-items: center;
   }
-  
+
   .fa-trash-alt {
     padding-left: 5px;
   }
-  
+
   .resetbutton--text {
     padding-left: 5px;
   }
-  
+
   .card__social {
     text-decoration: none;
     list-style: none;
@@ -363,7 +363,7 @@
     -ms-flex-line-pack: start;
     align-content: flex-start;
   }
-  
+
   .button-card {
     width: 32px;
     height: 32px;
@@ -384,7 +384,7 @@
     align-items: center;
     text-decoration: none;
   }
-  
+
   .button-abilities {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -404,7 +404,7 @@
     height: 30px;
     margin-left: 20px;
   }
-  
+
   .btn-create-card {
     font-family: "Open Sans", sans-serif;
     font-size: 18px;
@@ -425,7 +425,7 @@
     -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.32);
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.32);
   }
-  
+
   .btn-share {
     width: 181px;
     height: 30px;
@@ -436,22 +436,12 @@
     -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
   }
-  
+
   .icon-title {
     color: #e17334;
     padding-right: 10px;
   }
-  
-  .section-collapsible__fill {
-    border: none;
-    height: auto;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 100%;
-    margin: 0;
-    border-bottom: 1px solid #d8d8d8;
-  }
-  
+
   .section-collapsible__fill--title {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -470,7 +460,7 @@
     padding-bottom: 5px;
     margin: 0;
   }
-  
+
   .section-collapsible__fill--form {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -480,12 +470,12 @@
     -ms-flex-direction: column;
     flex-direction: column;
   }
-  
+
   .fill-legend {
     text-transform: uppercase;
     color: #54585a;
   }
-  
+
   .icon-down {
     margin-left: auto;
     color: #54585a;
@@ -493,7 +483,7 @@
     height: 18px;
     font-size: 18px;
   }
-  
+
   .fill-input {
     font-size: 14px;
     font-family: "Open Sans", sans-serif;
@@ -501,7 +491,7 @@
     margin-top: 20px;
     margin-bottom: 5px;
   }
-  
+
   .fill-input__image {
     color: #fff;
     display: inline-block;
@@ -511,11 +501,11 @@
     height: 30px;
     width: 140px;
   }
-  
+
   .fill-input__input {
     display: none;
   }
-  
+
   .square__white {
     width: 30px;
     height: 30px;
@@ -523,7 +513,7 @@
     margin-left: 20px;
     background-size: cover;
   }
-  
+
   .fill-input__image__square {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -533,17 +523,17 @@
     -ms-flex-direction: row;
     flex-direction: row;
   }
-  
+
   .fill-input__placeholder {
     border: 1px solid #a2deaf;
   }
-  
+
   .fill-input__abilities {
     display: block;
     margin-top: 40px;
     margin-bottom: 5px;
   }
-  
+
   .select-abilities {
     background: none;
     border: 1px solid #a2deaf;
@@ -551,7 +541,7 @@
     width: 165px;
     height: 30px;
   }
-  
+
   .ability-box {
     margin-bottom: 21px;
     display: -webkit-box;
@@ -561,12 +551,8 @@
     -ms-flex-align: center;
     align-items: center;
   }
-  
-  .section-collapsible__share {
-    border: none;
-    border-bottom: 1px solid #d8d8d8;
-  }
-  
+
+
   .section-collapsible__share--title {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -578,7 +564,7 @@
     padding-bottom: 7px;
     margin: 0;
   }
-  
+
   .section-collapsible__share--button {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -590,17 +576,17 @@
     padding-bottom: 30px;
     border-bottom: 1px solid #d8d8d8;
   }
-  
+
   .fa-address-card {
     margin-right: 10.5px;
   }
-  
+
   .phrase {
     margin-bottom: 0;
     font-size: 18px;
     color: #54585a;
   }
-  
+
   .link-awesome {
     margin-top: 5px;
     margin-bottom: 10px;
@@ -608,7 +594,7 @@
     text-decoration: none;
     font-size: 12px;
   }
-  
+
   .section-collapsible__share--end {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -626,7 +612,7 @@
     padding-top: 20px;
     padding-bottom: 30px;
   }
-  
+
   .btn-share {
     width: 181px;
     height: 30px;
@@ -637,39 +623,39 @@
     -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
   }
-  
+
   .input-style {
     height: 30px;
   }
-  
+
   .form {
     margin: 0 20px 0 19px;
   }
-  
+
   .cover-main__text--title {
     color: #e17334;
     font-family: "Merriweather", serif;
     font-size: 19px;
   }
-  
+
   .cover-main__text--p {
     color: #114e4e;
     font-family: "Open Sans", sans-serif;
     font-size: 13px;
   }
-  
+
   .cover-main__list {
     color: #54585a;
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
   }
-  
+
   .footer--credit {
     color: #6b6b6b;
     font-family: "Open Sans", sans-serif;
     font-size: 14px;
   }
-  
+
   .legend__title {
     color: #54585a;
     font-family: "Open Sans", sans-serif;
@@ -677,13 +663,13 @@
     text-transform: uppercase;
     font-weight: 600;
   }
-  
+
   .skill {
     color: #fff;
     font-family: "Open Sans", sans-serif;
     font-size: 13px;
   }
-  
+
   .design__text {
     color: #54585a;
     font-family: "Open Sans", sans-serif;
@@ -691,172 +677,172 @@
     text-transform: uppercase;
     margin: 0;
   }
-  
+
   .font1 {
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
     font-weight: 600;
     text-transform: capitalize;
   }
-  
+
   .font2 {
     font-family: "Chilanka", "Comic Sans MS", sans-serif;
     font-size: 16px;
     font-weight: normal;
     text-transform: capitalize;
   }
-  
+
   .font3 {
     font-family: "Merriweather", serif;
     font-size: 16px;
     font-weight: normal;
     text-transform: capitalize;
   }
-  
+
   .section-collapsible__fill--form {
     color: #114e4e;
     font-family: "Open Sans", sans-serif;
     font-size: 14px;
   }
-  
+
   .green-card .js-card-info {
     border-left: 5px solid #a2deaf;
   }
-  
+
   .green-card .js-card__top--name {
     color: #114e4e;
   }
-  
+
   .green-card .js-card__top--career {
     color: #114e4e;
   }
-  
+
   .green-card .js-social {
     border: solid 2px #a2deaf;
   }
-  
+
   .green-card .js-icon {
     color: #114e4e;
   }
-  
+
   .green-card .js-skill {
     background-color: #438792;
   }
-  
+
   .red-card .js-card-info {
     border-left: 5px solid #e95626;
   }
-  
+
   .red-card .js-card__top--name {
     color: #420101;
   }
-  
+
   .red-card .js-card__top--career {
     color: #420101;
   }
-  
+
   .red-card .js-social {
     border: solid 2px #e95626;
   }
-  
+
   .red-card .js-icon {
     color: #420101;
   }
-  
+
   .red-card .js-skill {
     background-color: #bd1010;
   }
-  
+
   .blue-card .js-card-info {
     border-left: 5px solid #a0c0cf;
   }
-  
+
   .blue-card .js-card__top--name {
     color: #3e5b65;
   }
-  
+
   .blue-card .js-card__top--career {
     color: #3e5b65;
   }
-  
+
   .blue-card .js-social {
     border: solid 2px #a0c0cf;
   }
-  
+
   .blue-card .js-icon {
     color: #3e5b65;
   }
-  
+
   .blue-card .js-skill {
     background-color: #dfe5eb;
   }
-  
+
   .ubuntu-card .js-card__top--name {
     font-family: "Open Sans", sans-serif;
   }
-  
+
   .ubuntu-card .js-card__top--career {
     font-family: "Open Sans", sans-serif;
   }
-  
+
   .comic-card .js-card__top--name {
     font-family: "Chilanka", "Comic Sans MS", sans-serif;
   }
-  
+
   .comic-card .js-card__top--career {
     font-family: "Chilanka", "Comic Sans MS", sans-serif;
   }
-  
+
   .montse-card .js-card__top--name {
     font-family: "Merriweather", serif;
   }
-  
+
   .montse-card .js-card__top--career {
     font-family: "Merriweather", serif;
   }
-  
+
   body {
     margin: 0;
   }
-  
+
   .hidden {
     display: none;
   }
-  
+
   .js-hidden-twitter {
     display: none;
   }
-  
+
   .skills-hidden {
     display: none;
   }
-  
+
   .plus {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
-  
+
   .js-collapsible-visible .js-collapsible-form {
     display: block;
   }
-  
+
   .js-collapsible-visible .jsRotate {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
   }
-  
+
   .js-press-button {
     background-color: #d8d8d8;
   }
-  
+
   * {
     margin: 0;
     padding: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
-  
+
   .wrapper {
     width: 100%;
     min-height: 100vh;
@@ -874,7 +860,7 @@
     -ms-flex-pack: center;
     justify-content: center;
   }
-  
+
   .cover {
     width: 100%;
     background-color: #f5f5f5;
@@ -897,7 +883,7 @@
     -ms-flex-positive: 1;
     flex-grow: 1;
   }
-  
+
   .cover-header {
     width: 250px;
     height: 64px;
@@ -907,7 +893,7 @@
     background-size: cover;
     margin: 94px auto 14px auto;
   }
-  
+
   .cover-main {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -926,18 +912,18 @@
     -ms-flex-positive: 1;
     flex-grow: 1;
   }
-  
+
   .cover-main__text {
     text-align: center;
     position: relative;
   }
-  
+
   .cover-main__text--title {
     font-family: "Merriweather", serif;
     font-size: 19px;
     font-weight: 900;
   }
-  
+
   .cover-main__text--p {
     width: 265px;
     font-family: "Open Sans", sans-serif;
@@ -946,7 +932,7 @@
     font-weight: 400;
     margin: 4px auto 14px auto;
   }
-  
+
   .cover-main__list {
     width: 268px;
     height: 74px;
@@ -965,7 +951,7 @@
     justify-content: space-around;
     margin: 0 auto 40px auto;
   }
-  
+
   .cover-main__list--design {
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
@@ -985,7 +971,7 @@
     -ms-flex-pack: center;
     justify-content: center;
   }
-  
+
   .cover-main__list--fill {
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
@@ -1005,7 +991,7 @@
     -ms-flex-pack: center;
     justify-content: center;
   }
-  
+
   .cover-main__list--share {
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
@@ -1025,12 +1011,12 @@
     -ms-flex-pack: center;
     justify-content: center;
   }
-  
+
   .iconLanding {
     color: #e17334;
     font-size: 28px;
   }
-  
+
   .btn-chubby {
     display: block;
     width: 129px;
@@ -1045,7 +1031,7 @@
     line-height: 42px;
     margin: 0 auto 30px auto;
   }
-  
+
   .cover_main__btn {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1061,7 +1047,7 @@
     -ms-flex-pack: center;
     justify-content: center;
   }
-  
+
   .cover_main__btn {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1077,7 +1063,7 @@
     -ms-flex-pack: center;
     justify-content: center;
   }
-  
+
   .footer {
     width: 100%;
     height: 110px;
@@ -1098,20 +1084,20 @@
     -ms-flex-pack: center;
     justify-content: center;
   }
-  
+
   .credit {
     font-family: "Open Sans", sans-serif;
     font-size: 14px;
     color: #6b6b6b;
     margin-top: 20px;
   }
-  
+
   .logoAdalab {
     width: 103px;
     height: 40px;
     margin: 10px auto 20px auto;
   }
-  
+
   @media all and (min-width: 768px) {
     .cardGenerator__main {
       display: -webkit-box;
@@ -1130,17 +1116,17 @@
       padding-top: 20px;
       margin-bottom: 20px;
     }
-  
+
     .section-collapsible {
       min-width: 399px;
     }
-  
+
     .section-card {
       border-radius: 6px;
       height: 639px;
       padding-top: 100px;
     }
-  
+
     .footer {
       height: 60px;
       display: -webkit-box;
@@ -1155,41 +1141,41 @@
       padding-right: 40px;
       border: solid 1px #d8d8d8;
     }
-  
+
     .form {
       max-width: 399px;
       margin: 0 40px 0 30px;
     }
-  
+
     .cover-header {
       width: 420px;
       height: 107px;
       margin: 350px auto 30px auto;
     }
-  
+
     .cover-main__text--title {
       font-size: 28px;
     }
-  
+
     .cover-main__text--p {
       width: 331px;
       font-size: 16px;
       margin: 4px auto 21px auto;
     }
-  
+
     .cover-main__list {
       width: 325px;
       height: 86px;
     }
-  
+
     .cover_main__btn {
       margin: auto auto 60px auto;
     }
-  
+
     .cover_main__btn {
       margin: auto auto 60px auto;
     }
-  
+
     .footer {
       height: 60px;
       padding: 0 40px;
@@ -1204,15 +1190,14 @@
       -ms-flex-align: center;
       align-items: center;
     }
-  
+
     .credit {
       margin: 10px 0 20px auto;
     }
-  
+
     .logoAdalab {
       margin: 11px 0 10px auto;
     }
   }
-  
+
   /*# sourceMappingURL=main.css.map */
-  
