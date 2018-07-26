@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Preview from './preview';
+import Preview from './Component/preview';
 import Form from './Component/Form';
 
-class App extends Component {
+class Main extends Component {
   render() {
     return (
       <div>
@@ -16,4 +16,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Main;
