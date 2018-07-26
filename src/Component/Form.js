@@ -9,7 +9,11 @@ class Form extends Component {
         <section className="section-collapsible">
           <form className="form formjs" action="cardGenerator.html" method="post">
 
-          <Collapsable title="diseña" iconTitleClass="far fa-object-ungroup" iconArrowClass="fas fa-chevron-down">
+            <Collapsable
+              title="diseña"
+              iconTitleClass="far fa-object-ungroup"
+              iconArrowClass="fas fa-chevron-down"
+            >
               <div className="design__form hidden js-collapsible-form">
                 <div className="design__form-colors">
                   <p className="design__text">colores</p>
@@ -62,20 +66,13 @@ class Form extends Component {
                   </div>
                 </div>
               </div>
+            </Collapsable>
 
-              </Collapsable>
-
-          {/* <fieldset className="section-collapsible__fill js-collapsible-select">
-              <div className="section-collapsible__fill--title js-collapsible-title">
-                <span className="icon-title">
-                  <i className="far fa-keyboard"></i>
-                </span>
-                <legend className="legend__title fill-legend">rellena</legend>
-                <span className="icon-down">
-                  <i className="fas fa-chevron-down jsRotate"></i>
-                </span>
-              </div> */}
-              <Collapsable title="rellena" iconTitleClass="far fa-keyboard" iconArrowClass="fas fa-chevron-down">
+            <Collapsable
+              title="rellena"
+              iconTitleClass="far fa-keyboard"
+              iconArrowClass="fas fa-chevron-down"
+            >
               <div className="hidden js-collapsible-form">
                 <div className="section-collapsible__fill--form">
                   <label className="fill-input" for="nmb ">Nombre completo</label>
@@ -84,10 +81,10 @@ class Form extends Component {
                   <label className="fill-input" for="job ">Puesto</label>
                   <input className="fill-input__placeholder input-style" placeholder="Ej: Front-end unicorn" id="job" type="text" name="job" value="" data-stringer="profesion"/>
 
-                 <label type="file" className="fill-input" for="add-image">Imagen de perfil</label>
+                  <label type="file" className="fill-input" for="add-image">Imagen de perfil</label>
                   <div className="fill-input__image__square">
 
-                      <button type="button" className="fill-input__image" name="button">Añadir imagen</button>
+                    <button type="button" className="fill-input__image" name="button">Añadir imagen</button>
                     {/*<input className="fill-input__input" id="add-image" name="photo" type="file" value="Añadir imagen"/>*/}
 
                     <div className="square__white"></div>
@@ -106,50 +103,42 @@ class Form extends Component {
                     <label className="fill-input__abilities" for="">Habilidades (máximo 3)</label>
                     <div className="ability-box js-ability-box">
                       <select className="select-abilities js-select-abilities" name="skills">
-                    </select>
+                      </select>
                       <button className="button-abilities js-button-abilitiesPlus" type="button" name="button">
-                      <i className="fas fa-plus"></i>
-                    </button>
+                        <i className="fas fa-plus"></i>
+                      </button>
                     </div>
                     <div className="ability-box js-ability-box skills-hidden">
                       <select className="select-abilities js-select-abilities" name="skills">
-                    </select>
+                      </select>
                       <button className="button-abilities js-button-abilitiesMinus" type="button" name="button">
-                      <i className="fas fa-minus"></i>
-                    </button>
+                        <i className="fas fa-minus"></i>
+                      </button>
                     </div>
                     <div className="ability-box js-ability-box skills-hidden">
                       <select className="select-abilities js-select-abilities" name="skills">
-                    </select>
+                      </select>
                       <button className="button-abilities js-button-abilitiesMinus" type="button" name="button">
-                      <i className="fas fa-minus"></i>
-                    </button>
+                        <i className="fas fa-minus"></i>
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
-              </Collapsable>
-            {/*</fieldset>*/}
+            </Collapsable>
 
-
-          {/*  <fieldset className="section-collapsible__share  js-collapsible-select">
-              <div className="section-collapsible__share--title js-collapsible-title">
-                <span className="icon-title">
-                  <i className="fas fa-share-alt"></i>
-                </span>
-                <legend className="legend__title share-legend">comparte</legend>
-                <span className="icon-down">
-                  <i className="fas fa-chevron-down jsRotate"></i>
-                </span>
-              </div> */}
-              <Collapsable title="comparte" iconTitleClass="fas fa-share-alt" iconArrowClass="fas fa-chevron-down">
+            <Collapsable
+              title="comparte"
+              iconTitleClass="fas fa-share-alt"
+              iconArrowClass="fas fa-chevron-down"
+            >
               <div className="js-collapsible-form hidden">
                 <div className="section-collapsible__share--button">
 
                   <button className="btn-create-card js-btn-create-card" type="button" name="button">
-                  <span>
-                    <i className="far fa-address-card"></i>
-                  </span>CREAR TARJETA</button>
+                    <span>
+                      <i className="far fa-address-card"></i>
+                    </span>CREAR TARJETA</button>
 
                 </div>
 
@@ -164,16 +153,15 @@ class Form extends Component {
                   </button>
                 </div>
               </div>
-          {/*  </fieldset>*/}
+
             </Collapsable>
 
           </form>
         </section>
 
-
       </Fragment>
-    );
-  }
-}
+            );
+          }
+        }
 
 export default Form;
