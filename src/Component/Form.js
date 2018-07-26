@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react';
+import Collapsable from './Collapsable'
+
 
 class Form extends Component {
   render() {
@@ -6,16 +8,8 @@ class Form extends Component {
       <Fragment>
         <section className="section-collapsible">
           <form className="form formjs" action="cardGenerator.html" method="post">
-            <fieldset className="design__container js-collapsible-visible js-collapsible-select">
-              <div className="design__title js-collapsible-title">
-                <legend className="legend__title design-title__legend">
-                  <i className="icon-title far fa-object-ungroup"></i> diseña
-                </legend>
-                <span>
-                  <i className="design__icon-legend fas fa-chevron-down jsRotate"></i>
-                </span>
-              </div>
 
+          <Collapsable>
               <div className="design__form hidden js-collapsible-form">
                 <div className="design__form-colors">
                   <p className="design__text">colores</p>
@@ -68,10 +62,10 @@ class Form extends Component {
                   </div>
                 </div>
               </div>
-            </fieldset>
 
+              </Collapsable>
 
-            <fieldset className="section-collapsible__fill js-collapsible-select">
+          {/* <fieldset className="section-collapsible__fill js-collapsible-select">
               <div className="section-collapsible__fill--title js-collapsible-title">
                 <span className="icon-title">
                   <i className="far fa-keyboard"></i>
@@ -80,8 +74,8 @@ class Form extends Component {
                 <span className="icon-down">
                   <i className="fas fa-chevron-down jsRotate"></i>
                 </span>
-              </div>
-
+              </div> */}
+              <Collapsable>
               <div className="hidden js-collapsible-form">
                 <div className="section-collapsible__fill--form">
                   <label className="fill-input" for="nmb ">Nombre completo</label>
@@ -134,10 +128,11 @@ class Form extends Component {
                   </div>
                 </div>
               </div>
-            </fieldset>
+              </Collapsable>
+            {/*</fieldset>*/}
 
 
-            <fieldset className="section-collapsible__share  js-collapsible-select">
+          {/*  <fieldset className="section-collapsible__share  js-collapsible-select">
               <div className="section-collapsible__share--title js-collapsible-title">
                 <span className="icon-title">
                   <i className="fas fa-share-alt"></i>
@@ -146,7 +141,8 @@ class Form extends Component {
                 <span className="icon-down">
                   <i className="fas fa-chevron-down jsRotate"></i>
                 </span>
-              </div>
+              </div> */}
+              <Collapsable>
               <div className="js-collapsible-form hidden">
                 <div className="section-collapsible__share--button">
 
@@ -168,7 +164,8 @@ class Form extends Component {
                   </button>
                 </div>
               </div>
-            </fieldset>
+          {/*  </fieldset>*/}
+            </Collapsable>
 
           </form>
         </section>
