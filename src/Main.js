@@ -12,6 +12,7 @@ class Main extends Component {
         firstName="Nombre Apellido"
         job="Profesión"
       />
+      <Form />
       </div>
     );
   }
