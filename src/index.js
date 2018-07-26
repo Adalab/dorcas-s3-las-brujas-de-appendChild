@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Main from './Main';
+import CardGenerator from './CardGenerator';
 import './main.css';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Main />, document.getElementById('root'));
+ReactDOM.render(<CardGenerator />, document.getElementById('root'));
 registerServiceWorker();
