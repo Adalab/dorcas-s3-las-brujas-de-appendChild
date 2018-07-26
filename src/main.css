@@ -148,29 +148,11 @@
     text-align: center;
   }
 
-  .design__container {
+  .fieldset__container {
     border: none;
     padding: 0;
     margin: 0;
     border-bottom: 1px solid #d8d8d8;
-  }
-
-  .design-title__legend {
-    padding: 0;
-  }
-
-  .design__title {
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding-top: 30px;
-    padding-bottom: 10px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
   }
 
   .design__form-colors {
@@ -442,25 +424,6 @@
     padding-right: 10px;
   }
 
-  .section-collapsible__fill--title {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding-top: 10px;
-    padding-bottom: 5px;
-    margin: 0;
-  }
-
   .section-collapsible__fill--form {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -469,11 +432,6 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-  }
-
-  .fill-legend {
-    text-transform: uppercase;
-    color: #54585a;
   }
 
   .icon-down {
@@ -553,7 +511,7 @@
   }
 
 
-  .section-collapsible__share--title {
+  .section-collapsible--title {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
