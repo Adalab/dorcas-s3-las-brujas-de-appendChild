@@ -155,20 +155,6 @@
     border-bottom: 1px solid #d8d8d8;
   }
 
-  .design__title {
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding-top: 30px;
-    padding-bottom: 10px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-  }
-
   .design__form-colors {
     -webkit-box-align: start;
     -ms-flex-align: start;
@@ -446,11 +432,6 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-  }
-
-  .fill-legend {
-    text-transform: uppercase;
-    color: #54585a;
   }
 
   .icon-down {

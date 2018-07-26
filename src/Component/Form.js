@@ -9,7 +9,7 @@ class Form extends Component {
         <section className="section-collapsible">
           <form className="form formjs" action="cardGenerator.html" method="post">
 
-          <Collapsable>
+          <Collapsable title="diseña" iconTitleClass="far fa-object-ungroup" iconArrowClass="fas fa-chevron-down">
               <div className="design__form hidden js-collapsible-form">
                 <div className="design__form-colors">
                   <p className="design__text">colores</p>
@@ -75,7 +75,7 @@ class Form extends Component {
                   <i className="fas fa-chevron-down jsRotate"></i>
                 </span>
               </div> */}
-              <Collapsable>
+              <Collapsable title="rellena" iconTitleClass="far fa-keyboard" iconArrowClass="fas fa-chevron-down">
               <div className="hidden js-collapsible-form">
                 <div className="section-collapsible__fill--form">
                   <label className="fill-input" for="nmb ">Nombre completo</label>
@@ -142,7 +142,7 @@ class Form extends Component {
                   <i className="fas fa-chevron-down jsRotate"></i>
                 </span>
               </div> */}
-              <Collapsable>
+              <Collapsable title="comparte" iconTitleClass="fas fa-share-alt" iconArrowClass="fas fa-chevron-down">
               <div className="js-collapsible-form hidden">
                 <div className="section-collapsible__share--button">
 

@@ -3,18 +3,19 @@ import Form from './Form'
 
 class Collapsable extends Component {
   render() {
+  const {iconTitleClass,title, iconArrowClass, children}= this.props;
     return (
          <fieldset className="fieldset__container js-collapsible-visible js-collapsible-select">
           <div className="section-collapsible--title js-collapsible-title">
             <span className="icon-title">
-              <i className="far fa-object-ungroup"></i>
+              <i className={iconTitleClass}></i>
             </span>
-            <legend className="legend__title">diseña</legend>
+            <legend className="legend__title">{title}</legend>
             <span className="icon-down">
-              <i className="fas fa-chevron-down jsRotate"></i>
+              <i className={`${iconArrowClass} jsRotate`}></i>
             </span>
           </div>
-          {this.props.children}
+          {children}
         </fieldset>)
   }
 }
@@ -42,6 +43,6 @@ class Collapsable extends Component {
           </span>
         </div> */}
 
-
+// fas fa-chevron-down
 
 export default Collapsable;
