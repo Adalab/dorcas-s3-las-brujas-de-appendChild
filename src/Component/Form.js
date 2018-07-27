@@ -13,6 +13,7 @@ class Form extends Component {
               title="diseña"
               iconTitleClass="far fa-object-ungroup"
               iconArrowClass="fas fa-chevron-down"
+              open={true}
             >
               <div className="design__form hidden js-collapsible-form">
                 <div className="design__form-colors">
@@ -72,6 +73,7 @@ class Form extends Component {
               title="rellena"
               iconTitleClass="far fa-keyboard"
               iconArrowClass="fas fa-chevron-down"
+              open={false}
             >
               <div className="hidden js-collapsible-form">
                 <div className="section-collapsible__fill--form">
@@ -131,6 +133,7 @@ class Form extends Component {
               title="comparte"
               iconTitleClass="fas fa-share-alt"
               iconArrowClass="fas fa-chevron-down"
+              open={true}
             >
               <div className="js-collapsible-form hidden">
                 <div className="section-collapsible__share--button">
