@@ -7,7 +7,11 @@ class Form extends Component {
     return (
       <Fragment>
         <section className="section-collapsible">
-          <form className="form formjs" action="cardGenerator.html" method="post">
+          <form
+            className="form formjs"
+            action="cardGenerator.html"
+            method="post"
+            >
 
             <Collapsable
               title="diseña"
@@ -17,43 +21,97 @@ class Form extends Component {
             >
               <div className="design__form hidden js-collapsible-form">
                 <div className="design__form-colors">
-                  <p className="design__text">colores</p>
+                  <p className="design__text">
+                    colores
+                  </p>
                   <div className="design__palettes">
 
                     <div className="design__palette design__palette1">
-                      <input className="design__check-radio color-check" id="palette1" type="radio" name="palette" value="1" checked data-dest="green-card"/>
-                      <label className="palette1__greens" for="palette1">
+                      <input
+                        className="design__check-radio color-check" id="palette1"
+                        type="radio"
+                        name="palette"
+                        value="1"
+                        checked
+                        data-dest="green-card"
+                      />
+                      <label
+                        className="palette1__greens"
+                        for="palette1"
+                      >
                       </label>
                     </div>
 
                     <div className="design__palette design__palette2">
-                      <input className="design__check-radio color-check" id="palette2" type="radio" name="palette" value="2" data-dest="red-card"/>
-                      <label className="palette2__reds" for="palette2">
+                      <input
+                        className="design__check-radio color-check"
+                        id="palette2"
+                        type="radio"
+                        name="palette"
+                        value="2"
+                        data-dest="red-card"
+                        />
+                      <label
+                        className="palette2__reds"
+                        for="palette2"
+                      >
                       </label>
                     </div>
 
                     <div className="design__palette design__palette3">
-                      <input className="design__check-radio color-check" id="palette3" type="radio" name="palette" value="3" data-dest="blue-card"/>
-                      <label className="palette3__blues" for="palette3">
+                      <input
+                        className="design__check-radio color-check"
+                        id="palette3"
+                        type="radio"
+                        name="palette"
+                        value="3"
+                        data-dest="blue-card"
+                      />
+                      <label
+                        className="palette3__blues"
+                        for="palette3"
+                      >
                       </label>
                     </div>
 
                   </div>
                 </div>
                 <div className="design__form-fonts">
-                  <p className="design__text">fuentes</p>
+                  <p className="design__text">
+                    fuentes
+                  </p>
                   <div className="design__letter-type">
 
-                    <div className="design__type--common design__type--font1">
-                      <input className="design__check-radio font-check" id="font1" type="radio" name="typography" value="1" data-font="ubuntu-card"/>
-                      <label className="font1" for="font1">
-                        ubuntu
-                      </label>
-                    </div>
+                  <div className="design__type--common design__type--font1">
+                    <input
+                      className="design__check-radio font-check"
+                      id="font1"
+                      type="radio"
+                      name="typography"
+                      value="1"
+                      data-font="ubuntu-card"
+                    />
+                    <label
+                      className="font1"
+                      for="font1"
+                    >
+                      ubuntu
+                    </label>
+                  </div>
 
                     <div className="design__type--common design__type--font2">
-                      <input className="design__check-radio font-check" id="font2" type="radio" name="typography" value="2" data-font="comic-card" checked/>
-                      <label className="font2" for="font2">
+                      <input
+                        className="design__check-radio font-check"
+                        id="font2"
+                        type="radio"
+                        name="typography"
+                        value="2"
+                        data-font="comic-card"
+                        checked/>
+                      <label
+                        className="font2"
+                        for="font2"
+                      >
                         comic sans
                       </label>
                     </div>
