@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Preview from './Component/preview';
 import Form from './Component/Form';
+
 const objetoTarjeta = {
   email:"",
   github:"",
-  job:"Puesto de hola Trabajo",
+  job:"Puesto de Trabajo",
   linkedin:"",
   name:"Nombre Completo",
   palette:"1",

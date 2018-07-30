@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Collapsable from './Collapsable'
+import Select from './Select';
 
 
 class Form extends Component {
@@ -101,30 +102,13 @@ class Form extends Component {
 
                   <div className="abilities-fill">
                     <label className="fill-input__abilities" for="">Habilidades (máximo 3)</label>
-                    <div className="ability-box js-ability-box">
-                      <select className="select-abilities js-select-abilities" name="skills">
-                      </select>
-                      <button className="button-abilities js-button-abilitiesPlus" type="button" name="button">
-                        <i className="fas fa-plus"></i>
-                      </button>
-                    </div>
-                    <div className="ability-box js-ability-box skills-hidden">
-                      <select className="select-abilities js-select-abilities" name="skills">
-                      </select>
-                      <button className="button-abilities js-button-abilitiesMinus" type="button" name="button">
-                        <i className="fas fa-minus"></i>
-                      </button>
-                    </div>
-                    <div className="ability-box js-ability-box skills-hidden">
-                      <select className="select-abilities js-select-abilities" name="skills">
-                      </select>
-                      <button className="button-abilities js-button-abilitiesMinus" type="button" name="button">
-                        <i className="fas fa-minus"></i>
-                      </button>
+                      <Select />
+                      <Select />
+                      <Select />
                     </div>
                   </div>
                 </div>
-              </div>
+        
             </Collapsable>
 
             <Collapsable

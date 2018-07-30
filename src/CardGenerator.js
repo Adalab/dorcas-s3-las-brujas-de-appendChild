@@ -5,6 +5,32 @@ import Main from './Main';
 
 
 class CardGenerator extends Component {
+
+    constructor(){
+        super()
+        this.state = {
+            skillsList: null
+        }
+        this.jsonResponse = this.jsonResponse.bind(this)
+        this.callingAbilities()
+        
+    }
+
+    //hacer método y bind de funcion json dentro de constructor
+    callingAbilities() {
+    
+        fetch ('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
+        .then(function(response){
+          return response.json();
+        })
+        .then(this.jsonResponse)
+      }
+    
+    jsonResponse(json){
+        this.setState()
+        console.log(json)
+    }
+
     render() {
         return(
             <div>
