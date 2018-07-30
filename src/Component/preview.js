@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Icon from './Icon';
-
+import PropTypes from 'prop-types';
 
 class Preview extends Component {
 
@@ -27,6 +27,10 @@ class Preview extends Component {
       </section>
     );
   }
+}
+
+Preview.PropTypes = {
+  job: PropTypes.string,
 }
 
 export default Preview;

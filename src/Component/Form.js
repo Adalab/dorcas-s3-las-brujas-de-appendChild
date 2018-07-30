@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Collapsable from './Collapsable'
-
+import PropTypes from 'prop-types';
 
 class Form extends Component {
   render() {
