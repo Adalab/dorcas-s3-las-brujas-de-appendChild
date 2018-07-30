@@ -5,7 +5,9 @@ class Header extends Component{
         return(
             <header className="cardGenerator__header">
                 <div className="cardGenerator__image">
-                    <a className="index__link" href="index.html"></a>
+                    <a className="index__link"
+                      href="index.html">
+                    </a>
                 </div>
           </header>
         );
