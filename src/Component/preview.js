@@ -3,11 +3,13 @@ import Icon from './Icon';
 
 
 class Preview extends Component {
-
+resetButtom(){
+  console.log("me han pulsado");
+}
   render(){
     return (
       <section className="section-card">
-        <button
+        <button onClick={this.resetButtom}
           type="button" 
           name="Reset" 
           alt="reset button" 
@@ -53,14 +55,14 @@ class Preview extends Component {
           id="linkedin-link"  
           classI= "fab fa-linkedin-in"  
           title="Linkedin"        
-          link={`https://www.linkedin.com/in/ ${this.props.mail}`} 
+          link={`https://www.linkedin.com/in/ ${this.props.linkedin}`} 
           />
           <Icon 
           classA="button--github" 
           id="github-link"    
           classI= "fab fa-github-alt"   
           title="Github"            
-          link={`https://github.com/ ${this.props.mail}`} />
+          link={`https://github.com/ ${this.props.github}`} />
         </ul> 
       </section>
     );
