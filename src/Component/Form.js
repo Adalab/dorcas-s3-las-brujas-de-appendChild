@@ -3,6 +3,15 @@ import Collapsable from './Collapsable'
 
 
 class Form extends Component {
+  addImg(){
+    console.log("a mi también");
+  }
+  createCard(){
+    console.log("y a miii");
+  }
+  twitterButtom(){
+    console.log("soy twitter");
+  }
   render() {
     return (
       <Fragment>
@@ -186,13 +195,7 @@ class Form extends Component {
                   </label>
                   <div className="fill-input__image__square">
 
-                    <button
-                      type="button"
-                      className="fill-input__image"
-                      name="button"
-                    >
-                    Añadir imagen
-                    </button>
+                    <button type="button" onClick={this.addImg}className="fill-input__image" name="button">Añadir imagen</button>
                     {/*<input className="fill-input__input" id="add-image" name="photo" type="file" value="Añadir imagen"/>*/}
 
                     <div className="square__white">
@@ -325,8 +328,9 @@ class Form extends Component {
               <div className="js-collapsible-form hidden">
                 <div className="section-collapsible__share--button">
 
-                  <button
-                    className="btn-create-card js-btn-create-card"
+                  <button   
+                    className="btn-create-card js-btn-create-card" 
+                    onClick={this.createCard}
                     type="button"
                     name="button"
                   >
@@ -339,24 +343,25 @@ class Form extends Component {
 
                 </div>
 
-                <div className="section-collapsible__share--end js-hidden-twitter">
+                <div 
+                  className="section-collapsible__share--end js-hidden-twitter">
                   <p className="phrase">
                     La tarjeta ha sido creada:
                   </p>
                   {/* <!-- <a class="link-awesome" href="http://awesome-profile-card.com?id=S456DF0001"> http://awesome-profile-card.com?id=S456DF0001 </a> --> */}
-                  <a
-                    href="#"
+                  <a 
+                    href="#" 
                     className="link-awesome linkTwitter"
                   >
                   </a>
                   <button
-                    className="btn-share btn-sharejs"
-                    type="button"
-                    name="button"
-                  >
+                     className="btn-share btn-sharejs" 
+                     type="button" 
+                     onClick={this.twitterButtom}
+                     name="button"
+                     >
                     <span>
-                      <i className="fab fa-twitter">
-                      </i>
+                      <i className="fab fa-twitter"></i>
                     </span>
                     Compartir en twitter
                   </button>

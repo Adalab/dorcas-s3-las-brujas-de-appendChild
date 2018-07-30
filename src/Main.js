@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Preview from './Component/preview';
 import Form from './Component/Form';
-const objetoTarjeta = {
+let objetoTarjeta = {
   email:"",
   github:"",
-  job:"Puesto de hola Trabajo",
+  job:"Puesto de Trabajo",
   linkedin:"",
   name:"Nombre Completo",
   palette:"1",
@@ -15,15 +15,23 @@ const objetoTarjeta = {
 }
 
 class Main extends Component {
+  constructor(props){
+    super(props);
+    this.state = {objetoTarjeta}
+    
+  }
   render() {
     return (
       <div>
-      <Preview
+     {  <Preview
         skills={objetoTarjeta.skills}
         job={objetoTarjeta.job}
         firstName={objetoTarjeta.name}
         mail={objetoTarjeta.email}
-      />
+        linkedin={objetoTarjeta.linkedin}
+        github={objetoTarjeta.github}
+        telf={objetoTarjeta.phone}
+      /> }
       <Form />
       </div>
     );
