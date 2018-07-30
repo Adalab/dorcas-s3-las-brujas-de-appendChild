@@ -69,7 +69,7 @@ resetButtom(){
   }
 }
 
-Preview.PropTypes = {
+Preview.propTypes = {
   job: PropTypes.string,
 }
 

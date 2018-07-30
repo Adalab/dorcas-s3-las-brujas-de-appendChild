@@ -4,7 +4,7 @@ import Form from './Component/Form';
 let objetoTarjeta = {
   email:"",
   github:"",
-  job:"Puesto de Trabajo",
+  job:3,
   linkedin:"",
   name:"Nombre Completo",
   palette:"1",
