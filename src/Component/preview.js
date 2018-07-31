@@ -3,9 +3,13 @@ import Icon from './Icon';
 import PropTypes from 'prop-types';
 
 class Preview extends Component {
-resetButtom(){
+  constructor(props){
+    super(props);
+    console.log('props',props);
+  }
+  resetButtom(){
   console.log("me han pulsado");
-}
+  }
   render(){
     return (
       <section className="section-card">
