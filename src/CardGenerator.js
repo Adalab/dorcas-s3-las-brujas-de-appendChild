@@ -3,6 +3,14 @@ import Header from './Header';
 import Footer from './Footer';
 import Main from './Main';
 
+const colors = {
+    '1': 'green-card',
+    '2': 'red-card',
+    '3': 'blue-card'
+}
+
+colors['1']
+
 
 class CardGenerator extends Component {
     constructor(props){
@@ -27,7 +35,7 @@ class CardGenerator extends Component {
         return(
             <div>
             <Header/>
-            <Main data={this.state.data}/>
+            <Main color={colors[this.state.palette]} data={this.state.data}/>
             <Footer/>
             </div>
            

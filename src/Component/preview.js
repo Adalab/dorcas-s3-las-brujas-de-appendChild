@@ -25,19 +25,20 @@ class Preview extends Component {
             {this.props.reset}
           </div>
         </button>
-        <div className="card__top">
-          <div className="card-info js-card-info">
-            <p 
+        <div className="card jsCard" >
+          <div className="card__top">
+           <div className="card-info js-card-info">
+              <p 
               className="card__top--name js-card__top--name" 
               id="fullname">{this.props.firstName}
-            </p>
-            <p 
+              </p>
+              <p 
               className="card__top--career js-card__top--career" 
               id="profesion">
               {this.props.job}
-            </p>
+              </p>
+            </div>
           </div>
-        </div>
         <div className="card__image"></div>
         <ul className="card__social">
           <Icon 
@@ -68,6 +69,7 @@ class Preview extends Component {
           title="Github"            
           link={`https://github.com/ ${this.props.github}`} />
         </ul> 
+        </div>
       </section>
     );
   }
