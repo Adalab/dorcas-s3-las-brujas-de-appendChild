@@ -23,7 +23,7 @@ class Main extends Component {
         github={github}
         telf={phone}
       /> 
-      <Form />
+      <Form skillsList= {this.props.skillsList}/>
       </div>
     );
   }

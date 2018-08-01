@@ -13,9 +13,11 @@ colors['1']
 
 
 class CardGenerator extends Component {
+
     constructor(props){
-        super(props); 
+        super(props);
         this.state = {
+            skillsList: [],
             data: {
                 email:"",
                 github:"",
@@ -27,15 +29,39 @@ class CardGenerator extends Component {
                 photo:"images/image-card.png",
                 typography:2,
                 skills:[] }
-          } 
+
+        }
+        this.jsonResponse = this.jsonResponse.bind(this)
+        this.callingAbilities= this.callingAbilities.bind(this)
+        this.jsonResponse= this.jsonResponse.bind(this)
+        this.callingAbilities()
+    }
+
+    //hacer método y bind de funcion json dentro de constructor
+    callingAbilities() {
+    
+        fetch ('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
+        .then(function(response){
+          return response.json();
+        })
+        .then(this.jsonResponse)
+
       }
+    
+    jsonResponse(json){ 
+        this.setState(
+            {skillsList: json.skills}
+        )
+        console.log(json)
+    }
+
     render() {
         console.log(this.props);
         
         return(
             <div>
             <Header/>
-            <Main color={colors[this.state.palette]} data={this.state.data}/>
+            <Main color={colors[this.state.palette]} data={this.state.data} skillsList={this.state.skillsList}/>
             <Footer/>
             </div>
            
