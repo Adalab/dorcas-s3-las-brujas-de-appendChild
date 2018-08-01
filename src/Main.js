@@ -21,6 +21,7 @@ class Main extends Component {
     
   }
   render() {
+    console.log('main props', this.props.skillsList);
     return (
       <div>
      {  <Preview
@@ -32,7 +33,7 @@ class Main extends Component {
         github={objetoTarjeta.github}
         telf={objetoTarjeta.phone}
       /> }
-      <Form />
+      <Form skillsList= {this.props.skillsList}/>
       </div>
     );
   }

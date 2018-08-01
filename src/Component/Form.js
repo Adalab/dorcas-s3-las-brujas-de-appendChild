@@ -15,6 +15,7 @@ class Form extends Component {
     console.log("soy twitter");
   }
   render() {
+    console.log('props en form', this.props.skillsList)
     return (
       <Fragment>
         <section className="section-collapsible">
@@ -152,7 +153,7 @@ class Form extends Component {
               title="rellena"
               iconTitleClass="far fa-keyboard"
               iconArrowClass="fas fa-chevron-down"
-              open={false}
+              open={true}
             >
               <div className="hidden js-collapsible-form">
                 <div className="section-collapsible__fill--form">
@@ -267,9 +268,9 @@ class Form extends Component {
 
                   <div className="abilities-fill">
                     <label className="fill-input__abilities" for="">Habilidades (máximo 3)</label>
-                      <Select />
-                      <Select />
-                      <Select />
+                      <Select skillsList= {this.props.skillsList}/>
+                      <Select skillsList= {this.props.skillsList}/>
+                      <Select skillsList= {this.props.skillsList}/>
                     </div>
                   </div>
                 </div>
