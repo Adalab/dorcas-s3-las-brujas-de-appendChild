@@ -11,7 +11,8 @@ class Main extends Component {
     
   }
   render() {
-    const {skills, job, name, email, linkedin, github, phone} = this.props.data
+    const {skills, job, name, email, linkedin, github, phone,} = this.props.data;
+    const {color}= this.props;
     return (
       <div>
        <Preview
@@ -22,6 +23,7 @@ class Main extends Component {
         linkedin={linkedin}
         github={github}
         telf={phone}
+        colorPalette={color}
       /> 
       <Form skillsList= {this.props.skillsList}/>
       </div>
