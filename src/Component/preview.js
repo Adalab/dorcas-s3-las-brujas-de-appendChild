@@ -25,7 +25,7 @@ class Preview extends Component {
             {this.props.reset}
           </div>
         </button>
-        <div className="card jsCard" >
+        <div className={`card jsCard ${this.props.colorPalette}`} >
           <div className="card__top">
            <div className="card-info js-card-info">
               <p 

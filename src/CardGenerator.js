@@ -24,7 +24,7 @@ class CardGenerator extends Component {
                 job:"unicornio",
                 linkedin:"",
                 name:"Nombre Completo",
-                palette:"1",
+                palette:"2",
                 phone:"",
                 photo:"images/image-card.png",
                 typography:2,
@@ -61,7 +61,7 @@ class CardGenerator extends Component {
         return(
             <div>
             <Header/>
-            <Main color={colors[this.state.palette]} data={this.state.data} skillsList={this.state.skillsList}/>
+            <Main color={colors[this.state.data.palette]} data={this.state.data} skillsList={this.state.skillsList}/>
             <Footer/>
             </div>
            
