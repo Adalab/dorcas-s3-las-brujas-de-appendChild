@@ -6,6 +6,7 @@ class Select extends Component {
   constructor(){
     super();
     this.state = {}
+    // this.handleClick = this.handleClick.bind(this);
   };
 
   
@@ -30,6 +31,7 @@ class Select extends Component {
             className="button-abilities js-button-abilitiesPlus" 
             type="button" 
             name="button"
+            // onClick={this.handleClick}
           >
             <i className="fas fa-plus">
             </i>

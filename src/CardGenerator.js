@@ -37,17 +37,15 @@ class CardGenerator extends Component {
         this.callingAbilities()
     }
 
-    //hacer método y bind de funcion json dentro de constructor
     callingAbilities() {
-    
         fetch ('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
         .then(function(response){
           return response.json();
         })
         .then(this.jsonResponse)
-
       }
-    
+      
+    //Coge las skills de la API y las mete (en forma de objeto) en el estado de este componente 
     jsonResponse(json){ 
         this.setState(
             {skillsList: json.skills}
@@ -61,6 +59,7 @@ class CardGenerator extends Component {
         return(
             <div>
             <Header/>
+            {/* Mete main en el html y le pasa las skills como prop */}
             <Main color={colors[this.state.palette]} data={this.state.data} skillsList={this.state.skillsList}/>
             <Footer/>
             </div>
