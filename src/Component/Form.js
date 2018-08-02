@@ -10,6 +10,7 @@ class Form extends Component {
     this.state = {
       selectsNumber: 1
     }
+    this.handleAdd = this.handleAdd.bind(this);
   }
 
   addImg() {
@@ -21,17 +22,30 @@ class Form extends Component {
   twitterButtom() {
     console.log("soy twitter");
   }
+
+  handleAdd (){
+    
+    if(this.state.selectsNumber < 3) {
+      this.setState({
+        selectsNumber: this.state.selectsNumber + 1
+      })
+    } else {
+      //nada
+    }
+      
+    }
+  
   render() {
     console.log('props en form', this.props.skillsList)
     const selects = []
     for (let i = 0; i < this.state.selectsNumber; i++) {
-      selects.push(<Select skillsList={this.props.skillsList} handleAdd={() => {
-        this.setState({
-          selectsNumber: this.state.selectsNumber + 1
-        })
-      }} />)
+      selects.push(
+      <Select 
+        skillsList={this.props.skillsList} 
+        handleAdd= {this.handleAdd}
+    />)
     }
-
+    console.log('cucu', Array.from(3));
     return (
       <Fragment>
         <section className="section-collapsible">
