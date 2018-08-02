@@ -5,17 +5,33 @@ import Select from './Select';
 import PropTypes from 'prop-types';
 
 class Form extends Component {
-  addImg(){
+  constructor() {
+    super()
+    this.state = {
+      selectsNumber: 1
+    }
+  }
+
+  addImg() {
     console.log("a mi también");
   }
-  createCard(){
+  createCard() {
     console.log("y a miii");
   }
-  twitterButtom(){
+  twitterButtom() {
     console.log("soy twitter");
   }
   render() {
     console.log('props en form', this.props.skillsList)
+    const selects = []
+    for (let i = 0; i < this.state.selectsNumber; i++) {
+      selects.push(<Select skillsList={this.props.skillsList} handleAdd={() => {
+        this.setState({
+          selectsNumber: this.state.selectsNumber + 1
+        })
+      }} />)
+    }
+
     return (
       <Fragment>
         <section className="section-collapsible">
@@ -94,22 +110,22 @@ class Form extends Component {
                   </p>
                   <div className="design__letter-type">
 
-                  <div className="design__type--common design__type--font1">
-                    <input
-                      className="design__check-radio font-check"
-                      id="font1"
-                      type="radio"
-                      name="typography"
-                      value="1"
-                      data-font="ubuntu-card"
-                    />
-                    <label
-                      className="font1"
-                      for="font1"
-                    >
-                      ubuntu
+                    <div className="design__type--common design__type--font1">
+                      <input
+                        className="design__check-radio font-check"
+                        id="font1"
+                        type="radio"
+                        name="typography"
+                        value="1"
+                        data-font="ubuntu-card"
+                      />
+                      <label
+                        className="font1"
+                        for="font1"
+                      >
+                        ubuntu
                     </label>
-                  </div>
+                    </div>
 
                     <div className="design__type--common design__type--font2">
                       <input
@@ -119,7 +135,7 @@ class Form extends Component {
                         name="typography"
                         value="2"
                         data-font="comic-card"
-                        checked/>
+                        checked />
                       <label
                         className="font2"
                         for="font2"
@@ -176,7 +192,7 @@ class Form extends Component {
                   <label className="fill-input"
                     for="job "
                   >
-                  Puesto
+                    Puesto
                   </label>
 
                   <input
@@ -194,11 +210,11 @@ class Form extends Component {
                     className="fill-input"
                     for="add-image"
                   >
-                  Imagen de perfil
+                    Imagen de perfil
                   </label>
                   <div className="fill-input__image__square">
 
-                    <button type="button" onClick={this.addImg}className="fill-input__image" name="button">Añadir imagen</button>
+                    <button type="button" onClick={this.addImg} className="fill-input__image" name="button">Añadir imagen</button>
                     {/*<input className="fill-input__input" id="add-image" name="photo" type="file" value="Añadir imagen"/>*/}
 
                     <div className="square__white">
@@ -209,7 +225,7 @@ class Form extends Component {
                     className="fill-input"
                     for="emailaddress"
                   >
-                  Email
+                    Email
                   </label>
                   <input
                     className="fill-input__placeholder input-style"
@@ -268,13 +284,11 @@ class Form extends Component {
 
                   <div className="abilities-fill">
                     <label className="fill-input__abilities" for="">Habilidades (máximo 3)</label>
-                      <Select skillsList= {this.props.skillsList}/>
-                      <Select skillsList= {this.props.skillsList}/>
-                      <Select skillsList= {this.props.skillsList}/>
-                    </div>
+                    {selects}
                   </div>
                 </div>
-        
+              </div>
+
             </Collapsable>
 
             <Collapsable
@@ -286,8 +300,8 @@ class Form extends Component {
               <div className="js-collapsible-form hidden">
                 <div className="section-collapsible__share--button">
 
-                  <button   
-                    className="btn-create-card js-btn-create-card" 
+                  <button
+                    className="btn-create-card js-btn-create-card"
                     onClick={this.createCard}
                     type="button"
                     name="button"
@@ -301,23 +315,23 @@ class Form extends Component {
 
                 </div>
 
-                <div 
+                <div
                   className="section-collapsible__share--end js-hidden-twitter">
                   <p className="phrase">
                     La tarjeta ha sido creada:
                   </p>
                   {/* <!-- <a class="link-awesome" href="http://awesome-profile-card.com?id=S456DF0001"> http://awesome-profile-card.com?id=S456DF0001 </a> --> */}
-                  <a 
-                    href="#" 
+                  <a
+                    href="#"
                     className="link-awesome linkTwitter"
                   >
                   </a>
                   <button
-                     className="btn-share btn-sharejs" 
-                     type="button" 
-                     onClick={this.twitterButtom}
-                     name="button"
-                     >
+                    className="btn-share btn-sharejs"
+                    type="button"
+                    onClick={this.twitterButtom}
+                    name="button"
+                  >
                     <span>
                       <i className="fab fa-twitter"></i>
                     </span>
@@ -332,8 +346,8 @@ class Form extends Component {
         </section>
 
       </Fragment>
-            );
-          }
-        }
+    );
+  }
+}
 
 export default Form;

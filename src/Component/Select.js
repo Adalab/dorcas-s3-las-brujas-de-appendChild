@@ -30,6 +30,7 @@ class Select extends Component {
             className="button-abilities js-button-abilitiesPlus" 
             type="button" 
             name="button"
+            onClick={this.props.handleAdd}
           >
             <i className="fas fa-plus">
             </i>
