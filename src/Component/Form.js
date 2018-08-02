@@ -49,7 +49,7 @@ class Form extends Component {
                       />
                       <label
                         className="palette1__greens"
-                        for="palette1"
+                        htmlFor="palette1"
                       >
                       </label>
                     </div>
@@ -65,7 +65,7 @@ class Form extends Component {
                       />
                       <label
                         className="palette2__reds"
-                        for="palette2"
+                        htmlFor="palette2"
                       >
                       </label>
                     </div>
@@ -81,7 +81,7 @@ class Form extends Component {
                       />
                       <label
                         className="palette3__blues"
-                        for="palette3"
+                        htmlFor="palette3"
                       >
                       </label>
                     </div>
@@ -105,7 +105,7 @@ class Form extends Component {
                     />
                     <label
                       className="font1"
-                      for="font1"
+                      htmlFor="font1"
                     >
                       ubuntu
                     </label>
@@ -122,7 +122,7 @@ class Form extends Component {
                         checked/>
                       <label
                         className="font2"
-                        for="font2"
+                        htmlFor="font2"
                       >
                         comic sans
                       </label>
@@ -139,7 +139,7 @@ class Form extends Component {
                       />
                       <label
                         className="font3"
-                        for="font3"
+                        htmlFor="font3"
                       >
                         monserrat
                       </label>
@@ -169,12 +169,13 @@ class Form extends Component {
                     id="nmb"
                     type="text"
                     name="name"
-                    value=""
+                    value={this.props.nameInputValue}
                     data-stringer="fullname"
+                    onChange= {this.props.handleInputName}
                   />
 
                   <label className="fill-input"
-                    for="job "
+                    htmlFor="job "
                   >
                   Puesto
                   </label>
@@ -185,14 +186,15 @@ class Form extends Component {
                     id="job"
                     type="text"
                     name="job"
-                    value=""
+                    value={this.props.jobInputValue}
                     data-stringer="profesion"
+                    onChange= {this.props.handleInputJob}
                   />
 
                   <label
                     type="file"
                     className="fill-input"
-                    for="add-image"
+                    htmlFor="add-image"
                   >
                   Imagen de perfil
                   </label>
@@ -207,7 +209,7 @@ class Form extends Component {
 
                   <label
                     className="fill-input"
-                    for="emailaddress"
+                    htmlFor="emailaddress"
                   >
                   Email
                   </label>
@@ -217,12 +219,13 @@ class Form extends Component {
                     id="emailaddress"
                     type="email"
                     name="email"
-                    value=""
+                    value={this.props.emailInputValue}
                     data-stringer="mail-link"
+                    onChange= {this.props.handleInputEmail}
                   />
                   <label
                     className="fill-input"
-                    for="phone"
+                    htmlFor="phone"
                   >
                     Teléfono
                   </label>
@@ -232,12 +235,13 @@ class Form extends Component {
                     id="phone"
                     type="number"
                     name="phone"
-                    value=""
+                    value={this.props.telfInputValue}
                     data-stringer="mobile-link"
+                    onChange= {this.props.handleInputTelf}
                   />
                   <label
                     className="fill-input"
-                    for="lkdn"
+                    htmlFor="lkdn"
                   >
                     Linkedin
                   </label>
@@ -247,12 +251,13 @@ class Form extends Component {
                     id="lkdn"
                     type="url"
                     name="linkedin"
-                    value=""
+                    value={this.props.linkedinInputValue}
                     data-stringer="linkedin-link"
+                    onChange= {this.props.handleInputLinkedin}
                   />
                   <label
                     className="fill-input"
-                    for="GH"
+                    htmlFor="GH"
                   >
                     Github
                   </label>
@@ -262,8 +267,9 @@ class Form extends Component {
                     id="GH"
                     type="url"
                     name="github"
-                    value=""
+                    value={this.props.githubInputValue}
                     data-stringer="github-link"
+                    onChange= {this.props.handleInputGithub}
                   />
 
                   <div className="abilities-fill">
