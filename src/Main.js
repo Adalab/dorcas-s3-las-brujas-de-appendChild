@@ -25,7 +25,17 @@ class Main extends Component {
         telf={phone}
         colorPalette={color}
       /> 
-      <Form skillsList= {this.props.skillsList}/>
+      <Form 
+      skillsList= {this.props.skillsList}
+      handleInputGithub={this.props.handleOnChangeGithub}
+      githubInputValue={github}
+      linkedinInputValue={linkedin}
+      telfInputValue={phone}
+      emailInputValue={email}
+      jobInputValue={job}
+      nameInputValue={name}
+
+      />
       </div>
     );
   }
