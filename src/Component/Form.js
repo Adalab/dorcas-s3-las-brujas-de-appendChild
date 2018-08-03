@@ -221,7 +221,7 @@ class Form extends Component {
                     name="email"
                     value={this.props.emailInputValue}
                     data-stringer="mail-link"
-                    onChange= {this.props.handleInputEmail}
+                    onChange= {this.props.handleInputMail}
                   />
                   <label
                     className="fill-input"
