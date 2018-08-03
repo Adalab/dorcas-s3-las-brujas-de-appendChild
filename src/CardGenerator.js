@@ -34,6 +34,11 @@ class CardGenerator extends Component {
         }
         this.jsonResponse = this.jsonResponse.bind(this)
         this.handleChangeInputGithub = this.handleChangeInputGithub.bind(this)
+        this.handleChangeInputName = this.handleChangeInputName.bind(this)
+        this.handleChangeInputJob = this.handleChangeInputJob.bind(this)
+        this.handleChangeInputLinkedin = this.handleChangeInputLinkedin.bind(this)
+        this.handleChangeInputTelf = this.handleChangeInputTelf.bind(this)
+        this.handleChangeInputMail = this.handleChangeInputMail.bind(this)
         this.callingAbilities = this.callingAbilities.bind(this)
         this.jsonResponse = this.jsonResponse.bind(this)
         this.callingAbilities()
@@ -44,6 +49,46 @@ class CardGenerator extends Component {
         this.setState({ data: { 
             ...this.state.data,
             github: e.target.value 
+        } }, )
+        
+    }
+    handleChangeInputName(e) {
+        console.log("soy un inputttt");
+        this.setState({ data: { 
+            ...this.state.data,
+            name: e.target.value 
+        } }, )
+        
+    }
+    handleChangeInputMail(e) {
+        console.log("soy un inputttt");
+        this.setState({ data: { 
+            ...this.state.data,
+            email: e.target.value 
+        } }, )
+        
+    }
+    handleChangeInputTelf(e) {
+        console.log("soy un inputttt");
+        this.setState({ data: { 
+            ...this.state.data,
+            phone: e.target.value 
+        } }, )
+        
+    }
+    handleChangeInputJob(e) {
+        console.log("soy un inputttt");
+        this.setState({ data: { 
+            ...this.state.data,
+            job: e.target.value 
+        } }, )
+        
+    }
+    handleChangeInputLinkedin(e) {
+        console.log("soy un inputttt");
+        this.setState({ data: { 
+            ...this.state.data,
+            linkedin: e.target.value 
         } }, )
         
     }
@@ -77,7 +122,11 @@ class CardGenerator extends Component {
                     data={this.state.data}
                     skillsList={this.state.skillsList}
                     handleOnChangeGithub={this.handleChangeInputGithub}
-
+                    handleOnChangeName={this.handleChangeInputName}
+                    handleOnChangeTelf={this.handleChangeInputTelf}
+                    handleOnChangeMail={this.handleChangeInputMail}
+                    handleOnChangeLinkedin={this.handleChangeInputLinkedin}
+                    handleOnChangeJob={this.handleChangeInputJob}
                 />
                 <Footer />
             </div>

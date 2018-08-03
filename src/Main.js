@@ -28,6 +28,11 @@ class Main extends Component {
       <Form 
       skillsList= {this.props.skillsList}
       handleInputGithub={this.props.handleOnChangeGithub}
+      handleInputName={this.props.handleOnChangeName}
+      handleInputJob={this.props.handleOnChangeJob}
+      handleInputTelf={this.props.handleOnChangeTelf}
+      handleInputMail={this.props.handleOnChangeMail}
+      handleInputLinkedin={this.props.handleOnChangeLinkedin}
       githubInputValue={github}
       linkedinInputValue={linkedin}
       telfInputValue={phone}
