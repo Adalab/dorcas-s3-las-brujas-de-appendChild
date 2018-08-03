@@ -44,7 +44,7 @@ class Form extends Component {
                         type="radio"
                         name="palette"
                         value="1"
-                        checked
+                        // checked 
                         data-dest="green-card"
                         onChange={this.props.handleInputRadioColor}
                       />
@@ -105,6 +105,7 @@ class Form extends Component {
                       name="typography"
                       value="1"
                       data-font="ubuntu-card"
+                      onChange={this.props.handleInputRadioTipo}
                     />
                     <label
                       className="font1"
@@ -122,7 +123,9 @@ class Form extends Component {
                         name="typography"
                         value="2"
                         data-font="comic-card"
-                        checked/>
+                        // checked
+                        onChange={this.props.handleInputRadioTipo}
+                      />
                       <label
                         className="font2"
                         htmlFor="font2"
@@ -139,6 +142,7 @@ class Form extends Component {
                         name="typography"
                         value="3"
                         data-font="montse-card"
+                        onChange={this.props.handleInputRadioTipo}
                       />
                       <label
                         className="font3"

@@ -23,7 +23,7 @@ class CardGenerator extends Component {
                 github: "",
                 job: "unicornio",
                 linkedin: "",
-                name: "Nombre Completo",
+                name: "",
                 palette: "2",
                 phone: "",
                 photo: "images/image-card.png",
@@ -34,6 +34,7 @@ class CardGenerator extends Component {
         }
         this.jsonResponse = this.jsonResponse.bind(this)
         this.handleChangeInputRadioColor = this.handleChangeInputRadioColor.bind(this);
+        this.handleChangeInputRadioTipo = this.handleChangeInputRadioTipo.bind(this);
         this.handleChangeInputGithub = this.handleChangeInputGithub.bind(this)
         this.handleChangeInputName = this.handleChangeInputName.bind(this)
         this.handleChangeInputJob = this.handleChangeInputJob.bind(this)
@@ -50,6 +51,13 @@ class CardGenerator extends Component {
         this.setState({ data: { 
             ...this.state.data,
             palette: event.target.value 
+        } })
+    }
+
+    handleChangeInputRadioTipo(event){
+        this.setState({ data: { 
+            ...this.state.data,
+            typography: event.target.value 
         } })
     }
 
@@ -129,6 +137,7 @@ class CardGenerator extends Component {
                     data={this.state.data}
                     skillsList={this.state.skillsList}
                     handleOnChangeColor ={this.handleChangeInputRadioColor}
+                    handleOnChangeTipo = {this.handleChangeInputRadioTipo}
                     handleOnChangeGithub={this.handleChangeInputGithub}
                     handleOnChangeName={this.handleChangeInputName}
                     handleOnChangeTelf={this.handleChangeInputTelf}
