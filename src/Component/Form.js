@@ -15,7 +15,7 @@ class Form extends Component {
     console.log("soy twitter");
   }
   render() {
-    console.log('props en form', this.props.skillsList)
+    // console.log('props en form', this.props.skillsList)
     return (
       <Fragment>
         <section className="section-collapsible">
@@ -46,6 +46,7 @@ class Form extends Component {
                         value="1"
                         checked
                         data-dest="green-card"
+                        onChange={this.props.handleInputRadioColor}
                       />
                       <label
                         className="palette1__greens"
@@ -62,6 +63,7 @@ class Form extends Component {
                         name="palette"
                         value="2"
                         data-dest="red-card"
+                        onChange={this.props.handleInputRadioColor}
                       />
                       <label
                         className="palette2__reds"
@@ -78,6 +80,7 @@ class Form extends Component {
                         name="palette"
                         value="3"
                         data-dest="blue-card"
+                        onChange={this.props.handleInputRadioColor}
                       />
                       <label
                         className="palette3__blues"

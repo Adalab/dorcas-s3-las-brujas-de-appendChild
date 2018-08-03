@@ -27,6 +27,7 @@ class Main extends Component {
       /> 
       <Form 
       skillsList= {this.props.skillsList}
+      handleInputRadioColor = {this.props.handleOnChangeColor}
       handleInputGithub={this.props.handleOnChangeGithub}
       handleInputName={this.props.handleOnChangeName}
       handleInputJob={this.props.handleOnChangeJob}

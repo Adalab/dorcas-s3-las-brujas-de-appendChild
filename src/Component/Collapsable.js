@@ -4,7 +4,6 @@ import Form from './Form'
 class Collapsable extends Component {
   render() {
   const {iconTitleClass,title, iconArrowClass, children,open}= this.props;
-  console.log(this.props);
   let classToOpen = "";
   if(open===true){
   classToOpen = "js-collapsible-visible";
