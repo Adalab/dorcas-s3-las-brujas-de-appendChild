@@ -15,16 +15,16 @@ class Main extends Component {
     const {color}= this.props;
     return (
       <div>
-       <Preview
-        skills={skills}
-        job={job}
-        firstName={name}
-        mail={email}
-        linkedin={linkedin}
-        github={github}
-        telf={phone}
-        colorPalette={color}
-      /> 
+        <Preview
+          skills={skills}
+          job={job}
+          firstName={name}
+          mail={email}
+          linkedin={linkedin}
+          github={github}
+          telf={phone}
+          colorPalette={color}
+        /> 
       <Form 
       skillsList= {this.props.skillsList}
       handleInputRadioColor = {this.props.handleOnChangeColor}

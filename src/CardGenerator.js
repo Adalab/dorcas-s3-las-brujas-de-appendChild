@@ -28,21 +28,20 @@ class CardGenerator extends Component {
                 phone: "",
                 photo: "images/image-card.png",
                 typography: 2,
-                skills: []
-            }
-
+                skills: ["HTML","JavaScript"],
+            },
         }
         this.jsonResponse = this.jsonResponse.bind(this)
         this.handleChangeInputRadioColor = this.handleChangeInputRadioColor.bind(this);
         this.handleChangeInputRadioTipo = this.handleChangeInputRadioTipo.bind(this);
-        this.handleChangeInputGithub = this.handleChangeInputGithub.bind(this)
-        this.handleChangeInputName = this.handleChangeInputName.bind(this)
-        this.handleChangeInputJob = this.handleChangeInputJob.bind(this)
-        this.handleChangeInputLinkedin = this.handleChangeInputLinkedin.bind(this)
-        this.handleChangeInputTelf = this.handleChangeInputTelf.bind(this)
-        this.handleChangeInputMail = this.handleChangeInputMail.bind(this)
-        this.callingAbilities = this.callingAbilities.bind(this)
-        this.jsonResponse = this.jsonResponse.bind(this)
+        this.handleChangeInputGithub = this.handleChangeInputGithub.bind(this);
+        this.handleChangeInputName = this.handleChangeInputName.bind(this);
+        this.handleChangeInputJob = this.handleChangeInputJob.bind(this);
+        this.handleChangeInputLinkedin = this.handleChangeInputLinkedin.bind(this);
+        this.handleChangeInputTelf = this.handleChangeInputTelf.bind(this);
+        this.handleChangeInputMail = this.handleChangeInputMail.bind(this);
+        this.callingAbilities = this.callingAbilities.bind(this);
+        this.jsonResponse = this.jsonResponse.bind(this);
         this.callingAbilities()
     }
 
