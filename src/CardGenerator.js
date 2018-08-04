@@ -13,7 +13,7 @@ colors['1']
 
 
 class CardGenerator extends Component {
-
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -23,29 +23,44 @@ class CardGenerator extends Component {
                 github: "",
                 job: "unicornio",
                 linkedin: "",
-                name: "Nombre Completo",
+                name: "",
                 palette: "2",
                 phone: "",
                 photo: "images/image-card.png",
                 typography: 2,
-                skills: []
-            }
-
+                skills: ["HTML","JavaScript"],
+            },
         }
         this.jsonResponse = this.jsonResponse.bind(this)
-        this.handleChangeInputGithub = this.handleChangeInputGithub.bind(this)
-        this.handleChangeInputName = this.handleChangeInputName.bind(this)
-        this.handleChangeInputJob = this.handleChangeInputJob.bind(this)
-        this.handleChangeInputLinkedin = this.handleChangeInputLinkedin.bind(this)
-        this.handleChangeInputTelf = this.handleChangeInputTelf.bind(this)
-        this.handleChangeInputMail = this.handleChangeInputMail.bind(this)
-        this.callingAbilities = this.callingAbilities.bind(this)
-        this.jsonResponse = this.jsonResponse.bind(this)
+        this.handleChangeInputRadioColor = this.handleChangeInputRadioColor.bind(this);
+        this.handleChangeInputRadioTipo = this.handleChangeInputRadioTipo.bind(this);
+        this.handleChangeInputGithub = this.handleChangeInputGithub.bind(this);
+        this.handleChangeInputName = this.handleChangeInputName.bind(this);
+        this.handleChangeInputJob = this.handleChangeInputJob.bind(this);
+        this.handleChangeInputLinkedin = this.handleChangeInputLinkedin.bind(this);
+        this.handleChangeInputTelf = this.handleChangeInputTelf.bind(this);
+        this.handleChangeInputMail = this.handleChangeInputMail.bind(this);
+        this.callingAbilities = this.callingAbilities.bind(this);
+        this.jsonResponse = this.jsonResponse.bind(this);
         this.callingAbilities()
     }
 
+    handleChangeInputRadioColor(event){
+        console.log('checkeandooooooo');
+        this.setState({ data: { 
+            ...this.state.data,
+            palette: event.target.value 
+        } })
+    }
+
+    handleChangeInputRadioTipo(event){
+        this.setState({ data: { 
+            ...this.state.data,
+            typography: event.target.value 
+        } })
+    }
+
     handleChangeInputGithub(e) {
-        console.log("soy un inputttt");
         this.setState({ data: { 
             ...this.state.data,
             github: e.target.value 
@@ -53,7 +68,6 @@ class CardGenerator extends Component {
         
     }
     handleChangeInputName(e) {
-        console.log("soy un inputttt");
         this.setState({ data: { 
             ...this.state.data,
             name: e.target.value 
@@ -61,7 +75,7 @@ class CardGenerator extends Component {
         
     }
     handleChangeInputMail(e) {
-        console.log("soy un inputttt");
+        
         this.setState({ data: { 
             ...this.state.data,
             email: e.target.value 
@@ -69,7 +83,7 @@ class CardGenerator extends Component {
         
     }
     handleChangeInputTelf(e) {
-        console.log("soy un inputttt");
+        
         this.setState({ data: { 
             ...this.state.data,
             phone: e.target.value 
@@ -77,7 +91,7 @@ class CardGenerator extends Component {
         
     }
     handleChangeInputJob(e) {
-        console.log("soy un inputttt");
+        
         this.setState({ data: { 
             ...this.state.data,
             job: e.target.value 
@@ -85,7 +99,7 @@ class CardGenerator extends Component {
         
     }
     handleChangeInputLinkedin(e) {
-        console.log("soy un inputttt");
+        
         this.setState({ data: { 
             ...this.state.data,
             linkedin: e.target.value 
@@ -111,9 +125,9 @@ class CardGenerator extends Component {
     }
 
     render() {
-        console.log("soy es estaaaaadoooo", this.state);
-        console.log(this.props);
-
+        // console.log("soy es estaaaaadoooo", this.state);
+        // console.log(this.props);
+        console.log('state data',this.state.data);
         return (
             <div>
                 <Header />
@@ -121,6 +135,8 @@ class CardGenerator extends Component {
                     color={colors[this.state.data.palette]}
                     data={this.state.data}
                     skillsList={this.state.skillsList}
+                    handleOnChangeColor ={this.handleChangeInputRadioColor}
+                    handleOnChangeTipo = {this.handleChangeInputRadioTipo}
                     handleOnChangeGithub={this.handleChangeInputGithub}
                     handleOnChangeName={this.handleChangeInputName}
                     handleOnChangeTelf={this.handleChangeInputTelf}

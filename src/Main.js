@@ -11,36 +11,38 @@ class Main extends Component {
     
   }
   render() {
-    const {skills, job, name, email, linkedin, github, phone,} = this.props.data;
+    const {skills, job, name, email, linkedin, github, phone,palette} = this.props.data;
     const {color}= this.props;
     return (
       <div>
-       <Preview
-        skills={skills}
-        job={job}
-        firstName={name}
-        mail={email}
-        linkedin={linkedin}
-        github={github}
-        telf={phone}
-        colorPalette={color}
-      /> 
-      <Form 
-      skillsList= {this.props.skillsList}
-      handleInputGithub={this.props.handleOnChangeGithub}
-      handleInputName={this.props.handleOnChangeName}
-      handleInputJob={this.props.handleOnChangeJob}
-      handleInputTelf={this.props.handleOnChangeTelf}
-      handleInputMail={this.props.handleOnChangeMail}
-      handleInputLinkedin={this.props.handleOnChangeLinkedin}
-      githubInputValue={github}
-      linkedinInputValue={linkedin}
-      telfInputValue={phone}
-      emailInputValue={email}
-      jobInputValue={job}
-      nameInputValue={name}
-
-      />
+        <Preview
+          skills={skills}
+          job={job}
+          firstName={name}
+          mail={email}
+          linkedin={linkedin}
+          github={github}
+          telf={phone}
+          colorPalette={color}
+        /> 
+        <Form 
+          skillsList= {this.props.skillsList}
+          handleInputRadioColor = {this.props.handleOnChangeColor}
+          handleInputRadioTipo = {this.props.handleOnChangeTipo}
+          handleInputGithub={this.props.handleOnChangeGithub}
+          handleInputName={this.props.handleOnChangeName}
+          handleInputJob={this.props.handleOnChangeJob}
+          handleInputTelf={this.props.handleOnChangeTelf}
+          handleInputMail={this.props.handleOnChangeMail}
+          handleInputLinkedin={this.props.handleOnChangeLinkedin}
+          githubInputValue={github}
+          linkedinInputValue={linkedin}
+          telfInputValue={phone}
+          emailInputValue={email}
+          jobInputValue={job}
+          nameInputValue={name}
+          valuePalette={palette}
+        />
       </div>
     );
   }
