@@ -11,7 +11,7 @@ class Main extends Component {
     
   }
   render() {
-    const {skills, job, name, email, linkedin, github, phone,} = this.props.data;
+    const {skills, job, name, email, linkedin, github, phone,palette} = this.props.data;
     const {color}= this.props;
     return (
       <div>
@@ -25,24 +25,24 @@ class Main extends Component {
           telf={phone}
           colorPalette={color}
         /> 
-      <Form 
-      skillsList= {this.props.skillsList}
-      handleInputRadioColor = {this.props.handleOnChangeColor}
-      handleInputRadioTipo = {this.props.handleOnChangeTipo}
-      handleInputGithub={this.props.handleOnChangeGithub}
-      handleInputName={this.props.handleOnChangeName}
-      handleInputJob={this.props.handleOnChangeJob}
-      handleInputTelf={this.props.handleOnChangeTelf}
-      handleInputMail={this.props.handleOnChangeMail}
-      handleInputLinkedin={this.props.handleOnChangeLinkedin}
-      githubInputValue={github}
-      linkedinInputValue={linkedin}
-      telfInputValue={phone}
-      emailInputValue={email}
-      jobInputValue={job}
-      nameInputValue={name}
-
-      />
+        <Form 
+          skillsList= {this.props.skillsList}
+          handleInputRadioColor = {this.props.handleOnChangeColor}
+          handleInputRadioTipo = {this.props.handleOnChangeTipo}
+          handleInputGithub={this.props.handleOnChangeGithub}
+          handleInputName={this.props.handleOnChangeName}
+          handleInputJob={this.props.handleOnChangeJob}
+          handleInputTelf={this.props.handleOnChangeTelf}
+          handleInputMail={this.props.handleOnChangeMail}
+          handleInputLinkedin={this.props.handleOnChangeLinkedin}
+          githubInputValue={github}
+          linkedinInputValue={linkedin}
+          telfInputValue={phone}
+          emailInputValue={email}
+          jobInputValue={job}
+          nameInputValue={name}
+          valuePalette={palette}
+        />
       </div>
     );
   }

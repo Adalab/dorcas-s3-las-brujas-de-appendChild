@@ -5,12 +5,20 @@ import PropTypes from 'prop-types';
 class Preview extends Component {
   constructor(props){
     super(props);
-    console.log('props',props);
   }
   resetButtom(){
   console.log("me han pulsado");
   }
   render(){
+    const {
+      colorPalette, 
+      firstName, 
+      job, 
+      telf, 
+      mail, 
+      linkedin, 
+      github, 
+      skills} = this.props;
     return (
       <section className="section-card">
         <button 
@@ -26,20 +34,20 @@ class Preview extends Component {
             {this.props.reset}
           </div>
         </button>
-        <div className={`card jsCard ${this.props.colorPalette}`} >
+        <div className={`card jsCard ${colorPalette}`} >
           <div className="card__top">
             <div className="card-info js-card-info">
               <p 
                 className="card__top--name js-card__top--name" 
                 id="fullname"
               >
-                {this.props.firstName || 'Nombre Completo'}
+                {firstName || 'Nombre Completo'}
               </p>
               <p 
                 className="card__top--career js-card__top--career" 
                 id="profesion"
               >
-                {this.props.job || 'Profesión'}
+                {job || 'Profesión'}
               </p>
             </div>
           </div>
@@ -50,33 +58,33 @@ class Preview extends Component {
               id="mobile-link"    
               classI= "fas fa-mobile-alt"  
               title="número de teléfono"  
-              link={`tlf: ${this.props.telf}`} 
+              link={`tlf: ${telf}`} 
             />
             <Icon 
               classA="button--mail"  
               id="mail-link"      
               classI= "far fa-envelope"     
               title="correo electrónico"  
-              link={`mailto: ${this.props.mail}`} 
+              link={`mailto: ${mail}`} 
             />
             <Icon 
               classA="button--linkedin"  
               id="linkedin-link"  
               classI= "fab fa-linkedin-in"  
               title="Linkedin"        
-              link={`https://www.linkedin.com/in/ ${this.props.linkedin}`} 
+              link={`https://www.linkedin.com/in/ ${linkedin}`} 
             />
             <Icon 
               classA="button--github" 
               id="github-link"    
               classI= "fab fa-github-alt"   
               title="Github"            
-              link={`https://github.com/ ${this.props.github}`} 
+              link={`https://github.com/ ${github}`} 
             />
           </ul> 
           <div className="card__skills">
             <ul className="card_skills--list js-card_skills--list">
-              {this.props.skills.map((skill, index) => {
+              { skills.map((skill, index) => {
                 return(
                   <li 
                     className="js-skill skill"
