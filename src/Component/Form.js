@@ -5,16 +5,54 @@ import PropTypes from 'prop-types';
 
 class Form extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     const initialSkill = this.props.skillsList[0];
     this.state = {
-      selectsArr: [initialSkill]
+      selectsArr: [initialSkill],
+      openCollapsibleDesign: true,
+      openCollapsibleFill: false,
+      openCollapsibleShare: false,
     }
+
     this.handleSelect = this.handleSelect.bind(this)
     this.addSelect = this.addSelect.bind(this)
     this.removeSelect = this.removeSelect.bind(this)
+    this.handleCollapsibleDesign = this.handleCollapsibleDesign.bind(this);
+    this.handleCollapsibleFill = this.handleCollapsibleFill.bind(this);
+    this.handleCollapsibleShare = this.handleCollapsibleShare.bind(this);
   }
   maxSelects = 3;
+
+
+  handleCollapsibleDesign(event) {
+    console.log('collapsable CLICK CLICK CLICK');
+    const { openCollapsibleDesign } = this.state
+    if (openCollapsibleDesign === true) {
+      this.setState({ openCollapsibleDesign: false });
+    } else {
+      this.setState({ openCollapsibleDesign: true });
+    }
+  }
+
+  handleCollapsibleFill(event) {
+    console.log('collapsable CLICK CLICK CLICK');
+    const { openCollapsibleFill } = this.state
+    if (openCollapsibleFill === true) {
+      this.setState({ openCollapsibleFill: false });
+    } else {
+      this.setState({ openCollapsibleFill: true });
+    }
+  }
+
+  handleCollapsibleShare(event) {
+    console.log('collapsable CLICK CLICK CLICK');
+    const { openCollapsibleShare } = this.state
+    if (openCollapsibleShare === true) {
+      this.setState({ openCollapsibleShare: false });
+    } else {
+      this.setState({ openCollapsibleShare: true });
+    }
+  }
 
   addImg() {
     console.log("a mi también");
@@ -52,7 +90,7 @@ class Form extends Component {
   render() {
     console.log('selectsArr', this.state.selectsArr)
     const selects = this.state.selectsArr.map((skill, i) => {
-      //Es i - 1 porque si el array tiene 3 elementos, se numeran como 0, 1 y 2
+      //Es length - 1 porque si el array tiene 3 elementos, se numeran como 0, 1 y 2
       const lastSelect = i === this.state.selectsArr.length - 1;
       const addSelectsOnClick =
         lastSelect && this.state.selectsArr.length < this.maxSelects;
@@ -87,6 +125,15 @@ class Form extends Component {
     }
     );
 
+    const {
+      openCollapsibleDesign,
+      openCollapsibleFill,
+      openCollapsibleShare
+    } = this.state;
+    const { valuePalette } = this.props;
+    console.log('props en form', this.props);
+    // console.log('props en form', this.props.skillsList)
+
     return (
       <Fragment>
         <section className="section-collapsible">
@@ -95,12 +142,12 @@ class Form extends Component {
             action="cardGenerator.html"
             method="post"
           >
-
             <Collapsable
               title="diseña"
               iconTitleClass="far fa-object-ungroup"
               iconArrowClass="fas fa-chevron-down"
-              open={true}
+              handleOnClickCollapsible={this.handleCollapsibleDesign}
+              open={openCollapsibleDesign}
             >
               <div className="design__form hidden js-collapsible-form">
                 <div className="design__form-colors">
@@ -108,23 +155,22 @@ class Form extends Component {
                     colores
                   </p>
                   <div className="design__palettes">
-
                     <div className="design__palette design__palette1">
                       <input
                         className="design__check-radio color-check" id="palette1"
                         type="radio"
                         name="palette"
                         value="1"
-                        checked
+                        // checked
                         data-dest="green-card"
+                        onChange={this.props.handleInputRadioColor}
                       />
                       <label
                         className="palette1__greens"
-                        for="palette1"
+                        htmlFor="palette1"
                       >
                       </label>
                     </div>
-
                     <div className="design__palette design__palette2">
                       <input
                         className="design__check-radio color-check"
@@ -133,14 +179,14 @@ class Form extends Component {
                         name="palette"
                         value="2"
                         data-dest="red-card"
+                        onChange={this.props.handleInputRadioColor}
                       />
                       <label
                         className="palette2__reds"
-                        for="palette2"
+                        htmlFor="palette2"
                       >
                       </label>
                     </div>
-
                     <div className="design__palette design__palette3">
                       <input
                         className="design__check-radio color-check"
@@ -149,14 +195,14 @@ class Form extends Component {
                         name="palette"
                         value="3"
                         data-dest="blue-card"
+                        onChange={this.props.handleInputRadioColor}
                       />
                       <label
                         className="palette3__blues"
-                        for="palette3"
+                        htmlFor="palette3"
                       >
                       </label>
                     </div>
-
                   </div>
                 </div>
                 <div className="design__form-fonts">
@@ -164,7 +210,6 @@ class Form extends Component {
                     fuentes
                   </p>
                   <div className="design__letter-type">
-
                     <div className="design__type--common design__type--font1">
                       <input
                         className="design__check-radio font-check"
@@ -173,15 +218,15 @@ class Form extends Component {
                         name="typography"
                         value="1"
                         data-font="ubuntu-card"
+                        onChange={this.props.handleInputRadioTipo}
                       />
                       <label
                         className="font1"
-                        for="font1"
+                        htmlFor="font1"
                       >
                         ubuntu
-                    </label>
+                      </label>
                     </div>
-
                     <div className="design__type--common design__type--font2">
                       <input
                         className="design__check-radio font-check"
@@ -190,15 +235,16 @@ class Form extends Component {
                         name="typography"
                         value="2"
                         data-font="comic-card"
-                        checked />
+                        // checked
+                        onChange={this.props.handleInputRadioTipo}
+                      />
                       <label
                         className="font2"
-                        for="font2"
+                        htmlFor="font2"
                       >
                         comic sans
                       </label>
                     </div>
-
                     <div className="design__type--common design__type--font3">
                       <input
                         className="design__check-radio font-check"
@@ -207,10 +253,11 @@ class Form extends Component {
                         name="typography"
                         value="3"
                         data-font="montse-card"
+                        onChange={this.props.handleInputRadioTipo}
                       />
                       <label
                         className="font3"
-                        for="font3"
+                        htmlFor="font3"
                       >
                         monserrat
                       </label>
@@ -224,7 +271,8 @@ class Form extends Component {
               title="rellena"
               iconTitleClass="far fa-keyboard"
               iconArrowClass="fas fa-chevron-down"
-              open={true}
+              handleOnClickCollapsible={this.handleCollapsibleFill}
+              open={openCollapsibleFill}
             >
               <div className="hidden js-collapsible-form">
                 <div className="section-collapsible__fill--form">
@@ -240,45 +288,48 @@ class Form extends Component {
                     id="nmb"
                     type="text"
                     name="name"
-                    value=""
+                    value={this.props.nameInputValue}
                     data-stringer="fullname"
+                    onChange={this.props.handleInputName}
                   />
-
                   <label className="fill-input"
-                    for="job "
+                    htmlFor="job "
                   >
                     Puesto
                   </label>
-
                   <input
                     className="fill-input__placeholder input-style"
                     placeholder="Ej: Front-end unicorn"
                     id="job"
                     type="text"
                     name="job"
-                    value=""
+                    value={this.props.jobInputValue}
                     data-stringer="profesion"
+                    onChange={this.props.handleInputJob}
                   />
-
                   <label
                     type="file"
                     className="fill-input"
-                    for="add-image"
+                    htmlFor="add-image"
                   >
                     Imagen de perfil
                   </label>
                   <div className="fill-input__image__square">
-
-                    <button type="button" onClick={this.addImg} className="fill-input__image" name="button">Añadir imagen</button>
+                    <button
+                      type="button"
+                      onClick={this.addImg}
+                      className="fill-input__image"
+                      name="button"
+                    >
+                      Añadir imagen
+                    </button>
                     {/*<input className="fill-input__input" id="add-image" name="photo" type="file" value="Añadir imagen"/>*/}
-
                     <div className="square__white">
                     </div>
                   </div>
-
                   <label
                     className="fill-input"
-                    for="emailaddress"
+                    htmlFor="emailaddress"
                   >
                     Email
                   </label>
@@ -288,12 +339,13 @@ class Form extends Component {
                     id="emailaddress"
                     type="email"
                     name="email"
-                    value=""
+                    value={this.props.emailInputValue}
                     data-stringer="mail-link"
+                    onChange={this.props.handleInputMail}
                   />
                   <label
                     className="fill-input"
-                    for="phone"
+                    htmlFor="phone"
                   >
                     Teléfono
                   </label>
@@ -303,12 +355,13 @@ class Form extends Component {
                     id="phone"
                     type="number"
                     name="phone"
-                    value=""
+                    value={this.props.telfInputValue}
                     data-stringer="mobile-link"
+                    onChange={this.props.handleInputTelf}
                   />
                   <label
                     className="fill-input"
-                    for="lkdn"
+                    htmlFor="lkdn"
                   >
                     Linkedin
                   </label>
@@ -318,12 +371,13 @@ class Form extends Component {
                     id="lkdn"
                     type="url"
                     name="linkedin"
-                    value=""
+                    value={this.props.linkedinInputValue}
                     data-stringer="linkedin-link"
+                    onChange={this.props.handleInputLinkedin}
                   />
                   <label
                     className="fill-input"
-                    for="GH"
+                    htmlFor="GH"
                   >
                     Github
                   </label>
@@ -333,10 +387,10 @@ class Form extends Component {
                     id="GH"
                     type="url"
                     name="github"
-                    value=""
+                    value={this.props.githubInputValue}
                     data-stringer="github-link"
+                    onChange={this.props.handleInputGithub}
                   />
-
                   <div className="abilities-fill">
                     <label className="fill-input__abilities" for="">Habilidades (máximo 3)</label>
                     {selects}
@@ -350,11 +404,11 @@ class Form extends Component {
               title="comparte"
               iconTitleClass="fas fa-share-alt"
               iconArrowClass="fas fa-chevron-down"
-              open={true}
+              handleOnClickCollapsible={this.handleCollapsibleShare}
+              open={openCollapsibleShare}
             >
               <div className="js-collapsible-form hidden">
                 <div className="section-collapsible__share--button">
-
                   <button
                     className="btn-create-card js-btn-create-card"
                     onClick={this.createCard}
@@ -366,12 +420,9 @@ class Form extends Component {
                       </i>
                     </span>
                     CREAR TARJETA
-                    </button>
-
+                  </button>
                 </div>
-
-                <div
-                  className="section-collapsible__share--end js-hidden-twitter">
+                <div className="section-collapsible__share--end js-hidden-twitter">
                   <p className="phrase">
                     La tarjeta ha sido creada:
                   </p>
@@ -394,12 +445,9 @@ class Form extends Component {
                   </button>
                 </div>
               </div>
-
             </Collapsable>
-
           </form>
         </section>
-
       </Fragment>
     );
   }

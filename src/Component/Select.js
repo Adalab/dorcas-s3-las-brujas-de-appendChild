@@ -11,7 +11,7 @@ class Select extends Component {
 
 
   render() {
-    console.log('weno weno weno', this.props.skillsList)
+    // console.log('weno weno weno', this.props.skillsList)
     const listSkill = this.props.skillsList;
     return (
       <div className="ability-box js-ability-box">
