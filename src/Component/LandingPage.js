@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logoAdalab from '../images/logo-adalab.png';
+import { Link } from 'react-router-dom'
 
 class LandingPage extends Component {
   render() {
@@ -20,7 +21,8 @@ class LandingPage extends Component {
                         <li className="cover-main__list--share"><i class="fas fa-share-alt iconLanding"></i>Comparte</li>
                     </ul>
                     <div className="cover_main__btn">
-                        <a className="btn-chubby" href="cardGenerator.html">Comenzar</a>
+                        {/* <a className="btn-chubby" href="cardGenerator.html">Comenzar</a> */}
+                        <Link className="btn-chubby" to='/card-generator'>Comenzar</Link>
                     </div>
                 </main>
             </div>
