@@ -6,6 +6,7 @@ class Select extends Component {
   constructor() {
     super();
     this.state = {}
+    // this.handleClick = this.handleClick.bind(this);
   };
 
 

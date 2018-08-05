@@ -138,6 +138,7 @@ class CardGenerator extends Component {
     }
 
     render() {
+        console.log('state data', this.state.data);
         return (
             <div>
                 <Header />
