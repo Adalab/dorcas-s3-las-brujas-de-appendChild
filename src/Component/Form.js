@@ -50,6 +50,7 @@ class Form extends Component {
   }
 
   render() {
+    console.log('selectsArr', this.state.selectsArr)
     const selects = this.state.selectsArr.map((skill, i) => {
       //Es i - 1 porque si el array tiene 3 elementos, se numeran como 0, 1 y 2
       const lastSelect = i === this.state.selectsArr.length - 1;
@@ -72,7 +73,7 @@ class Form extends Component {
         return (
           <Select
             selectedValue={skill}
-            onSelect={function (e) {
+            onSelect={(e) => {
               const selectedSkill = e.target.value;
               this.handleSelect(selectedSkill, i)
             }}

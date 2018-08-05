@@ -11,15 +11,15 @@ class Select extends Component {
 
 
   render() {
-    console.log('botones', this.props.buttonClass)
     console.log('weno weno weno', this.props.skillsList)
     const listSkill = this.props.skillsList;
-    console.log('hola', listSkill);
     return (
       <div className="ability-box js-ability-box">
         <select
           className="select-abilities js-select-abilities"
           name="skills"
+          value={this.props.selectedValue}
+          onChange={this.props.onSelect}
         >
           {
             listSkill.map(function (skill) {
