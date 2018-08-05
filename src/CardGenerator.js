@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Main from './Main';
@@ -127,7 +127,7 @@ class CardGenerator extends Component {
     render() {
         console.log('state data',this.state.data);
         return (
-            <div>
+            <Fragment>
                 <Header />
                 <Main
                     color={colors[this.state.data.palette]}
@@ -143,7 +143,7 @@ class CardGenerator extends Component {
                     handleOnChangeJob={this.handleChangeInputJob}
                 />
                 <Footer />
-            </div>
+            </Fragment>
 
         );
     }
