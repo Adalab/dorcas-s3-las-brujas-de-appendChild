@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CardGenerator from './CardGenerator';
+import App from './App';
 import './main.css';
 import registerServiceWorker from './registerServiceWorker';
 
 
 
 
-ReactDOM.render(<CardGenerator />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();

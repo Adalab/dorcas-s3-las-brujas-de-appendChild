@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from 'react';
-import Preview from './Component/preview';
-import Form from './Component/Form';
+import React, { Component } from 'react';
+import Preview from './preview';
+import Form from './Form';
 
 
 class Main extends Component {
