@@ -5,12 +5,14 @@ import Select from './Select';
 import PropTypes from 'prop-types';
 
 class Form extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+    const initialSkill = this.props.skillsList[0];
     this.state = {
-      selectsNumber: 1
+      selectsArr: [initialSkill]
     }
-    this.handleAdd = this.handleAdd.bind(this);
+    this.handleSelect = this.handleSelect.bind(this)
+    this.addSelect = this.addSelect.bind(this)
   }
 
   addImg() {
@@ -23,29 +25,34 @@ class Form extends Component {
     console.log("soy twitter");
   }
 
-  handleAdd (){
-    
-    if(this.state.selectsNumber < 3) {
-      this.setState({
-        selectsNumber: this.state.selectsNumber + 1
-      })
-    } else {
-      //nada
-    }
-      
-    }
-  
+  handleSelect(skill, i) {
+    this.setState({
+      selectsArr: this.state.selectsArr.slice(0, i).concat(skill, this.state.selectsArr.slice(i + 1))
+    })
+  }
+
+  addSelect() {
+    this.setState({
+      selectsArr: this.state.selectsArr.concat(this.props.skillsList[0])
+    })
+  }
+
   render() {
-    console.log('props en form', this.props.skillsList)
-    const selects = []
-    for (let i = 0; i < this.state.selectsNumber; i++) {
-      selects.push(
-      <Select 
-        skillsList={this.props.skillsList} 
-        handleAdd= {this.handleAdd}
-    />)
+    const selects = this.state.selectsArr.map((skill, i) => {
+      return (
+        <Select
+          selectedValue={skill}
+          onSelect={function (e) {
+            const selectedSkill = e.target.value;
+            this.handleSelect(selectedSkill, i)
+          }}
+          onChange={this.addSelect}
+          skillsList={this.props.skillsList}
+        />
+      )
     }
-    console.log('cucu', Array.from(3));
+    );
+
     return (
       <Fragment>
         <section className="section-collapsible">
