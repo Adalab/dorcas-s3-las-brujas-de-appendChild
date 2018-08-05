@@ -33,7 +33,7 @@ class Select extends Component {
           name="button"
           onClick={this.props.onChange}
         >
-          <i className="fas fa-plus">
+          <i className={`fas ${this.props.icon}`}>
           </i>
         </button>
       </div>

@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Collapsable from './Collapsable'
 import Select from './Select';
-
 import PropTypes from 'prop-types';
 
 class Form extends Component {
@@ -13,7 +12,9 @@ class Form extends Component {
     }
     this.handleSelect = this.handleSelect.bind(this)
     this.addSelect = this.addSelect.bind(this)
+    this.removeSelect = this.removeSelect.bind(this)
   }
+  maxSelects = 3;
 
   addImg() {
     console.log("a mi también");
@@ -32,24 +33,56 @@ class Form extends Component {
   }
 
   addSelect() {
+    if (this.state.selectsArr.length < this.maxSelects) {
+      this.setState({
+        selectsArr: this.state.selectsArr.concat(this.props.skillsList[0])
+      })
+    } else {
+      console.log('Máximo 3 habilidades')
+    }
+  }
+
+  removeSelect(i) {
     this.setState({
-      selectsArr: this.state.selectsArr.concat(this.props.skillsList[0])
+      selectsArr: this.state.selectsArr.slice(0, i).concat(this.state.selectsArr.slice(i + 1))
     })
+
   }
 
   render() {
     const selects = this.state.selectsArr.map((skill, i) => {
-      return (
-        <Select
-          selectedValue={skill}
-          onSelect={function (e) {
-            const selectedSkill = e.target.value;
-            this.handleSelect(selectedSkill, i)
-          }}
-          onChange={this.addSelect}
-          skillsList={this.props.skillsList}
-        />
-      )
+      //Es i - 1 porque si el array tiene 3 elementos, se numeran como 0, 1 y 2
+      const lastSelect = i === this.state.selectsArr.length - 1;
+      const addSelectsOnClick =
+        lastSelect && this.state.selectsArr.length < this.maxSelects;
+      if (addSelectsOnClick) {
+        return (
+          <Select
+            selectedValue={skill}
+            onSelect={(e) => {
+              const selectedSkill = e.target.value;
+              this.handleSelect(selectedSkill, i)
+            }}
+            onChange={this.addSelect}
+            skillsList={this.props.skillsList}
+            icon="fa-plus"
+          />
+        )
+      } else {
+        return (
+          <Select
+            selectedValue={skill}
+            onSelect={function (e) {
+              const selectedSkill = e.target.value;
+              this.handleSelect(selectedSkill, i)
+            }}
+            onChange={() => { this.removeSelect(i) }}
+            skillsList={this.props.skillsList}
+            icon="fa-minus"
+          />
+        )
+      }
+
     }
     );
 
