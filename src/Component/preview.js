@@ -77,6 +77,13 @@ class Preview extends Component {
 
 Preview.propTypes = {
   job: PropTypes.string,
+  github: PropTypes.string,
+  linkedin: PropTypes.string,
+  mail: PropTypes.string,
+  telf: PropTypes.number,
+  firstName: PropTypes.string,
+  /* resetButtom: PropTypes.string,
+  reset: PropTypes.string, */
 }
 
 export default Preview;
