@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import logoAdalab from '../images/logo-adalab.png';
 
 class LandingPage extends Component {
   render() {
@@ -26,7 +27,7 @@ class LandingPage extends Component {
             <footer className="footer">
                 <p className="credit">Awesome profile-cards@2018</p>
                 <a className="logoAdalab" href="http://adalab.es/" title="Página web Adalab">
-                    <img src="images/logo-adalab.png" alt="Logo Adalab"/>
+                    <img src= {logoAdalab} alt="Logo Adalab"/>
                 </a>
             </footer>
         </div>
