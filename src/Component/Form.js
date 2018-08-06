@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import Collapsable from './Collapsable'
 import Select from './Select';
 
-
 class Form extends Component {
   constructor(props){
     super(props);
@@ -384,5 +383,5 @@ class Form extends Component {
             );
           }
         }
-
+       
 export default Form;
