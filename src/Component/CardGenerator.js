@@ -14,8 +14,6 @@ const fonts = {
     '3': 'montse-card'
 }
 
-
-
 class CardGenerator extends Component {
     constructor(props) {
         super(props);
@@ -170,14 +168,12 @@ class CardGenerator extends Component {
 }
 
 CardGenerator.propTypes = {
-    job: PropTypes.string,
-    github: PropTypes.string,
-    linkedin: PropTypes.string,
-    mail: PropTypes.string,
-    telf: PropTypes.number,
-    firstName: PropTypes.string,
-    /* resetButtom: PropTypes.string,
-    reset: PropTypes.string, */
+    job: PropTypes.string.isRequired,
+    github: PropTypes.stringisRequired,
+    linkedin: PropTypes.string.isRequired,
+    mail: PropTypes.string.isRequired,
+    telf: PropTypes.number.isRequired,
+    firstName: PropTypes.string.isRequired,
   }
 
 
