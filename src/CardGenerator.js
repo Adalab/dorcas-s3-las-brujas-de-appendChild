@@ -13,7 +13,6 @@ colors['1']
 
 
 class CardGenerator extends Component {
-    
     constructor(props) {
         super(props);
         this.state = {
@@ -28,10 +27,9 @@ class CardGenerator extends Component {
                 phone: "",
                 photo: "images/image-card.png",
                 typography: 2,
-                skills: ["HTML","JavaScript"],
+                skills: [],
             },
         }
-        this.jsonResponse = this.jsonResponse.bind(this)
         this.handleChangeInputRadioColor = this.handleChangeInputRadioColor.bind(this);
         this.handleChangeInputRadioTipo = this.handleChangeInputRadioTipo.bind(this);
         this.handleChangeInputGithub = this.handleChangeInputGithub.bind(this);
@@ -45,66 +43,82 @@ class CardGenerator extends Component {
         this.callingAbilities()
     }
 
-    handleChangeInputRadioColor(event){
+    handleChangeInputRadioColor(event) {
         console.log('checkeandooooooo');
-        this.setState({ data: { 
-            ...this.state.data,
-            palette: event.target.value 
-        } })
+        this.setState({
+            data: {
+                ...this.state.data,
+                palette: event.target.value
+            }
+        })
     }
 
-    handleChangeInputRadioTipo(event){
-        this.setState({ data: { 
-            ...this.state.data,
-            typography: event.target.value 
-        } })
+    handleChangeInputRadioTipo(event) {
+        this.setState({
+            data: {
+                ...this.state.data,
+                typography: event.target.value
+            }
+        })
     }
 
     handleChangeInputGithub(e) {
-        this.setState({ data: { 
-            ...this.state.data,
-            github: e.target.value 
-        } }, )
-        
+        this.setState({
+            data: {
+                ...this.state.data,
+                github: e.target.value
+            }
+        }, )
+
     }
     handleChangeInputName(e) {
-        this.setState({ data: { 
-            ...this.state.data,
-            name: e.target.value 
-        } }, )
-        
+        this.setState({
+            data: {
+                ...this.state.data,
+                name: e.target.value
+            }
+        }, )
+
     }
     handleChangeInputMail(e) {
-        
-        this.setState({ data: { 
-            ...this.state.data,
-            email: e.target.value 
-        } }, )
-        
+
+        this.setState({
+            data: {
+                ...this.state.data,
+                email: e.target.value
+            }
+        }, )
+
     }
     handleChangeInputTelf(e) {
-        
-        this.setState({ data: { 
-            ...this.state.data,
-            phone: e.target.value 
-        } }, )
-        
+
+        this.setState({
+            data: {
+                ...this.state.data,
+                phone: e.target.value
+            }
+        }, )
+
     }
     handleChangeInputJob(e) {
-        
-        this.setState({ data: { 
-            ...this.state.data,
-            job: e.target.value 
-        } }, )
-        
+
+        this.setState({
+            data: {
+                ...this.state.data,
+                job: e.target.value
+            }
+        }, )
+
     }
     handleChangeInputLinkedin(e) {
-        
-        this.setState({ data: { 
-            ...this.state.data,
-            linkedin: e.target.value 
-        } }, )
-        
+
+        this.setState({
+            data: {
+                ...this.state.data,
+                linkedin: e.target.value
+            }
+        }, )
+
     }
     //hacer método y bind de funcion json dentro de constructor
     callingAbilities() {
@@ -121,27 +135,28 @@ class CardGenerator extends Component {
         this.setState(
             { skillsList: json.skills }
         )
-        console.log(json)
     }
 
     render() {
-        console.log('state data',this.state.data);
+        console.log('state data', this.state.data);
         return (
             <div>
                 <Header />
-                <Main
-                    color={colors[this.state.data.palette]}
-                    data={this.state.data}
-                    skillsList={this.state.skillsList}
-                    handleOnChangeColor ={this.handleChangeInputRadioColor}
-                    handleOnChangeTipo = {this.handleChangeInputRadioTipo}
-                    handleOnChangeGithub={this.handleChangeInputGithub}
-                    handleOnChangeName={this.handleChangeInputName}
-                    handleOnChangeTelf={this.handleChangeInputTelf}
-                    handleOnChangeMail={this.handleChangeInputMail}
-                    handleOnChangeLinkedin={this.handleChangeInputLinkedin}
-                    handleOnChangeJob={this.handleChangeInputJob}
-                />
+                {
+                    this.state.skillsList.length > 0 ?
+                        <Main color={colors[this.state.data.palette]}
+                            data={this.state.data}
+                            skillsList={this.state.skillsList}
+                            handleOnChangeColor={this.handleChangeInputRadioColor}
+                            handleOnChangeTipo={this.handleChangeInputRadioTipo}
+                            handleOnChangeGithub={this.handleChangeInputGithub}
+                            handleOnChangeName={this.handleChangeInputName}
+                            handleOnChangeTelf={this.handleChangeInputTelf}
+                            handleOnChangeMail={this.handleChangeInputMail}
+                            handleOnChangeLinkedin={this.handleChangeInputLinkedin}
+                            handleOnChangeJob={this.handleChangeInputJob} /> : <div>Cargando...</div>
+                }
+
                 <Footer />
             </div>
 
