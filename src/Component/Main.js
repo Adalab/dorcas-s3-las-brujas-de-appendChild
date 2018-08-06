@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
-import Preview from './Component/preview';
-import Form from './Component/Form';
+import Preview from './preview';
+import Form from './Form';
 
 
 class Main extends Component {
   constructor(props){
     super(props);
-    console.log(props);
-    console.log('thisstate',this.state);
-    
   }
   render() {
     const {skills, job, name, email, linkedin, github, phone,palette} = this.props.data;
     const {color}= this.props;
     return (
-      <div>
+      <div className= "cardGenerator__main">
         <Preview
           skills={skills}
           job={job}

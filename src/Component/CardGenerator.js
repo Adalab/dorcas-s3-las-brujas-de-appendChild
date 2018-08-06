@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Main from './Main';
@@ -139,7 +139,7 @@ class CardGenerator extends Component {
     render() {
         console.log('state data', this.state.data);
         return (
-            <div>
+            <Fragment>
                 <Header />
                 {
                     this.state.skillsList.length > 0 ?
@@ -157,7 +157,7 @@ class CardGenerator extends Component {
                 }
 
                 <Footer />
-            </div>
+            </Fragment>
 
         );
     }
