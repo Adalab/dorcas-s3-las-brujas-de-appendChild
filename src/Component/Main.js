@@ -32,6 +32,8 @@ class Main extends Component {
           handleInputTelf={this.props.handleOnChangeTelf}
           handleInputMail={this.props.handleOnChangeMail}
           handleInputLinkedin={this.props.handleOnChangeLinkedin}
+          loadPhoto={this.props.loadPhoto}
+          refInput={this.props.ref}
           githubInputValue={github}
           linkedinInputValue={linkedin}
           telfInputValue={phone}

@@ -9,8 +9,6 @@ const colors = {
     '3': 'blue-card'
 }
 
-
-
 class CardGenerator extends Component {
     constructor(props) {
         super(props);
@@ -29,6 +27,8 @@ class CardGenerator extends Component {
                 skills: [],
             },
         }
+        this.profilePhoto= React.createRef();
+        this.loadPhoto = this.loadPhoto.bind(this);
         this.handleChangeInputRadioColor = this.handleChangeInputRadioColor.bind(this);
         this.handleChangeInputRadioTipo = this.handleChangeInputRadioTipo.bind(this);
         this.handleChangeInputGithub = this.handleChangeInputGithub.bind(this);
@@ -51,7 +51,20 @@ class CardGenerator extends Component {
             }
         })
     }
-
+//   input file
+    loadPhoto(event){
+        const fr = new FileReader();
+        const handleLoadPhoto=()=>{
+            console.log(this.state);
+            console.log(fr.result);
+            const {photo}=this.state.data;
+            this.setState({
+                photo:fr.result
+            })
+        }
+        fr.addEventListener('load', handleLoadPhoto);
+        fr.readAsDataURL(this.profilePhoto.current.files[0]);
+    }
     handleChangeInputRadioTipo(event) {
         this.setState({
             data: {
@@ -142,8 +155,8 @@ class CardGenerator extends Component {
             <Fragment>
                 <Header />
                 {
-                    this.state.skillsList.length > 0 ?
-                        <Main color={colors[this.state.data.palette]}
+                    this.state.skillsList.length > 0 
+                        ?<Main color={colors[this.state.data.palette]}
                             data={this.state.data}
                             skillsList={this.state.skillsList}
                             handleOnChangeColor={this.handleChangeInputRadioColor}
@@ -153,7 +166,11 @@ class CardGenerator extends Component {
                             handleOnChangeTelf={this.handleChangeInputTelf}
                             handleOnChangeMail={this.handleChangeInputMail}
                             handleOnChangeLinkedin={this.handleChangeInputLinkedin}
-                            handleOnChangeJob={this.handleChangeInputJob} /> : <div>Cargando...</div>
+                            handleOnChangeJob={this.handleChangeInputJob} 
+                            loadPhoto={this.loadPhoto}
+                            ref={this.profilePhoto}
+                            /> 
+                            : <div>Cargando...</div>
                 }
 
                 <Footer />

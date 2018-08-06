@@ -5,6 +5,7 @@ import Select from './Select';
 class Form extends Component {
   constructor(props) {
     super(props);
+    
     const initialSkill = this.props.skillsList[0];
     this.state = {
       selectsArr: [initialSkill],
@@ -21,7 +22,6 @@ class Form extends Component {
     this.handleCollapsibleShare = this.handleCollapsibleShare.bind(this);
   }
   maxSelects = 3;
-
 
   handleCollapsibleDesign(event) {
     console.log('collapsable CLICK CLICK CLICK');
@@ -322,7 +322,7 @@ class Form extends Component {
                     >
                       Añadir imagen
                     </button>
-                    {/*<input className="fill-input__input" id="add-image" name="photo" type="file" value="Añadir imagen"/>*/}
+                     <input ref={this.props.refInput} onChange={this.props.loadPhoto} className="fill-input__input" id="add-image" name="photo" type="file" value="Añadir imagen"/>
                     <div className="square__white">
                     </div>
                   </div>
