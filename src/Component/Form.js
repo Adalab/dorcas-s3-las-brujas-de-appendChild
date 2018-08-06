@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Collapsable from './Collapsable'
 import Select from './Select';
-import PropTypes from 'prop-types';
 
 class Form extends Component {
   constructor(props) {
@@ -130,7 +129,7 @@ class Form extends Component {
       openCollapsibleFill,
       openCollapsibleShare
     } = this.state;
-    const { valuePalette } = this.props;
+    
     console.log('props en form', this.props);
     // console.log('props en form', this.props.skillsList)
 
@@ -278,7 +277,7 @@ class Form extends Component {
                 <div className="section-collapsible__fill--form">
                   <label
                     className="fill-input"
-                    for="nmb "
+                    htmlFor="nmb "
                   >
                     Nombre completo
                   </label>
@@ -392,7 +391,7 @@ class Form extends Component {
                     onChange={this.props.handleInputGithub}
                   />
                   <div className="abilities-fill">
-                    <label className="fill-input__abilities" for="">Habilidades (máximo 3)</label>
+                    <label className="fill-input__abilities" htmlFor="">Habilidades (máximo 3)</label>
                     {selects}
                   </div>
                 </div>

@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Main from './Main';
-
+import PropTypes from 'prop-types';
 const colors = {
     '1': 'green-card',
     '2': 'red-card',
     '3': 'blue-card'
 }
 
-colors['1']
 
 
 class CardGenerator extends Component {
@@ -164,6 +163,16 @@ class CardGenerator extends Component {
     }
 }
 
+CardGenerator.propTypes = {
+    job: PropTypes.string,
+    github: PropTypes.string,
+    linkedin: PropTypes.string,
+    mail: PropTypes.string,
+    telf: PropTypes.number,
+    firstName: PropTypes.string,
+    /* resetButtom: PropTypes.string,
+    reset: PropTypes.string, */
+  }
 
 
 export default CardGenerator;
