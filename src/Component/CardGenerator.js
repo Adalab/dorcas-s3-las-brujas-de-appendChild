@@ -174,7 +174,7 @@ CardGenerator.propTypes = {
     mail: PropTypes.string.isRequired,
     telf: PropTypes.number.isRequired,
     firstName: PropTypes.string.isRequired,
-  }
+}
 
 
 export default CardGenerator;
