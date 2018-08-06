@@ -8,8 +8,9 @@ class Main extends Component {
     super(props);
   }
   render() {
-    const {skills, job, name, email, linkedin, github, phone,palette} = this.props.data;
+    const {skills, job, name, email, linkedin, github, phone, palette} = this.props.data;
     const {color}= this.props;
+    const {font}=this.props;
     return (
       <div className= "cardGenerator__main">
         <Preview
@@ -21,6 +22,7 @@ class Main extends Component {
           github={github}
           telf={phone}
           colorPalette={color}
+          colortypo={font}
         /> 
         <Form 
           skillsList= {this.props.skillsList}
