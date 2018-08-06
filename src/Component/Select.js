@@ -3,40 +3,41 @@ import React, { Component } from 'react';
 
 class Select extends Component {
 
-  constructor(){
+  constructor() {
     super();
     this.state = {}
     // this.handleClick = this.handleClick.bind(this);
   };
 
-  
-  
+
+
   render() {
     // console.log('weno weno weno', this.props.skillsList)
     const listSkill = this.props.skillsList;
-    // console.log('hola', listSkill);
     return (
-        <div className="ability-box js-ability-box">
-          <select 
-            className="select-abilities js-select-abilities" 
-            name="skills"
-          >
+      <div className="ability-box js-ability-box">
+        <select
+          className="select-abilities js-select-abilities"
+          name="skills"
+          value={this.props.selectedValue}
+          onChange={this.props.onSelect}
+        >
           {
-           listSkill.map(function(skill){
-             return (<option key={skill}> {skill} </option>);
-           })
-         }
-          </select>
-          <button 
-            className="button-abilities js-button-abilitiesPlus" 
-            type="button" 
-            name="button"
-            // onClick={this.handleClick}
-          >
-            <i className="fas fa-plus">
-            </i>
-          </button>
-        </div>
+            listSkill.map(function (skill) {
+              return (<option key={skill}> {skill} </option>);
+            })
+          }
+        </select>
+        <button
+          className="button-abilities js-button-abilitiesPlus"
+          type="button"
+          name="button"
+          onClick={this.props.onChange}
+        >
+          <i className={`fas ${this.props.icon}`}>
+          </i>
+        </button>
+      </div>
     )
   }
 }
