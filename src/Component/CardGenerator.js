@@ -19,7 +19,7 @@ class CardGenerator extends Component {
             data: {
                 email: "",
                 github: "",
-                job: "unicornio",
+                job: "",
                 linkedin: "",
                 name: "",
                 palette: "2",

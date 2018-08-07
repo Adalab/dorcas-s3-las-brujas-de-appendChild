@@ -35,7 +35,7 @@ class Preview extends Component {
               <p
                 className="card__top--career js-card__top--career"
                 id="profesion">
-                {this.props.job}
+                {this.props.job || "Profesión"}
               </p>
             </div>
           </div>
