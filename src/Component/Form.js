@@ -13,10 +13,10 @@ class Form extends Component {
       openCollapsibleFill: false,
       openCollapsibleShare: false,
     }
-
-    this.handleSelect = this.handleSelect.bind(this)
-    this.addSelect = this.addSelect.bind(this)
-    this.removeSelect = this.removeSelect.bind(this)
+    this.addImg = this.addImg.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
+    this.addSelect = this.addSelect.bind(this);
+    this.removeSelect = this.removeSelect.bind(this);
     this.handleCollapsibleDesign = this.handleCollapsibleDesign.bind(this);
     this.handleCollapsibleFill = this.handleCollapsibleFill.bind(this);
     this.handleCollapsibleShare = this.handleCollapsibleShare.bind(this);
@@ -316,13 +316,14 @@ class Form extends Component {
                   <div className="fill-input__image__square">
                     <button
                       type="button"
-                      onClick={this.addImg}
+                      onClick={this.props.loadPhoto}
                       className="fill-input__image"
                       name="button"
                     >
                       Añadir imagen
                     </button>
-                     <input ref={this.props.refInput} onChange={this.props.loadPhoto} className="fill-input__input" id="add-image" name="photo" type="file" value="Añadir imagen"/>
+                     <input ref={this.props.refInput} onChange ={this.props.handleOnChangePhoto}
+                     className="fill-input__input" id="add-image" name="photo" type="file"/>
                     <div className="square__white">
                     </div>
                   </div>
