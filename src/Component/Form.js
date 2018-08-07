@@ -25,11 +25,18 @@ class Form extends Component {
 
   handleCollapsibleDesign(event) {
     console.log('collapsable CLICK CLICK CLICK');
-    const { openCollapsibleDesign } = this.state
+    const {openCollapsibleDesign} = this.state
     if (openCollapsibleDesign === true) {
-      this.setState({ openCollapsibleDesign: false });
+      this.setState(
+        { openCollapsibleDesign: false });
     } else {
-      this.setState({ openCollapsibleDesign: true });
+      this.setState(
+        {
+          openCollapsibleDesign: true,
+          openCollapsibleFill: false,
+          openCollapsibleShare: false,
+        }
+      );
     }
   }
 
@@ -39,7 +46,13 @@ class Form extends Component {
     if (openCollapsibleFill === true) {
       this.setState({ openCollapsibleFill: false });
     } else {
-      this.setState({ openCollapsibleFill: true });
+      this.setState(
+        {
+          openCollapsibleDesign: false,
+          openCollapsibleFill: true,
+          openCollapsibleShare: false,
+        }
+      );
     }
   }
 
@@ -49,7 +62,13 @@ class Form extends Component {
     if (openCollapsibleShare === true) {
       this.setState({ openCollapsibleShare: false });
     } else {
-      this.setState({ openCollapsibleShare: true });
+      this.setState(
+        {
+          openCollapsibleDesign: false,
+          openCollapsibleFill: false,
+          openCollapsibleShare: true,
+        }
+      );
     }
   }
 
