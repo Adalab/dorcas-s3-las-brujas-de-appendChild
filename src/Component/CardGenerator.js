@@ -29,7 +29,7 @@ class CardGenerator extends Component {
                 phone: "",
                 photo: "images/image-card.png",
                 typography: 2,
-                skills: [],
+                skills: ['HTML','git'],
             },
         }
         this.handleChangeInputRadioColor = this.handleChangeInputRadioColor.bind(this);

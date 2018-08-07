@@ -69,6 +69,20 @@ class Preview extends Component {
               title="Github"
               link={`https://github.com/ ${this.props.github}`} />
           </ul>
+          <div className="card__skills">
+            <ul className="card_skills--list js-card_skills--list">
+              {this.props.skills.map((skill, index) => {
+                return(
+                  <li 
+                    className="js-skill skill"
+                     key={index}
+                   >
+                     {skill}
+                   </li>
+                 )
+               })}
+             </ul>
+           </div>
         </div>
       </section>
     );
