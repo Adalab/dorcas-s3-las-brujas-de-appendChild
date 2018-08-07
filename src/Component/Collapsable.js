@@ -9,7 +9,8 @@ class Collapsable extends Component {
     iconArrowClass, 
     children,
     handleOnClickCollapsible,
-    open}= this.props;
+    open
+  }= this.props;
   let classToOpen = "";
   if(open===true){
   classToOpen = "js-collapsible-visible";
