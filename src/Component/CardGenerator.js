@@ -3,10 +3,17 @@ import Header from './Header';
 import Footer from './Footer';
 import Main from './Main';
 import PropTypes from 'prop-types';
+
 const colors = {
     '1': 'green-card',
     '2': 'red-card',
     '3': 'blue-card'
+}
+
+const fonts = {
+    '1': 'ubuntu-card ',
+    '2': 'comic-card ',
+    '3': 'montse-card'
 }
 
 let fr = new FileReader();
@@ -19,14 +26,14 @@ class CardGenerator extends Component {
             data: {
                 email: "",
                 github: "",
-                job: "unicornio",
+                job: "",
                 linkedin: "",
                 name: "",
                 palette: "2",
                 phone: "",
                 photo: "images/image-card.png",
                 typography: 2,
-                skills: [],
+                skills: ['HTML','git'],
             },
         }
         
@@ -176,7 +183,9 @@ class CardGenerator extends Component {
                 <Header />
                 {
                     this.state.skillsList.length > 0 
-                        ?<Main color={colors[this.state.data.palette]}
+                        ?<Main 
+                            color={colors[this.state.data.palette]}
+                            font={fonts[this.state.data.typography]}
                             data={this.state.data}
                             skillsList={this.state.skillsList}
                             handleOnChangeColor={this.handleChangeInputRadioColor}
@@ -203,15 +212,13 @@ class CardGenerator extends Component {
 }
 
 CardGenerator.propTypes = {
-    job: PropTypes.string,
-    github: PropTypes.string,
-    linkedin: PropTypes.string,
-    mail: PropTypes.string,
-    telf: PropTypes.number,
-    firstName: PropTypes.string,
-    /* resetButtom: PropTypes.string,
-    reset: PropTypes.string, */
-  }
+    job: PropTypes.string.isRequired,
+    github: PropTypes.stringisRequired,
+    linkedin: PropTypes.string.isRequired,
+    mail: PropTypes.string.isRequired,
+    telf: PropTypes.number.isRequired,
+    firstName: PropTypes.string.isRequired,
+}
 
 
 export default CardGenerator;
