@@ -24,7 +24,6 @@ class Form extends Component {
   maxSelects = 3;
 
   handleCollapsibleDesign(event) {
-    console.log('collapsable CLICK CLICK CLICK');
     const { openCollapsibleDesign } = this.state
     if (openCollapsibleDesign === true) {
       this.setState({ openCollapsibleDesign: false });
@@ -34,7 +33,6 @@ class Form extends Component {
   }
 
   handleCollapsibleFill(event) {
-    console.log('collapsable CLICK CLICK CLICK');
     const { openCollapsibleFill } = this.state
     if (openCollapsibleFill === true) {
       this.setState({ openCollapsibleFill: false });
@@ -44,7 +42,6 @@ class Form extends Component {
   }
 
   handleCollapsibleShare(event) {
-    console.log('collapsable CLICK CLICK CLICK');
     const { openCollapsibleShare } = this.state
     if (openCollapsibleShare === true) {
       this.setState({ openCollapsibleShare: false });
@@ -87,7 +84,7 @@ class Form extends Component {
   }
 
   render() {
-    console.log('selectsArr', this.state.selectsArr)
+    // console.log('selectsArr', this.state.selectsArr)
     const selects = this.state.selectsArr.map((skill, i) => {
       //Es length - 1 porque si el array tiene 3 elementos, se numeran como 0, 1 y 2
       const lastSelect = i === this.state.selectsArr.length - 1;
@@ -130,7 +127,7 @@ class Form extends Component {
       openCollapsibleShare
     } = this.state;
     
-    console.log('props en form', this.props);
+    // console.log('props en form', this.props);
     // console.log('props en form', this.props.skillsList)
 
     return (
@@ -316,14 +313,20 @@ class Form extends Component {
                   <div className="fill-input__image__square">
                     <button
                       type="button"
-                      onClick={this.props.loadPhoto}
+                      onClick={this.props.getPhoto}
                       className="fill-input__image"
                       name="button"
                     >
                       Añadir imagen
                     </button>
-                     <input ref={this.props.refInput} onChange ={this.props.handleOnChangePhoto}
-                     className="fill-input__input" id="add-image" name="photo" type="file"/>
+                      <input 
+                        ref={this.props.refInput} 
+                        onChange ={this.props.handleOnChangePhoto}
+                        className="fill-input__input" 
+                        id="add-image" 
+                        name="photo" 
+                        type="file"
+                      />
                     <div className="square__white">
                     </div>
                   </div>

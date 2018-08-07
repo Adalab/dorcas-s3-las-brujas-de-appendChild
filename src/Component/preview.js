@@ -39,7 +39,9 @@ class Preview extends Component {
               </p>
             </div>
           </div>
-          <div className="card__image"></div>
+          <div className="card__image">
+          <img src={this.props.photo} alt=""/>
+          </div>
           <ul className="card__social">
             <Icon
               classA="button--mobile"

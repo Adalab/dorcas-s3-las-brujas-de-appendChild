@@ -8,7 +8,7 @@ class Main extends Component {
     super(props);
   }
   render() {
-    const {skills, job, name, email, linkedin, github, phone,palette} = this.props.data;
+    const {skills, job, name, email, linkedin, github, phone,palette,photo} = this.props.data;
     const {color}= this.props;
     return (
       <div className= "cardGenerator__main">
@@ -21,6 +21,7 @@ class Main extends Component {
           github={github}
           telf={phone}
           colorPalette={color}
+          photo={photo}
         /> 
         <Form 
           skillsList= {this.props.skillsList}
@@ -33,7 +34,7 @@ class Main extends Component {
           handleInputMail={this.props.handleOnChangeMail}
           handleInputLinkedin={this.props.handleOnChangeLinkedin}
           handleOnChangePhoto={this.props.handleOnChangePhoto}
-          loadPhoto={this.props.loadPhoto}
+          getPhoto={this.props.getPhoto}
           refInput={this.props.refInput}
           githubInputValue={github}
           linkedinInputValue={linkedin}

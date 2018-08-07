@@ -9,6 +9,8 @@ const colors = {
     '3': 'blue-card'
 }
 
+let fr = new FileReader();
+
 class CardGenerator extends Component {
     constructor(props) {
         super(props);
@@ -28,7 +30,7 @@ class CardGenerator extends Component {
             },
         }
         
-        this.loadPhoto = this.loadPhoto.bind(this);
+        this.getPhoto = this.getPhoto.bind(this);
         this.handleChangeInputRadioColor = this.handleChangeInputRadioColor.bind(this);
         this.handleChangeInputRadioTipo = this.handleChangeInputRadioTipo.bind(this);
         this.handleChangeInputGithub = this.handleChangeInputGithub.bind(this);
@@ -53,23 +55,35 @@ class CardGenerator extends Component {
         })
     }
 //   input file
-    loadPhoto(event){
+    getPhoto(event){
         console.log('BUBUBU', this.profilePhoto.current)
         this.profilePhoto.current.click();
-        console.log("eyyyyyy",this.profilePhoto.current);
-        //  fr.addEventListener('load', handleLoadPhoto);
-        // fr.readAsDataURL(this.profilePhoto.current.files[0]);
     }
 
     
-    handleLoadPhoto(){
-        const fr = new FileReader();
-        console.log('HOLAHOLA')
-        this.setState({
-            photo: fr.result
-        })
+    handleLoadPhoto(event){   
+        console.log('HOLAHOLA'); 
+
+        this.profilePhoto.current.files[0];
+        
+        console.log('FR',fr);
+        
+        const writePhoto = ()=>{
+            console.log('fr after load',fr);
+            this.setState(
+                {
+                    data:{
+                        ...this.state.data,
+                        photo: fr.result
+                    }
+                }
+            )
+        }
+        fr.addEventListener('load', writePhoto);
+        fr.readAsDataURL(this.profilePhoto.current.files[0]);
     }
 
+    
     handleChangeInputRadioTipo(event) {
         this.setState({
             data: {
@@ -156,6 +170,7 @@ class CardGenerator extends Component {
 
     render() {
         console.log('state data', this.state.data);
+        
         return (
             <Fragment>
                 <Header />
@@ -173,7 +188,7 @@ class CardGenerator extends Component {
                             handleOnChangeLinkedin={this.handleChangeInputLinkedin}
                             handleOnChangeJob={this.handleChangeInputJob} 
                             handleOnChangePhoto={this.handleLoadPhoto}
-                            loadPhoto={this.loadPhoto}
+                            getPhoto={this.getPhoto}
                             refInput={this.profilePhoto}
 
                             /> 
