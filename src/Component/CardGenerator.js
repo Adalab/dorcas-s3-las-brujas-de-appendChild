@@ -25,7 +25,7 @@ class CardGenerator extends Component {
                 job: "",
                 linkedin: "",
                 name: "",
-                palette: "2",
+                palette: "1",
                 phone: "",
                 photo: "images/image-card.png",
                 typography: 2,

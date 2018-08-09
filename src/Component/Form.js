@@ -235,6 +235,7 @@ class Form extends Component {
                         type="radio"
                         name="typography"
                         value="1"
+                        defaultChecked 
                         data-font="ubuntu-card"
                         onChange={this.props.handleInputRadioTipo}
                       />
@@ -252,6 +253,7 @@ class Form extends Component {
                         type="radio"
                         name="typography"
                         value="2"
+                        defaultChecked 
                         data-font="comic-card"
                         // checked
                         onChange={this.props.handleInputRadioTipo}
