@@ -20,8 +20,10 @@ let fr = new FileReader();
 class CardGenerator extends Component {
     constructor(props) {
         super(props);
+        //const selectsArr = this.props.selectsArr[0];
         this.state = {
             skillsList: [],
+            selectsArr: [],
             data: {
                 email: "",
                 github: "",
@@ -45,13 +47,37 @@ class CardGenerator extends Component {
         this.handleChangeInputLinkedin = this.handleChangeInputLinkedin.bind(this);
         this.handleChangeInputTelf = this.handleChangeInputTelf.bind(this);
         this.handleChangeInputMail = this.handleChangeInputMail.bind(this);
+        this.handleSelect = this.handleSelect.bind(this);
+        this.addSelect = this.addSelect.bind(this);
+        this.removeSelect = this.removeSelect.bind(this);
         this.handleLoadPhoto = this.handleLoadPhoto.bind(this);
         this.callingAbilities = this.callingAbilities.bind(this);
         this.jsonResponse = this.jsonResponse.bind(this);
-        this.callingAbilities()
+        this.callingAbilities();
         this.profilePhoto= React.createRef();
+        const maxSelects = 3;
     }
-
+    handleSelect(skill, i) {
+        this.setState({
+            skillsList: this.state.skillsList.slice(0, i).concat(skill, this.state.skillsList.slice(i + 1))
+        })
+    }
+    addSelect() {
+        if (this.state.skillsList.length < this.maxSelects) {
+          this.setState({
+            skillsList: this.state.skillsList.concat(this.props.selectsArr[0])
+          })
+        } else {
+          console.log('Máximo 3 habilidades')
+        }
+      }
+    
+    removeSelect(i) {
+        this.setState({
+            skillsList: this.state.skillsList.slice(0, i).concat(this.state.skillsList.slice(i + 1))
+        })
+    
+      }
     handleChangeInputRadioColor(event) {
         this.setState({
             data: {
@@ -176,7 +202,7 @@ class CardGenerator extends Component {
 
     render() {
         console.log('state data', this.state.data);
-        
+    
         return (
             <Fragment>
                 <Header />
@@ -186,7 +212,7 @@ class CardGenerator extends Component {
                             color={colors[this.state.data.palette]}
                             font={fonts[this.state.data.typography]}
                             data={this.state.data}
-                            skillsList={this.state.skillsList}
+                            skillsList={[this.state.skillsList[0]]}
                             handleOnChangeColor={this.handleChangeInputRadioColor}
                             handleOnChangeTipo={this.handleChangeInputRadioTipo}
                             handleOnChangeGithub={this.handleChangeInputGithub}
@@ -198,7 +224,7 @@ class CardGenerator extends Component {
                             handleOnChangePhoto={this.handleLoadPhoto}
                             getPhoto={this.getPhoto}
                             refInput={this.profilePhoto}
-
+                            selectsArr={this.props.selectsArr}
                             /> 
                             : <div>Cargando...</div>
                 }

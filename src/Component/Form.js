@@ -5,7 +5,6 @@ import Select from './Select';
 class Form extends Component {
   constructor(props) {
     super(props);
-    
     const initialSkill = this.props.skillsList[0];
     this.state = {
       selectsArr: [initialSkill],
@@ -14,14 +13,11 @@ class Form extends Component {
       openCollapsibleShare: false,
     }
     this.addImg = this.addImg.bind(this);
-    this.handleSelect = this.handleSelect.bind(this);
-    this.addSelect = this.addSelect.bind(this);
-    this.removeSelect = this.removeSelect.bind(this);
     this.handleCollapsibleDesign = this.handleCollapsibleDesign.bind(this);
     this.handleCollapsibleFill = this.handleCollapsibleFill.bind(this);
     this.handleCollapsibleShare = this.handleCollapsibleShare.bind(this);
   }
-  maxSelects = 3;
+ 
 
   handleCollapsibleDesign(event) {
     const { openCollapsibleDesign } = this.state
@@ -79,36 +75,15 @@ class Form extends Component {
     console.log("soy twitter");
   }
 
-  handleSelect(skill, i) {
-    this.setState({
-      selectsArr: this.state.selectsArr.slice(0, i).concat(skill, this.state.selectsArr.slice(i + 1))
-    })
-  }
-
-  addSelect() {
-    if (this.state.selectsArr.length < this.maxSelects) {
-      this.setState({
-        selectsArr: this.state.selectsArr.concat(this.props.skillsList[0])
-      })
-    } else {
-      console.log('Máximo 3 habilidades')
-    }
-  }
-
-  removeSelect(i) {
-    this.setState({
-      selectsArr: this.state.selectsArr.slice(0, i).concat(this.state.selectsArr.slice(i + 1))
-    })
-
-  }
+  
 
   render() {
-    // console.log('selectsArr', this.state.selectsArr)
-    const selects = this.state.selectsArr.map((skill, i) => {
+    // console.log('selectsArr', this.state.skillsList)
+    const selects = this.props.skillsList.map((skill, i) => {
       //Es length - 1 porque si el array tiene 3 elementos, se numeran como 0, 1 y 2
-      const lastSelect = i === this.state.selectsArr.length - 1;
+      const lastSelect = i === this.props.skillsList.length - 1;
       const addSelectsOnClick =
-        lastSelect && this.state.selectsArr.length < this.maxSelects;
+        lastSelect && this.props.skillsList.length < this.maxSelects;
       if (addSelectsOnClick) {
         return (
           <Select
