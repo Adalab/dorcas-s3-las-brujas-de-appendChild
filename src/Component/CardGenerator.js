@@ -61,15 +61,25 @@ class CardGenerator extends Component {
     // }
 
     //Recuperar localStorage
-    // retrievedLocalStorage(){
-    //     console.log('y');console.log('local')
-    //     if (localStorage.length>0) {
-    //         let savedData = JSON.parse(localStorage.getItem('dataStoraged'));
-    //     this.setState(
-    //         {data : savedData}
-    //     )
-    //     }
-    // }
+    retrievedLocalStorage(){
+        console.log('y');console.log('local')
+        // if (localStorage.length>0) {
+        //     let savedData = JSON.parse(localStorage.getItem('dataStoraged'));
+        // this.setState(
+        //     {data : savedData}
+        // )
+        // }
+        let retrievedData = localStorage.getItem('dataStoraged');
+        console.log( 'datarecuperada',retrievedData);
+        if (retrievedData !== null){
+            let dataParsed = JSON.parse(retrievedData);
+            console.log('parseando',dataParsed);
+            this.setState(
+                {data : dataParsed}
+            )
+        }
+        
+    }
 
     //Crear loccalStorage
     saveLocalStorage(){
