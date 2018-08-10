@@ -30,7 +30,7 @@ class CardGenerator extends Component {
                 name: "",
                 palette: "1",
                 phone: "",
-                photo: "images/image-card.png",
+                photo: "",
                 typography: "2",
                 skills: ['HTML','git'],
             },
@@ -198,6 +198,7 @@ class CardGenerator extends Component {
                             handleOnChangePhoto={this.handleLoadPhoto}
                             getPhoto={this.getPhoto}
                             refInput={this.profilePhoto}
+                            miniPhoto={this.state.data.photo}
 
                             /> 
                             : <div>Cargando...</div>
