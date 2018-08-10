@@ -112,6 +112,7 @@ class Form extends Component {
       if (addSelectsOnClick) {
         return (
           <Select
+            key={i}
             selectedValue={skill}
             onSelect={(e) => {
               const selectedSkill = e.target.value;
@@ -125,6 +126,7 @@ class Form extends Component {
       } else {
         return (
           <Select
+            key={i}
             selectedValue={skill}
             onSelect={(e) => {
               const selectedSkill = e.target.value;

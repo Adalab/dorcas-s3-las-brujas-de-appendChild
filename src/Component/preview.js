@@ -96,12 +96,14 @@ class Preview extends Component {
 }
 
 Preview.propTypes = {
+
   job: PropTypes.string.isRequired,
   github: PropTypes.string.isRequired,
   linkedin: PropTypes.string.isRequired,
   mail: PropTypes.string.isRequired,
   telf: PropTypes.string.isRequired,
   firstName: PropTypes.string.isRequired,
+
 }
 
 export default Preview;
