@@ -22,20 +22,20 @@ class Preview extends Component {
           <i className="far fa-trash-alt">
           </i>
           <div className="resetbutton--text">
-            {this.props.reset}
+            RESET
           </div>
         </button>
-        <div className={`card jsCard ${this.props.colorPalette}`} >
+        <div className={`card jsCard ${this.props.colorPalette} ${this.props.colortypo}`} >
           <div className="card__top">
             <div className="card-info js-card-info">
               <p
                 className="card__top--name js-card__top--name"
-                id="fullname">{this.props.firstName || 'Nombre Completo'}
+                id="fullname">{this.props.firstName || 'Joan Wytte'}
               </p>
               <p
                 className="card__top--career js-card__top--career"
                 id="profesion">
-                {this.props.job}
+                {this.props.job || "Hierbas y Remedios"}
               </p>
             </div>
           </div>
@@ -69,6 +69,20 @@ class Preview extends Component {
               title="Github"
               link={`https://github.com/ ${this.props.github}`} />
           </ul>
+          <div className="card__skills">
+            <ul className="card_skills--list js-card_skills--list">
+              {this.props.skills.map((skill, index) => {
+                return(
+                  <li 
+                    className="js-skill skill"
+                     key={index}
+                   >
+                     {skill}
+                   </li>
+                 )
+               })}
+             </ul>
+           </div>
         </div>
       </section>
     );
@@ -76,14 +90,14 @@ class Preview extends Component {
 }
 
 Preview.propTypes = {
-  job: PropTypes.string,
-  github: PropTypes.string,
-  linkedin: PropTypes.string,
-  mail: PropTypes.string,
-  telf: PropTypes.string,
-  firstName: PropTypes.string,
-  /* resetButtom: PropTypes.string,
-  reset: PropTypes.string, */
+
+  job: PropTypes.string.isRequired,
+  github: PropTypes.string.isRequired,
+  linkedin: PropTypes.string.isRequired,
+  mail: PropTypes.string.isRequired,
+  telf: PropTypes.string.isRequired,
+  firstName: PropTypes.string.isRequired,
+
 }
 
 export default Preview;

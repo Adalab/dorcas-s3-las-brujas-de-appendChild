@@ -2,14 +2,17 @@ import React, { Component, Fragment } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Main from './Main';
-import PropTypes from 'prop-types';
+
 const colors = {
     '1': 'green-card',
     '2': 'red-card',
     '3': 'blue-card'
 }
-
-
+const fonts = {
+    '1': 'ubuntu-card ',
+    '2': 'comic-card ',
+    '3': 'montse-card'
+}
 
 class CardGenerator extends Component {
     constructor(props) {
@@ -19,14 +22,14 @@ class CardGenerator extends Component {
             data: {
                 email: "",
                 github: "",
-                job: "unicornio",
+                job: "",
                 linkedin: "",
                 name: "",
-                palette: "2",
+                palette: "1",
                 phone: "",
                 photo: "images/image-card.png",
-                typography: 2,
-                skills: [],
+                typography: "2",
+                skills: ['HTML','git'],
             },
         }
         this.handleChangeInputRadioColor = this.handleChangeInputRadioColor.bind(this);
@@ -144,6 +147,7 @@ class CardGenerator extends Component {
                 {
                     this.state.skillsList.length > 0 ?
                         <Main color={colors[this.state.data.palette]}
+                            font={fonts[this.state.data.typography]}
                             data={this.state.data}
                             skillsList={this.state.skillsList}
                             handleOnChangeColor={this.handleChangeInputRadioColor}
@@ -162,17 +166,5 @@ class CardGenerator extends Component {
         );
     }
 }
-
-CardGenerator.propTypes = {
-    job: PropTypes.string,
-    github: PropTypes.string,
-    linkedin: PropTypes.string,
-    mail: PropTypes.string,
-    telf: PropTypes.number,
-    firstName: PropTypes.string,
-    /* resetButtom: PropTypes.string,
-    reset: PropTypes.string, */
-  }
-
 
 export default CardGenerator;
