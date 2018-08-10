@@ -48,13 +48,14 @@ class CardGenerator extends Component {
         this.handleLoadPhoto = this.handleLoadPhoto.bind(this);
         this.callingAbilities = this.callingAbilities.bind(this);
         this.retrievedLocalStorage = this.retrievedLocalStorage.bind(this);
+        this.saveLocalStorage = this.saveLocalStorage.bind(this);
         this.jsonResponse = this.jsonResponse.bind(this);
         this.callingAbilities()
         this.profilePhoto= React.createRef();
         this.retrievedLocalStorage();
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.retrievedLocalStorage();
     }
 
@@ -68,9 +69,10 @@ class CardGenerator extends Component {
     }
 
     //Crear loccalStorage
-    // saveLocalStorage(){
-        
-    // }
+    saveLocalStorage(){
+        localStorage.setItem('dataStoraged', JSON.stringify(this.state.data));
+        console.log('localStorage',localStorage);
+    }
 
     handleChangeInputRadioColor(event) {
         this.setState({
@@ -196,9 +198,9 @@ class CardGenerator extends Component {
 
     render() {
         
-        
-        localStorage.setItem('dataStoraged', JSON.stringify(this.state.data));
-        console.log('localStorage',localStorage);
+        setTimeout(this.saveLocalStorage,500);
+        // localStorage.setItem('dataStoraged', JSON.stringify(this.state.data));
+        // console.log('localStorage',localStorage);
         console.log('state data', this.state.data);
         return (
             <Fragment>
