@@ -11,6 +11,7 @@ class Preview extends Component {
     console.log("me han pulsado");
   }
   render() {
+    const {photo} = this.props;
     return (
       <section className="section-card">
         <button onClick={this.resetButtom}
@@ -39,7 +40,12 @@ class Preview extends Component {
               </p>
             </div>
           </div>
-          <div className="card__image"></div>
+          <div 
+            className="card__image"
+            style={{backgroundImage: `url(${photo})`}}
+          >
+          
+          </div>
           <ul className="card__social">
             <Icon
               classA="button--mobile"
@@ -75,14 +81,14 @@ class Preview extends Component {
                 return(
                   <li 
                     className="js-skill skill"
-                     key={index}
-                   >
-                     {skill}
-                   </li>
-                 )
-               })}
-             </ul>
-           </div>
+                    key={index}
+                  >
+                    {skill}
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
         </div>
       </section>
     );

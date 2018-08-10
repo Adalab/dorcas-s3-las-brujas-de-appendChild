@@ -8,11 +8,14 @@ const colors = {
     '2': 'red-card',
     '3': 'blue-card'
 }
+
 const fonts = {
     '1': 'ubuntu-card ',
     '2': 'comic-card ',
     '3': 'montse-card'
 }
+
+let fr = new FileReader();
 
 class CardGenerator extends Component {
     constructor(props) {
@@ -32,6 +35,8 @@ class CardGenerator extends Component {
                 skills: ['HTML','git'],
             },
         }
+        
+        this.getPhoto = this.getPhoto.bind(this);
         this.handleChangeInputRadioColor = this.handleChangeInputRadioColor.bind(this);
         this.handleChangeInputRadioTipo = this.handleChangeInputRadioTipo.bind(this);
         this.handleChangeInputGithub = this.handleChangeInputGithub.bind(this);
@@ -40,13 +45,14 @@ class CardGenerator extends Component {
         this.handleChangeInputLinkedin = this.handleChangeInputLinkedin.bind(this);
         this.handleChangeInputTelf = this.handleChangeInputTelf.bind(this);
         this.handleChangeInputMail = this.handleChangeInputMail.bind(this);
+        this.handleLoadPhoto = this.handleLoadPhoto.bind(this);
         this.callingAbilities = this.callingAbilities.bind(this);
         this.jsonResponse = this.jsonResponse.bind(this);
         this.callingAbilities()
+        this.profilePhoto= React.createRef();
     }
 
     handleChangeInputRadioColor(event) {
-        console.log('checkeandooooooo');
         this.setState({
             data: {
                 ...this.state.data,
@@ -54,7 +60,36 @@ class CardGenerator extends Component {
             }
         })
     }
+//   input file
+    getPhoto(event){
+        console.log('BUBUBU', this.profilePhoto.current)
+        this.profilePhoto.current.click();
+    }
 
+    
+    handleLoadPhoto(event){   
+        console.log('HOLAHOLA'); 
+
+        this.profilePhoto.current.files[0];
+        
+        console.log('FR',fr);
+        
+        const writePhoto = ()=>{
+            console.log('fr after load',fr);
+            this.setState(
+                {
+                    data:{
+                        ...this.state.data,
+                        photo: fr.result
+                    }
+                }
+            )
+        }
+        fr.addEventListener('load', writePhoto);
+        fr.readAsDataURL(this.profilePhoto.current.files[0]);
+    }
+
+    
     handleChangeInputRadioTipo(event) {
         this.setState({
             data: {
@@ -141,12 +176,14 @@ class CardGenerator extends Component {
 
     render() {
         console.log('state data', this.state.data);
+        
         return (
             <Fragment>
                 <Header />
                 {
-                    this.state.skillsList.length > 0 ?
-                        <Main color={colors[this.state.data.palette]}
+                    this.state.skillsList.length > 0 
+                        ?<Main 
+                            color={colors[this.state.data.palette]}
                             font={fonts[this.state.data.typography]}
                             data={this.state.data}
                             skillsList={this.state.skillsList}
@@ -157,7 +194,13 @@ class CardGenerator extends Component {
                             handleOnChangeTelf={this.handleChangeInputTelf}
                             handleOnChangeMail={this.handleChangeInputMail}
                             handleOnChangeLinkedin={this.handleChangeInputLinkedin}
-                            handleOnChangeJob={this.handleChangeInputJob} /> : <div>Cargando...</div>
+                            handleOnChangeJob={this.handleChangeInputJob} 
+                            handleOnChangePhoto={this.handleLoadPhoto}
+                            getPhoto={this.getPhoto}
+                            refInput={this.profilePhoto}
+
+                            /> 
+                            : <div>Cargando...</div>
                 }
 
                 <Footer />

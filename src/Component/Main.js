@@ -8,7 +8,7 @@ class Main extends Component {
     super(props);
   }
   render() {
-    const {skills, job, name, email, linkedin, github, phone, palette} = this.props.data;
+    const {skills, job, name, email, linkedin, github, phone,palette,photo} = this.props.data;
     const {color}= this.props;
     const {font}=this.props;
     return (
@@ -22,6 +22,7 @@ class Main extends Component {
           github={github}
           telf={phone}
           colorPalette={color}
+          photo={photo}
           colortypo={font}
         /> 
         <Form 
@@ -34,6 +35,9 @@ class Main extends Component {
           handleInputTelf={this.props.handleOnChangeTelf}
           handleInputMail={this.props.handleOnChangeMail}
           handleInputLinkedin={this.props.handleOnChangeLinkedin}
+          handleOnChangePhoto={this.props.handleOnChangePhoto}
+          getPhoto={this.props.getPhoto}
+          refInput={this.props.refInput}
           githubInputValue={github}
           linkedinInputValue={linkedin}
           telfInputValue={phone}
