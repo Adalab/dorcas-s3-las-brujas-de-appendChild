@@ -24,6 +24,7 @@ class Main extends Component {
           colorPalette={color}
           photo={photo}
           colortypo={font}
+          handleReset={this.props.handleReset}
         /> 
         <Form 
           skillsList= {this.props.skillsList}

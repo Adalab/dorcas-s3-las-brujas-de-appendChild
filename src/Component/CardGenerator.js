@@ -47,34 +47,38 @@ class CardGenerator extends Component {
         this.handleChangeInputMail = this.handleChangeInputMail.bind(this);
         this.handleLoadPhoto = this.handleLoadPhoto.bind(this);
         this.callingAbilities = this.callingAbilities.bind(this);
-        this.retrievedLocalStorage = this.retrievedLocalStorage.bind(this);
+        // this.retrievedLocalStorage = this.retrievedLocalStorage.bind(this);
         this.saveLocalStorage = this.saveLocalStorage.bind(this);
         this.jsonResponse = this.jsonResponse.bind(this);
+        this.handleReset = this.handleReset.bind(this);
         this.callingAbilities()
         this.profilePhoto= React.createRef();
-        this.retrievedLocalStorage();
+        // this.retrievedLocalStorage();
     }
 
-    componentDidMount(){
-        this.retrievedLocalStorage();
-    }
+    // componentDidMount(){
+    //     this.retrievedLocalStorage();
+    // }
 
     //Recuperar localStorage
-    retrievedLocalStorage(){
-        console.log('y');console.log('local')
-        if (localStorage.length>0) {
-            let savedData = JSON.parse(localStorage.getItem('dataStoraged'));
-        this.setState(
-            {data : savedData}
-        )
-        }
-        
-    }
+    // retrievedLocalStorage(){
+    //     console.log('y');console.log('local')
+    //     if (localStorage.length>0) {
+    //         let savedData = JSON.parse(localStorage.getItem('dataStoraged'));
+    //     this.setState(
+    //         {data : savedData}
+    //     )
+    //     }
+    // }
 
     //Crear loccalStorage
     saveLocalStorage(){
         localStorage.setItem('dataStoraged', JSON.stringify(this.state.data));
         console.log('localStorage',localStorage);
+    }
+
+    handleReset(event){
+        localStorage.clear()
     }
 
     handleChangeInputRadioColor(event) {
@@ -224,6 +228,7 @@ class CardGenerator extends Component {
                             handleOnChangeLinkedin={this.handleChangeInputLinkedin}
                             handleOnChangeJob={this.handleChangeInputJob} 
                             handleOnChangePhoto={this.handleLoadPhoto}
+                            handleReset={this.handleReset}
                             getPhoto={this.getPhoto}
                             refInput={this.profilePhoto}
                             miniPhoto={this.state.data.photo}
