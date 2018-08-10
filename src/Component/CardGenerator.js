@@ -47,10 +47,30 @@ class CardGenerator extends Component {
         this.handleChangeInputMail = this.handleChangeInputMail.bind(this);
         this.handleLoadPhoto = this.handleLoadPhoto.bind(this);
         this.callingAbilities = this.callingAbilities.bind(this);
+        this.retrievedLocalStorage = this.retrievedLocalStorage.bind(this);
         this.jsonResponse = this.jsonResponse.bind(this);
         this.callingAbilities()
         this.profilePhoto= React.createRef();
+        this.retrievedLocalStorage();
     }
+
+    componentWillMount(){
+        this.retrievedLocalStorage();
+    }
+
+    //Recuperar localStorage
+    retrievedLocalStorage(){
+        console.log('y');
+        let savedData = JSON.parse(localStorage.getItem('dataStoraged'));
+        this.setState(
+            {data : savedData}
+        )
+    }
+
+    //Crear loccalStorage
+    // saveLocalStorage(){
+        
+    // }
 
     handleChangeInputRadioColor(event) {
         this.setState({
@@ -175,8 +195,11 @@ class CardGenerator extends Component {
     }
 
     render() {
-        console.log('state data', this.state.data);
         
+        
+        localStorage.setItem('dataStoraged', JSON.stringify(this.state.data));
+        console.log('localStorage',localStorage);
+        console.log('state data', this.state.data);
         return (
             <Fragment>
                 <Header />
@@ -198,11 +221,9 @@ class CardGenerator extends Component {
                             handleOnChangePhoto={this.handleLoadPhoto}
                             getPhoto={this.getPhoto}
                             refInput={this.profilePhoto}
-
                             /> 
                             : <div>Cargando...</div>
                 }
-
                 <Footer />
             </Fragment>
 
