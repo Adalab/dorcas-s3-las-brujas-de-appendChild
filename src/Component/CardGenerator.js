@@ -78,7 +78,22 @@ class CardGenerator extends Component {
     }
 
     handleReset(event){
-        localStorage.clear()
+        localStorage.clear();
+
+        this.setState(
+            {data: {
+                email: "",
+                github: "",
+                job: "",
+                linkedin: "",
+                name: "",
+                palette: "1",
+                phone: "",
+                photo: "",
+                typography: "2",
+                skills: ['HTML','git'],
+            }}
+        )
     }
 
     handleChangeInputRadioColor(event) {
