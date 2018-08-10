@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Icon from './Icon';
 import PropTypes from 'prop-types';
+import littleWitch from '../images/joan.jpg';
 
 class Preview extends Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class Preview extends Component {
           </div>
           <div 
             className="card__image"
-            style={{backgroundImage: `url(${photo})`}}
+            style={{backgroundImage: `url(${photo || littleWitch})`}}
           >
           
           </div>
