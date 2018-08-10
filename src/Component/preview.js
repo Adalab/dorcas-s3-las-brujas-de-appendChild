@@ -42,7 +42,7 @@ class Preview extends Component {
           </div>
           <div 
             className="card__image"
-            style={{backgroundImage: `url(${photo || '../images/image-card.png'})`}}
+            style={{backgroundImage: `url(${photo})`}}
           >
           
           </div>
