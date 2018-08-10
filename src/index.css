@@ -28,8 +28,7 @@
   width: 100%; }
 
 .section-card {
-  background: -webkit-gradient(linear, left top, left bottom, from(lightblue), to(pink));
-  background: linear-gradient(lightblue, pink);
+  background-image: url("images/forest.jpg");
   width: 100vw;
   height: 457px;
   padding-top: 10px; }
@@ -93,7 +92,7 @@
 .card__image {
   width: 100%;
   height: 200px;
-  background-image: url("images/image-card.png");
+  background-image: url("images/joan.jpg");
   background-size: cover; }
 
 .card__social {
