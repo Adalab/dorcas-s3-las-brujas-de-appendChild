@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Collapsable from './Collapsable'
 import Select from './Select';
+import littleWitch from '../images/joan.jpg';
 
 class Form extends Component {
   constructor(props) {
@@ -349,6 +350,8 @@ class Form extends Component {
                         type="file"
                       />
                     <div className="square__white">
+                    <img className="little-witch" src={this.props.miniPhoto || littleWitch} alt="miniprofil">
+                    </img>
                     </div>
                   </div>
                   <label
