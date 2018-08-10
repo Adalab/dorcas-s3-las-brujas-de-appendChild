@@ -179,7 +179,7 @@ class Form extends Component {
                         type="radio"
                         name="palette"
                         value="1"
-                        // checked
+                        defaultChecked
                         data-dest="green-card"
                         onChange={this.props.handleInputRadioColor}
                       />
@@ -235,7 +235,6 @@ class Form extends Component {
                         type="radio"
                         name="typography"
                         value="1"
-                        defaultChecked 
                         data-font="ubuntu-card"
                         onChange={this.props.handleInputRadioTipo}
                       />
@@ -255,7 +254,6 @@ class Form extends Component {
                         value="2"
                         defaultChecked 
                         data-font="comic-card"
-                        // checked
                         onChange={this.props.handleInputRadioTipo}
                       />
                       <label
