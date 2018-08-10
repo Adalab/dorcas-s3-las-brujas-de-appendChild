@@ -61,11 +61,14 @@ class CardGenerator extends Component {
 
     //Recuperar localStorage
     retrievedLocalStorage(){
-        console.log('y');
-        let savedData = JSON.parse(localStorage.getItem('dataStoraged'));
+        console.log('y');console.log('local')
+        if (localStorage.length>0) {
+            let savedData = JSON.parse(localStorage.getItem('dataStoraged'));
         this.setState(
             {data : savedData}
         )
+        }
+        
     }
 
     //Crear loccalStorage
@@ -197,10 +200,10 @@ class CardGenerator extends Component {
     }
 
     render() {
-        
+        console.log('111111111111localStorage',localStorage);
         setTimeout(this.saveLocalStorage,500);
         // localStorage.setItem('dataStoraged', JSON.stringify(this.state.data));
-        // console.log('localStorage',localStorage);
+        
         console.log('state data', this.state.data);
         return (
             <Fragment>
