@@ -80,7 +80,7 @@ Preview.propTypes = {
   github: PropTypes.string,
   linkedin: PropTypes.string,
   mail: PropTypes.string,
-  telf: PropTypes.number,
+  telf: PropTypes.string,
   firstName: PropTypes.string,
   /* resetButtom: PropTypes.string,
   reset: PropTypes.string, */
