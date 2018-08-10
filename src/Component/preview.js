@@ -8,14 +8,12 @@ class Preview extends Component {
     super(props);
     console.log('props', props);
   }
-  resetButtom() {
-    console.log("me han pulsado");
-  }
+  
   render() {
     const {photo} = this.props;
     return (
       <section className="section-card">
-        <button onClick={this.resetButtom}
+        <button onClick={this.props.handleReset}
           type="button"
           name="Reset"
           alt="reset button"
