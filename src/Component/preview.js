@@ -23,7 +23,7 @@ class Preview extends Component {
           <i className="far fa-trash-alt">
           </i>
           <div className="resetbutton--text">
-            {this.props.reset}
+            RESET
           </div>
         </button>
         <div className={`card jsCard ${this.props.colorPalette} ${this.props.colortypo}`} >
@@ -31,13 +31,12 @@ class Preview extends Component {
             <div className="card-info js-card-info">
               <p
                 className="card__top--name js-card__top--name"
-                id="fullname">{this.props.firstName || 'Nombre Completo'}
+                id="fullname">{this.props.firstName || 'Joan Wytte'}
               </p>
               <p
                 className="card__top--career js-card__top--career"
-                id="profesion"
-              >
-                {this.props.job || "Profesión"}
+                id="profesion">
+                {this.props.job || "Hierbas y Remedios"}
               </p>
             </div>
           </div>
@@ -98,10 +97,10 @@ class Preview extends Component {
 
 Preview.propTypes = {
   job: PropTypes.string.isRequired,
-  github: PropTypes.stringisRequired,
+  github: PropTypes.string.isRequired,
   linkedin: PropTypes.string.isRequired,
   mail: PropTypes.string.isRequired,
-  telf: PropTypes.number.isRequired,
+  telf: PropTypes.string.isRequired,
   firstName: PropTypes.string.isRequired,
 }
 

@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Main from './Main';
-import PropTypes from 'prop-types';
 
 const colors = {
     '1': 'green-card',
@@ -29,10 +28,10 @@ class CardGenerator extends Component {
                 job: "",
                 linkedin: "",
                 name: "",
-                palette: "2",
+                palette: "1",
                 phone: "",
                 photo: "images/image-card.png",
-                typography: 2,
+                typography: "2",
                 skills: ['HTML','git'],
             },
         }
@@ -210,15 +209,5 @@ class CardGenerator extends Component {
         );
     }
 }
-
-CardGenerator.propTypes = {
-    job: PropTypes.string.isRequired,
-    github: PropTypes.stringisRequired,
-    linkedin: PropTypes.string.isRequired,
-    mail: PropTypes.string.isRequired,
-    telf: PropTypes.number.isRequired,
-    firstName: PropTypes.string.isRequired,
-}
-
 
 export default CardGenerator;
