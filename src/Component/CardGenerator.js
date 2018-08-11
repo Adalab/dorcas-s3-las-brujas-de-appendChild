@@ -48,54 +48,62 @@ class CardGenerator extends Component {
         this.handleChangeInputMail = this.handleChangeInputMail.bind(this);
         this.handleLoadPhoto = this.handleLoadPhoto.bind(this);
         this.callingAbilities = this.callingAbilities.bind(this);
-        this.retrievedLocalStorage = this.retrievedLocalStorage.bind(this);
+        // this.retrievedLocalStorage = this.retrievedLocalStorage.bind(this);
         this.saveLocalStorage = this.saveLocalStorage.bind(this);
         this.jsonResponse = this.jsonResponse.bind(this);
         this.createCard= this.createCard.bind(this);
+        this.handleReset = this.handleReset.bind(this);
         this.callingAbilities()
         this.profilePhoto= React.createRef();
-        this.retrievedLocalStorage();
+        // this.retrievedLocalStorage();
     }
 
     componentDidMount(){
         this.retrievedLocalStorage();
     }
-    //fetch
-   
-      
-   createCard() {
+    //fetch 
+    createCard() {
         const {data}= this.state
         fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
-              'content-type': 'application/json'
+            'content-type': 'application/json'
             },
             
-          })
-          .then(function (resp) {
-              console.log("resp",resp);
+            })
+        .then(function (resp) {
+            console.log("resp",resp);
             return resp.json();
-          })
-          .then((resp) =>{
+        })
+        .then((resp) =>{
             console.log(resp.cardURL);
             this.setState({
-               url: resp.cardURL,
-                });
-          })
-          .catch(function (error) {
+            url: resp.cardURL,
+            });
+        })
+        .catch(function (error) {
             console.log(error);
-          })
-      }
+        })
+    }
 
     //Recuperar localStorage
     retrievedLocalStorage(){
         console.log('y');console.log('local')
-        if (localStorage.length>0) {
-            let savedData = JSON.parse(localStorage.getItem('dataStoraged'));
-        this.setState(
-            {data : savedData}
-        )
+        // if (localStorage.length>0) {
+        //     let savedData = JSON.parse(localStorage.getItem('dataStoraged'));
+        // this.setState(
+        //     {data : savedData}
+        // )
+        // }
+        let retrievedData = localStorage.getItem('dataStoraged');
+        console.log( 'datarecuperada',retrievedData);
+        if (retrievedData !== null){
+            let dataParsed = JSON.parse(retrievedData);
+            console.log('parseando',dataParsed);
+            this.setState(
+                {data : dataParsed}
+            )
         }
         
     }
@@ -104,6 +112,25 @@ class CardGenerator extends Component {
     saveLocalStorage(){
         localStorage.setItem('dataStoraged', JSON.stringify(this.state.data));
         console.log('localStorage',localStorage);
+    }
+
+    handleReset(event){
+        localStorage.clear();
+
+        this.setState(
+            {data: {
+                email: "",
+                github: "",
+                job: "",
+                linkedin: "",
+                name: "",
+                palette: "1",
+                phone: "",
+                photo: "",
+                typography: "2",
+                skills: ['HTML','git'],
+            }}
+        )
     }
 
     handleChangeInputRadioColor(event) {
@@ -253,6 +280,7 @@ class CardGenerator extends Component {
                             handleOnChangeLinkedin={this.handleChangeInputLinkedin}
                             handleOnChangeJob={this.handleChangeInputJob} 
                             handleOnChangePhoto={this.handleLoadPhoto}
+                            handleReset={this.handleReset}
                             getPhoto={this.getPhoto}
                             refInput={this.profilePhoto}
                             miniPhoto={this.state.data.photo}
