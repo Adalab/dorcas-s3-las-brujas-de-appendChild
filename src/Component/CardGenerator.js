@@ -212,7 +212,8 @@ class CardGenerator extends Component {
                             color={colors[this.state.data.palette]}
                             font={fonts[this.state.data.typography]}
                             data={this.state.data}
-                            skillsList={[this.state.skillsList[0]]}
+                            //skillsList={[this.state.skillsList[0]]}
+                            skillsList={this.state.skillsList}
                             handleOnChangeColor={this.handleChangeInputRadioColor}
                             handleOnChangeTipo={this.handleChangeInputRadioTipo}
                             handleOnChangeGithub={this.handleChangeInputGithub}
