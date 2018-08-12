@@ -73,9 +73,7 @@ class Form extends Component {
   addImg() {
     console.log("a mi también");
   }
-  createCard() {
-    console.log("y a miii");
-  }
+
   twitterButtom() {
     console.log("soy twitter");
   }
@@ -438,7 +436,7 @@ class Form extends Component {
                 <div className="section-collapsible__share--button">
                   <button
                     className="btn-create-card js-btn-create-card"
-                    onClick={this.createCard}
+                    onClick={this.props.createCard}
                     type="button"
                     name="button"
                   >
@@ -449,11 +447,12 @@ class Form extends Component {
                     CREAR TARJETA
                   </button>
                 </div>
-                <div className="section-collapsible__share--end js-hidden-twitter">
+                {/* <div className="section-collapsible__share--end js-hidden-twitter"> */}
+                <div className="section-collapsible__share--end">
                   <p className="phrase">
                     La tarjeta ha sido creada:
                   </p>
-                  {/* <!-- <a class="link-awesome" href="http://awesome-profile-card.com?id=S456DF0001"> http://awesome-profile-card.com?id=S456DF0001 </a> --> */}
+                    <a className="link-awesome" href={`${this.props.createdLink}`}> {this.props.createdLink}</a> 
                   <a
                     href="#"
                     className="link-awesome linkTwitter"

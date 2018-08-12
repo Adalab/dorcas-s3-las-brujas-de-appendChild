@@ -22,6 +22,7 @@ class CardGenerator extends Component {
         super(props);
         this.state = {
             skillsList: [],
+            url:"",
             data: {
                 email: "",
                 github: "",
@@ -50,15 +51,41 @@ class CardGenerator extends Component {
         // this.retrievedLocalStorage = this.retrievedLocalStorage.bind(this);
         this.saveLocalStorage = this.saveLocalStorage.bind(this);
         this.jsonResponse = this.jsonResponse.bind(this);
+        this.createCard= this.createCard.bind(this);
         this.handleReset = this.handleReset.bind(this);
         this.callingAbilities()
         this.profilePhoto= React.createRef();
         // this.retrievedLocalStorage();
     }
 
-    // componentDidMount(){
-    //     this.retrievedLocalStorage();
-    // }
+    componentDidMount(){
+        this.retrievedLocalStorage();
+    }
+    //fetch 
+    createCard() {
+        const {data}= this.state
+        fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+            'content-type': 'application/json'
+            },
+            
+            })
+        .then(function (resp) {
+            console.log("resp",resp);
+            return resp.json();
+        })
+        .then((resp) =>{
+            console.log(resp.cardURL);
+            this.setState({
+            url: resp.cardURL,
+            });
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+    }
 
     //Recuperar localStorage
     retrievedLocalStorage(){
@@ -257,6 +284,8 @@ class CardGenerator extends Component {
                             getPhoto={this.getPhoto}
                             refInput={this.profilePhoto}
                             miniPhoto={this.state.data.photo}
+                            createCard={this.createCard}
+                            createdLink={this.state.url}
                             /> 
                             : <div>Cargando...</div>
                 }
