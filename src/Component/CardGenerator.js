@@ -80,7 +80,6 @@ class CardGenerator extends Component {
             },
 
         })
-<<<<<<< HEAD
             .then(function (resp) {
                 console.log("resp", resp);
                 return resp.json();
@@ -94,20 +93,18 @@ class CardGenerator extends Component {
             .catch(function (error) {
                 console.log(error);
             })
-=======
-        if(this.state.twitter=== "js-hidden-twitter"){
-            const{twitter}=this.state
+        if (this.state.twitter === "js-hidden-twitter") {
+            const { twitter } = this.state
             this.setState({
-                twitter :""
+                twitter: ""
             })
         }
->>>>>>> master
     }
 
     //Recuperar localStorage
     retrievedLocalStorage() {
         console.log('y'); console.log('local')
-        
+
         let retrievedData = localStorage.getItem('dataStoraged');
         console.log('datarecuperada', retrievedData);
         if (retrievedData !== null) {
@@ -272,7 +269,6 @@ class CardGenerator extends Component {
         )
     }
 
-<<<<<<< HEAD
     handleSelect(skill, i) {
         this.setState({
             //update element
@@ -282,7 +278,7 @@ class CardGenerator extends Component {
             data: {
                 ...this.state.data,
                 skills: this.state.selectedSkills
-                }
+            }
         })
     }
 
@@ -305,12 +301,10 @@ class CardGenerator extends Component {
     }
 
 
-=======
     twitterButton() {
-        window.location.href=`http://twitter.com/share?text=Tarjeta%20de%20de%20presentaci%C3%B3n%20con%20Awesome%20profile-cards%20(Brujas%20de%20appendChild%20-%20Sprint3%20de%20Adalab)&hashtags=WomenInTech&url=${this.props.createdLink}`;
+        window.location.href = `http://twitter.com/share?text=Tarjeta%20de%20de%20presentaci%C3%B3n%20con%20Awesome%20profile-cards%20(Brujas%20de%20appendChild%20-%20Sprint3%20de%20Adalab)&hashtags=WomenInTech&url=${this.props.createdLink}`;
     }
 
->>>>>>> master
     render() {
         console.log('111111111111localStorage', localStorage);
         setTimeout(this.saveLocalStorage, 500);
@@ -348,14 +342,9 @@ class CardGenerator extends Component {
                             miniPhoto={this.state.data.photo}
                             createCard={this.createCard}
                             createdLink={this.state.url}
-<<<<<<< HEAD
-                        />
-                        : <div className="LoadingPage">Cargando...</div>
-=======
                             hiddenTwitter={this.state.twitter}
-                            /> 
-                            : <div>Cargando...</div>
->>>>>>> master
+                        />
+                        : <div>Cargando...</div>
                 }
                 <Footer />
             </Fragment>

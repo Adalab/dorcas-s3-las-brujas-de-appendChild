@@ -7,34 +7,28 @@ class Main extends Component {
 
 
   render() {
-<<<<<<< HEAD
-    const { skills, job, name, email, linkedin, github, phone, palette, photo } = this.props.data;
-    const { color, miniPhoto, createCard, createdLink } = this.props;
-    const { font } = this.props;
-=======
 
     const {
       skills,
       job,
-      name, 
-      email, 
-      linkedin, 
-      github, 
+      name,
+      email,
+      linkedin,
+      github,
       phone,
       palette,
       photo
     } = this.props.data;
     const {
-      color, 
-      miniPhoto, 
+      color,
+      miniPhoto,
       createCard,
       createdLink,
       hiddenTwitter,
       font,
       twitterButton
-    }= this.props;
+    } = this.props;
 
->>>>>>> master
     return (
       <div className="cardGenerator__main">
         <Preview

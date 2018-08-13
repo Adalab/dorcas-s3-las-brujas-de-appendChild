@@ -12,17 +12,11 @@ class Form extends Component {
       openCollapsibleFill: false,
       openCollapsibleShare: false,
     }
-<<<<<<< HEAD
     this.addImg = this.addImg.bind(this);
-=======
-    this.handleSelect = this.handleSelect.bind(this);
-    this.addSelect = this.addSelect.bind(this);
-    this.removeSelect = this.removeSelect.bind(this);
->>>>>>> master
     this.handleCollapsibleDesign = this.handleCollapsibleDesign.bind(this);
     this.handleCollapsibleFill = this.handleCollapsibleFill.bind(this);
     this.handleCollapsibleShare = this.handleCollapsibleShare.bind(this);
-    
+
   }
 
   handleCollapsibleDesign(event) {
@@ -71,8 +65,8 @@ class Form extends Component {
     }
   }
 
-    
-  
+
+
 
 
   render() {
