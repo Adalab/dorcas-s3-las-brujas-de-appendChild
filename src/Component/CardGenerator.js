@@ -23,6 +23,7 @@ class CardGenerator extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            twitter: "js-hidden-twitter",
             skillsList: [],
             selectedSkills: ['HTML'],
             url: "",
@@ -50,6 +51,7 @@ class CardGenerator extends Component {
         this.handleChangeInputTelf = this.handleChangeInputTelf.bind(this);
         this.handleChangeInputMail = this.handleChangeInputMail.bind(this);
         this.handleLoadPhoto = this.handleLoadPhoto.bind(this);
+        this.twitterButton = this.twitterButton.bind(this);
         this.callingAbilities = this.callingAbilities.bind(this);
         // this.retrievedLocalStorage = this.retrievedLocalStorage.bind(this);
         this.saveLocalStorage = this.saveLocalStorage.bind(this);
@@ -91,6 +93,12 @@ class CardGenerator extends Component {
             .catch(function (error) {
                 console.log(error);
             })
+        if (this.state.twitter === "js-hidden-twitter") {
+            const { twitter } = this.state
+            this.setState({
+                twitter: ""
+            })
+        }
     }
 
     //Recuperar localStorage
@@ -275,6 +283,11 @@ class CardGenerator extends Component {
         })
     }
 
+
+    twitterButton() {
+        window.location.href = `http://twitter.com/share?text=Tarjeta%20de%20de%20presentaci%C3%B3n%20con%20Awesome%20profile-cards%20(Brujas%20de%20appendChild%20-%20Sprint3%20de%20Adalab)&hashtags=WomenInTech&url=${this.props.createdLink}`;
+    }
+
     render() {
         setTimeout(this.saveLocalStorage, 500);
         console.log('state data', this.state.data);
@@ -302,14 +315,16 @@ class CardGenerator extends Component {
                             handleOnChangeLinkedin={this.handleChangeInputLinkedin}
                             handleOnChangeJob={this.handleChangeInputJob}
                             handleOnChangePhoto={this.handleLoadPhoto}
+                            twitterButton={this.twitterButton}
                             handleReset={this.handleReset}
                             getPhoto={this.getPhoto}
                             refInput={this.profilePhoto}
                             miniPhoto={this.state.data.photo}
                             createCard={this.createCard}
                             createdLink={this.state.url}
+                            hiddenTwitter={this.state.twitter}
                         />
-                        : <div className="LoadingPage">Cargando...</div>
+                        : <div>Cargando...</div>
                 }
                 <Footer />
             </Fragment>
