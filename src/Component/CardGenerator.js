@@ -48,6 +48,7 @@ class CardGenerator extends Component {
         this.handleChangeInputTelf = this.handleChangeInputTelf.bind(this);
         this.handleChangeInputMail = this.handleChangeInputMail.bind(this);
         this.handleLoadPhoto = this.handleLoadPhoto.bind(this);
+        this.twitterButton = this.twitterButton.bind(this);
         this.callingAbilities = this.callingAbilities.bind(this);
         // this.retrievedLocalStorage = this.retrievedLocalStorage.bind(this);
         this.saveLocalStorage = this.saveLocalStorage.bind(this);
@@ -262,6 +263,10 @@ class CardGenerator extends Component {
         )
     }
 
+    twitterButton() {
+        window.location.href=`http://twitter.com/share?text=Tarjeta%20de%20de%20presentaci%C3%B3n%20con%20Awesome%20profile-cards%20(Brujas%20de%20appendChild%20-%20Sprint3%20de%20Adalab)&hashtags=WomenInTech&url=${this.props.createdLink}`;
+    }
+
     render() {
         console.log('111111111111localStorage',localStorage);
         setTimeout(this.saveLocalStorage,500);
@@ -287,6 +292,7 @@ class CardGenerator extends Component {
                             handleOnChangeLinkedin={this.handleChangeInputLinkedin}
                             handleOnChangeJob={this.handleChangeInputJob} 
                             handleOnChangePhoto={this.handleLoadPhoto}
+                            twitterButton={this.twitterButton}
                             handleReset={this.handleReset}
                             getPhoto={this.getPhoto}
                             refInput={this.profilePhoto}
