@@ -113,8 +113,6 @@ class Form extends Component {
       openCollapsibleShare
     } = this.state;
 
-    // console.log('props en form', this.props);
-    // console.log('props en form', this.props.skillsList)
 
     return (
       <Fragment>

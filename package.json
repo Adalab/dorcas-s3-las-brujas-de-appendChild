@@ -2,6 +2,7 @@
   "name": "dorcas-s3-las-brujas-de-appendchild",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "prop-types": "^15.6.2",
     "react": "^16.4.1",

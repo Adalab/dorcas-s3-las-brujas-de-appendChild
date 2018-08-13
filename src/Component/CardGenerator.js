@@ -81,11 +81,9 @@ class CardGenerator extends Component {
 
         })
             .then(function (resp) {
-                console.log("resp", resp);
                 return resp.json();
             })
             .then((resp) => {
-                console.log(resp.cardURL);
                 this.setState({
                     url: resp.cardURL,
                 });
@@ -102,9 +100,8 @@ class CardGenerator extends Component {
     }
 
     //Recuperar localStorage
-    retrievedLocalStorage() {   
+    retrievedLocalStorage() {
         let retrievedData = localStorage.getItem('dataStoraged');
-        console.log('datarecuperada', retrievedData);
         if (retrievedData !== null) {
             let dataParsed = JSON.parse(retrievedData);
             this.setState(
@@ -116,7 +113,6 @@ class CardGenerator extends Component {
     //Crear loccalStorage
     saveLocalStorage() {
         localStorage.setItem('dataStoraged', JSON.stringify(this.state.data));
-        console.log('localStorage', localStorage);
     }
 
     handleReset(event) {
@@ -253,10 +249,10 @@ class CardGenerator extends Component {
 
     handleSelect(skill, i) {
         const prevSkills = [...this.state.selectedSkills];
-        prevSkills.splice(i,1,skill);
+        prevSkills.splice(i, 1, skill);
         this.setState({
             selectedSkills: prevSkills,
-            data : {
+            data: {
                 ...this.state.data,
                 skills: prevSkills
             }
@@ -264,11 +260,16 @@ class CardGenerator extends Component {
     }
 
     addSelect() {
+        const nextSkills = [...this.state.selectedSkills];
         const nextElem = this.state.skillsList[0];
-        console.log('next elem:   ', nextElem);
+        nextSkills.push(nextElem);
         if (this.state.selectedSkills.length < maxSelects) {
             this.setState({
-                selectedSkills: this.state.selectedSkills.concat(nextElem),
+                selectedSkills: nextSkills,
+                data: {
+                    ...this.state.data,
+                    skills: nextSkills
+                }
             })
         } else {
             console.log('Máximo 3 habilidades')
@@ -276,21 +277,24 @@ class CardGenerator extends Component {
     }
 
     removeSelect(i) {
+        const nextSkills = [...this.state.selectedSkills]
+        nextSkills.splice(i, 1);
         this.setState({
-            selectedSkills: this.state.selectedSkills
-                .slice(0, i)
-                .concat(this.state.selectedSkills.slice(i + 1)),
+            selectedSkills: nextSkills,
+            data: {
+                ...this.state.data,
+                skills: nextSkills
+            }
         })
     }
 
 
     twitterButton() {
-        window.location.href = `http://twitter.com/share?text=Tarjeta%20de%20de%20presentaci%C3%B3n%20con%20Awesome%20profile-cards%20(Brujas%20de%20appendChild%20-%20Sprint3%20de%20Adalab)&hashtags=WomenInTech&url=${this.props.createdLink}`;
+        window.location.href = `https://twitter.com/share?text=Tarjeta%20de%20de%20presentaci%C3%B3n%20con%20Awesome%20profile-cards%20(Brujas%20de%20appendChild%20-%20Sprint3%20de%20Adalab)&hashtags=WomenInTech&url=${this.props.createdLink}`;
     }
 
     render() {
         setTimeout(this.saveLocalStorage, 500);
-        console.log('state data', this.state.data);
         return (
             <Fragment>
                 <Header />

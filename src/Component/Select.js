@@ -6,13 +6,11 @@ class Select extends Component {
   constructor() {
     super();
     this.state = {}
-    // this.handleClick = this.handleClick.bind(this);
   };
 
 
 
   render() {
-    // console.log('weno weno weno', this.props.skillsList)
     const listSkill = this.props.skillsList;
     return (
       <div className="ability-box js-ability-box">
