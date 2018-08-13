@@ -21,6 +21,7 @@ class CardGenerator extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            twitter: "js-hidden-twitter",
             skillsList: [],
             url:"",
             data: {
@@ -86,6 +87,12 @@ class CardGenerator extends Component {
         .catch(function (error) {
             console.log(error);
         })
+        if(this.state.twitter=== "js-hidden-twitter"){
+            const{twitter}=this.state
+            this.setState({
+                twitter :""
+            })
+        }
     }
 
     //Recuperar localStorage
@@ -292,6 +299,7 @@ class CardGenerator extends Component {
                             miniPhoto={this.state.data.photo}
                             createCard={this.createCard}
                             createdLink={this.state.url}
+                            hiddenTwitter={this.state.twitter}
                             /> 
                             : <div>Cargando...</div>
                 }

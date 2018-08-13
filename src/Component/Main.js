@@ -8,6 +8,7 @@ class Main extends Component {
     super(props);
   }
   render() {
+
     const {
       skills,
       job,
@@ -24,9 +25,11 @@ class Main extends Component {
       miniPhoto, 
       createCard,
       createdLink,
+      hiddenTwitter,
+      font,
       twitterButton
     }= this.props;
-    const {font}=this.props;
+
     return (
       <div className= "cardGenerator__main">
         <Preview
@@ -65,6 +68,7 @@ class Main extends Component {
           miniPhoto={miniPhoto}
           createCard={createCard}
           createdLink={createdLink}
+          hiddenTwitter={hiddenTwitter}
           twitterButton={twitterButton}
         />
       </div>

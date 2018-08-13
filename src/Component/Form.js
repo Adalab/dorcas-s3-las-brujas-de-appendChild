@@ -295,7 +295,7 @@ class Form extends Component {
                   </label>
                   <input
                     className="fill-input__placeholder js-personal-name input-style"
-                    placeholder="Ej: Sally Jill"
+                    placeholder="Ej: Joan Wytte"
                     id="nmb"
                     type="text"
                     name="name"
@@ -310,7 +310,7 @@ class Form extends Component {
                   </label>
                   <input
                     className="fill-input__placeholder input-style"
-                    placeholder="Ej: Front-end unicorn"
+                    placeholder="Ej: Bruja de los Bosques"
                     id="job"
                     type="text"
                     name="job"
@@ -355,7 +355,7 @@ class Form extends Component {
                   </label>
                   <input
                     className="fill-input__placeholder input-style"
-                    placeholder="Ej: sally-hill@gmail.com"
+                    placeholder="Ej: Joan-Wytte@gmail.com"
                     id="emailaddress"
                     type="email"
                     name="email"
@@ -371,7 +371,7 @@ class Form extends Component {
                   </label>
                   <input
                     className="fill-input__placeholder input-style"
-                    placeholder="Ej: 555-55-55-55"
+                    placeholder="Ej: 666-66-66-66"
                     id="phone"
                     type="number"
                     name="phone"
@@ -387,7 +387,7 @@ class Form extends Component {
                   </label>
                   <input
                     className="fill-input__placeholder input-style"
-                    placeholder="Ej:sally-hill"
+                    placeholder="Ej:Joan-Wytte"
                     id="lkdn"
                     type="url"
                     name="linkedin"
@@ -403,7 +403,7 @@ class Form extends Component {
                   </label>
                   <input
                     className="fill-input__placeholder input-style"
-                    placeholder="Ej: sally-hill"
+                    placeholder="Ej: Joan-Wytte"
                     id="GH"
                     type="url"
                     name="github"
@@ -443,7 +443,7 @@ class Form extends Component {
                   </button>
                 </div>
                 {/* <div className="section-collapsible__share--end js-hidden-twitter"> */}
-                <div className="section-collapsible__share--end">
+                <div className={`section-collapsible__share--end ${this.props.hiddenTwitter}`}>
                   <p className="phrase">
                     La tarjeta ha sido creada:
                   </p>
