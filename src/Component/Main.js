@@ -4,34 +4,33 @@ import Form from './Form';
 
 
 class Main extends Component {
-  constructor(props){
-    super(props);
-  }
+
+
   render() {
 
     const {
       skills,
       job,
-      name, 
-      email, 
-      linkedin, 
-      github, 
+      name,
+      email,
+      linkedin,
+      github,
       phone,
       palette,
       photo
     } = this.props.data;
     const {
-      color, 
-      miniPhoto, 
+      color,
+      miniPhoto,
       createCard,
       createdLink,
       hiddenTwitter,
       font,
       twitterButton
-    }= this.props;
+    } = this.props;
 
     return (
-      <div className= "cardGenerator__main">
+      <div className="cardGenerator__main">
         <Preview
           skills={skills}
           job={job}
@@ -44,11 +43,17 @@ class Main extends Component {
           photo={photo}
           colortypo={font}
           handleReset={this.props.handleReset}
-        /> 
-        <Form 
-          skillsList= {this.props.skillsList}
-          handleInputRadioColor = {this.props.handleOnChangeColor}
-          handleInputRadioTipo = {this.props.handleOnChangeTipo}
+          selectedSkills={this.props.selectedSkills}
+        />
+        <Form
+          skillsList={this.props.skillsList}
+          selectedSkills={this.props.selectedSkills}
+          maxSelects={this.props.maxSelects}
+          handleSelect={this.props.handleSelect}
+          addSelect={this.props.addSelect}
+          removeSelect={this.props.removeSelect}
+          handleInputRadioColor={this.props.handleOnChangeColor}
+          handleInputRadioTipo={this.props.handleOnChangeTipo}
           handleInputGithub={this.props.handleOnChangeGithub}
           handleInputName={this.props.handleOnChangeName}
           handleInputJob={this.props.handleOnChangeJob}

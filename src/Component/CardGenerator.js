@@ -15,6 +15,8 @@ const fonts = {
     '3': 'montse-card'
 }
 
+const maxSelects = 3
+
 let fr = new FileReader();
 
 class CardGenerator extends Component {
@@ -23,7 +25,8 @@ class CardGenerator extends Component {
         this.state = {
             twitter: "js-hidden-twitter",
             skillsList: [],
-            url:"",
+            selectedSkills: ['HTML'],
+            url: "",
             data: {
                 email: "",
                 github: "",
@@ -34,10 +37,10 @@ class CardGenerator extends Component {
                 phone: "",
                 photo: "",
                 typography: "2",
-                skills: ['HTML','git'],
+                skills: ['HTML'],
             },
         }
-        
+
         this.getPhoto = this.getPhoto.bind(this);
         this.handleChangeInputRadioColor = this.handleChangeInputRadioColor.bind(this);
         this.handleChangeInputRadioTipo = this.handleChangeInputRadioTipo.bind(this);
@@ -53,91 +56,83 @@ class CardGenerator extends Component {
         // this.retrievedLocalStorage = this.retrievedLocalStorage.bind(this);
         this.saveLocalStorage = this.saveLocalStorage.bind(this);
         this.jsonResponse = this.jsonResponse.bind(this);
-        this.createCard= this.createCard.bind(this);
+        this.createCard = this.createCard.bind(this);
         this.handleReset = this.handleReset.bind(this);
+        this.handleSelect = this.handleSelect.bind(this)
+        this.addSelect = this.addSelect.bind(this)
+        this.removeSelect = this.removeSelect.bind(this)
         this.callingAbilities()
-        this.profilePhoto= React.createRef();
+        this.profilePhoto = React.createRef();
         // this.retrievedLocalStorage();
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.retrievedLocalStorage();
     }
     //fetch 
     createCard() {
-        const {data}= this.state
+        const { data } = this.state
         fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
-            'content-type': 'application/json'
+                'content-type': 'application/json'
             },
-            
+
+        })
+            .then(function (resp) {
+                return resp.json();
             })
-        .then(function (resp) {
-            console.log("resp",resp);
-            return resp.json();
-        })
-        .then((resp) =>{
-            console.log(resp.cardURL);
+            .then((resp) => {
+                this.setState({
+                    url: resp.cardURL,
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+        if (this.state.twitter === "js-hidden-twitter") {
+            const { twitter } = this.state
             this.setState({
-            url: resp.cardURL,
-            });
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
-        if(this.state.twitter=== "js-hidden-twitter"){
-            const{twitter}=this.state
-            this.setState({
-                twitter :""
+                twitter: ""
             })
         }
     }
 
     //Recuperar localStorage
-    retrievedLocalStorage(){
-        console.log('y');console.log('local')
-        // if (localStorage.length>0) {
-        //     let savedData = JSON.parse(localStorage.getItem('dataStoraged'));
-        // this.setState(
-        //     {data : savedData}
-        // )
-        // }
+    retrievedLocalStorage() {
         let retrievedData = localStorage.getItem('dataStoraged');
-        console.log( 'datarecuperada',retrievedData);
-        if (retrievedData !== null){
+        if (retrievedData !== null) {
             let dataParsed = JSON.parse(retrievedData);
-            console.log('parseando',dataParsed);
             this.setState(
-                {data : dataParsed}
+                { data: dataParsed }
             )
         }
-        
     }
 
     //Crear loccalStorage
-    saveLocalStorage(){
+    saveLocalStorage() {
         localStorage.setItem('dataStoraged', JSON.stringify(this.state.data));
-        console.log('localStorage',localStorage);
     }
 
-    handleReset(event){
+    handleReset(event) {
         localStorage.clear();
 
         this.setState(
-            {data: {
-                email: "",
-                github: "",
-                job: "",
-                linkedin: "",
-                name: "",
-                palette: "1",
-                phone: "",
-                photo: "",
-                typography: "2",
-                skills: ['HTML','git'],
-            }}
+            {
+                data: {
+                    email: "",
+                    github: "",
+                    job: "",
+                    linkedin: "",
+                    name: "",
+                    palette: "1",
+                    phone: "",
+                    photo: "",
+                    typography: "2",
+                    skills: ['HTML'],
+                }
+            }
         )
     }
 
@@ -149,25 +144,18 @@ class CardGenerator extends Component {
             }
         })
     }
-//   input file
-    getPhoto(event){
-        console.log('BUBUBU', this.profilePhoto.current)
+    //   input file
+    getPhoto(event) {
         this.profilePhoto.current.click();
     }
 
-    
-    handleLoadPhoto(event){   
-        console.log('HOLAHOLA'); 
 
+    handleLoadPhoto(event) {
         this.profilePhoto.current.files[0];
-        
-        console.log('FR',fr);
-        
-        const writePhoto = ()=>{
-            console.log('fr after load',fr);
+        const writePhoto = () => {
             this.setState(
                 {
-                    data:{
+                    data: {
                         ...this.state.data,
                         photo: fr.result
                     }
@@ -178,7 +166,6 @@ class CardGenerator extends Component {
         fr.readAsDataURL(this.profilePhoto.current.files[0]);
     }
 
-    
     handleChangeInputRadioTipo(event) {
         this.setState({
             data: {
@@ -195,8 +182,8 @@ class CardGenerator extends Component {
                 github: e.target.value
             }
         }, )
-
     }
+
     handleChangeInputName(e) {
         this.setState({
             data: {
@@ -204,85 +191,125 @@ class CardGenerator extends Component {
                 name: e.target.value
             }
         }, )
-
     }
-    handleChangeInputMail(e) {
 
+    handleChangeInputMail(e) {
         this.setState({
             data: {
                 ...this.state.data,
                 email: e.target.value
             }
         }, )
-
     }
-    handleChangeInputTelf(e) {
 
+    handleChangeInputTelf(e) {
         this.setState({
             data: {
                 ...this.state.data,
                 phone: e.target.value
             }
         }, )
-
     }
-    handleChangeInputJob(e) {
 
+    handleChangeInputJob(e) {
         this.setState({
             data: {
                 ...this.state.data,
                 job: e.target.value
             }
         }, )
-
     }
-    handleChangeInputLinkedin(e) {
 
+    handleChangeInputLinkedin(e) {
         this.setState({
             data: {
                 ...this.state.data,
                 linkedin: e.target.value
             }
         }, )
-
     }
+
     //hacer método y bind de funcion json dentro de constructor
     callingAbilities() {
-
         fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
             .then(function (response) {
                 return response.json();
             })
             .then(this.jsonResponse)
-
     }
 
     jsonResponse(json) {
         this.setState(
-            { skillsList: json.skills }
+            {
+                skillsList: json.skills,
+                selectedSkills: [json.skills[0]],
+            }
         )
     }
 
+    handleSelect(skill, i) {
+        const prevSkills = [...this.state.selectedSkills];
+        prevSkills.splice(i, 1, skill);
+        this.setState({
+            selectedSkills: prevSkills,
+            data: {
+                ...this.state.data,
+                skills: prevSkills
+            }
+        })
+    }
+
+    addSelect() {
+        const nextSkills = [...this.state.selectedSkills];
+        const nextElem = this.state.skillsList[0];
+        nextSkills.push(nextElem);
+        if (this.state.selectedSkills.length < maxSelects) {
+            this.setState({
+                selectedSkills: nextSkills,
+                data: {
+                    ...this.state.data,
+                    skills: nextSkills
+                }
+            })
+        } else {
+            console.log('Máximo 3 habilidades')
+        }
+    }
+
+    removeSelect(i) {
+        const nextSkills = [...this.state.selectedSkills]
+        nextSkills.splice(i, 1);
+        this.setState({
+            selectedSkills: nextSkills,
+            data: {
+                ...this.state.data,
+                skills: nextSkills
+            }
+        })
+    }
+
+
     twitterButton() {
-        window.location.href=`http://twitter.com/share?text=Tarjeta%20de%20de%20presentaci%C3%B3n%20con%20Awesome%20profile-cards%20(Brujas%20de%20appendChild%20-%20Sprint3%20de%20Adalab)&hashtags=WomenInTech&url=${this.props.createdLink}`;
+        window.location.href = `https://twitter.com/share?text=Tarjeta%20de%20de%20presentaci%C3%B3n%20con%20Awesome%20profile-cards%20(Brujas%20de%20appendChild%20-%20Sprint3%20de%20Adalab)&hashtags=WomenInTech&url=${this.props.createdLink}`;
     }
 
     render() {
-        console.log('111111111111localStorage',localStorage);
-        setTimeout(this.saveLocalStorage,500);
-        // localStorage.setItem('dataStoraged', JSON.stringify(this.state.data));
-        
-        console.log('state data', this.state.data);
+        setTimeout(this.saveLocalStorage, 500);
         return (
             <Fragment>
                 <Header />
                 {
-                    this.state.skillsList.length > 0 
-                        ?<Main 
+                    this.state.skillsList.length > 0
+                        ? <Main
                             color={colors[this.state.data.palette]}
                             font={fonts[this.state.data.typography]}
                             data={this.state.data}
                             skillsList={this.state.skillsList}
+                            selectedSkills={this.state.selectedSkills}
+                            maxSelects={maxSelects}
+                            handleSelect={this.handleSelect}
+                            addSelect={this.addSelect}
+                            removeSelect={this.removeSelect}
                             handleOnChangeColor={this.handleChangeInputRadioColor}
                             handleOnChangeTipo={this.handleChangeInputRadioTipo}
                             handleOnChangeGithub={this.handleChangeInputGithub}
@@ -290,7 +317,7 @@ class CardGenerator extends Component {
                             handleOnChangeTelf={this.handleChangeInputTelf}
                             handleOnChangeMail={this.handleChangeInputMail}
                             handleOnChangeLinkedin={this.handleChangeInputLinkedin}
-                            handleOnChangeJob={this.handleChangeInputJob} 
+                            handleOnChangeJob={this.handleChangeInputJob}
                             handleOnChangePhoto={this.handleLoadPhoto}
                             twitterButton={this.twitterButton}
                             handleReset={this.handleReset}
@@ -300,8 +327,8 @@ class CardGenerator extends Component {
                             createCard={this.createCard}
                             createdLink={this.state.url}
                             hiddenTwitter={this.state.twitter}
-                            /> 
-                            : <div>Cargando...</div>
+                        />
+                        : <div>Cargando...</div>
                 }
                 <Footer />
             </Fragment>
