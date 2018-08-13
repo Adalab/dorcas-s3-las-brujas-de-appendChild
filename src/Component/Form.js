@@ -12,7 +12,6 @@ class Form extends Component {
       openCollapsibleFill: false,
       openCollapsibleShare: false,
     }
-    this.addImg = this.addImg.bind(this);
     this.handleCollapsibleDesign = this.handleCollapsibleDesign.bind(this);
     this.handleCollapsibleFill = this.handleCollapsibleFill.bind(this);
     this.handleCollapsibleShare = this.handleCollapsibleShare.bind(this);
