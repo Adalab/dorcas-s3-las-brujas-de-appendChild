@@ -14,13 +14,13 @@ class Form extends Component {
       openCollapsibleFill: false,
       openCollapsibleShare: false,
     }
-    this.addImg = this.addImg.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.addSelect = this.addSelect.bind(this);
     this.removeSelect = this.removeSelect.bind(this);
     this.handleCollapsibleDesign = this.handleCollapsibleDesign.bind(this);
     this.handleCollapsibleFill = this.handleCollapsibleFill.bind(this);
     this.handleCollapsibleShare = this.handleCollapsibleShare.bind(this);
+    
   }
   maxSelects = 3;
 
@@ -70,13 +70,8 @@ class Form extends Component {
     }
   }
 
-  addImg() {
-    console.log("a mi también");
-  }
-
-  twitterButtom() {
-    console.log("soy twitter");
-  }
+    
+  
 
   handleSelect(skill, i) {
     this.setState({
@@ -461,7 +456,7 @@ class Form extends Component {
                   <button
                     className="btn-share btn-sharejs"
                     type="button"
-                    onClick={this.twitterButtom}
+                    onClick={this.props.twitterButton}
                     name="button"
                   >
                     <span>
