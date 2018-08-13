@@ -8,8 +8,24 @@ class Main extends Component {
     super(props);
   }
   render() {
-    const {skills, job, name, email, linkedin, github, phone,palette,photo} = this.props.data;
-    const {color, miniPhoto, createCard,createdLink}= this.props;
+    const {
+      skills,
+      job,
+      name, 
+      email, 
+      linkedin, 
+      github, 
+      phone,
+      palette,
+      photo
+    } = this.props.data;
+    const {
+      color, 
+      miniPhoto, 
+      createCard,
+      createdLink,
+      twitterButton
+    }= this.props;
     const {font}=this.props;
     return (
       <div className= "cardGenerator__main">
@@ -49,6 +65,7 @@ class Main extends Component {
           miniPhoto={miniPhoto}
           createCard={createCard}
           createdLink={createdLink}
+          twitterButton={twitterButton}
         />
       </div>
     );
