@@ -6,18 +6,13 @@ import littleWitch from '../images/joan.jpg';
 class Form extends Component {
   constructor(props) {
     super(props);
-    
-    const initialSkill = this.props.skillsList[0];
+
     this.state = {
-      selectsArr: [initialSkill],
       openCollapsibleDesign: true,
       openCollapsibleFill: false,
       openCollapsibleShare: false,
     }
     this.addImg = this.addImg.bind(this);
-    this.handleSelect = this.handleSelect.bind(this);
-    this.addSelect = this.addSelect.bind(this);
-    this.removeSelect = this.removeSelect.bind(this);
     this.handleCollapsibleDesign = this.handleCollapsibleDesign.bind(this);
     this.handleCollapsibleFill = this.handleCollapsibleFill.bind(this);
     this.handleCollapsibleShare = this.handleCollapsibleShare.bind(this);
@@ -102,22 +97,21 @@ class Form extends Component {
   }
 
   render() {
-    // console.log('selectsArr', this.state.selectsArr)
-    const selects = this.state.selectsArr.map((skill, i) => {
+    const selects = this.props.selectedSkills.map((skill, i) => {
       //Es length - 1 porque si el array tiene 3 elementos, se numeran como 0, 1 y 2
-      const lastSelect = i === this.state.selectsArr.length - 1;
+      const lastSelect = i === this.props.selectedSkills.length - 1
       const addSelectsOnClick =
-        lastSelect && this.state.selectsArr.length < this.maxSelects;
+        lastSelect && this.props.selectedSkills.length < this.props.maxSelects
       if (addSelectsOnClick) {
         return (
           <Select
             key={i}
             selectedValue={skill}
-            onSelect={(e) => {
-              const selectedSkill = e.target.value;
-              this.handleSelect(selectedSkill, i)
+            onSelect={e => {
+              const selectedSkill = e.target.value
+              this.props.handleSelect(selectedSkill, i)
             }}
-            onChange={this.addSelect}
+            onChange={this.props.addSelect}
             skillsList={this.props.skillsList}
             icon="fa-plus"
           />
@@ -127,26 +121,26 @@ class Form extends Component {
           <Select
             key={i}
             selectedValue={skill}
-            onSelect={(e) => {
-              const selectedSkill = e.target.value;
-              this.handleSelect(selectedSkill, i)
+            onSelect={e => {
+              const selectedSkill = e.target.value
+              this.props.handleSelect(selectedSkill, i)
             }}
-            onChange={() => { this.removeSelect(i) }}
+            onChange={() => {
+              this.props.removeSelect(i)
+            }}
             skillsList={this.props.skillsList}
             icon="fa-minus"
           />
         )
       }
-
-    }
-    );
+    });
 
     const {
       openCollapsibleDesign,
       openCollapsibleFill,
       openCollapsibleShare
     } = this.state;
-    
+
     // console.log('props en form', this.props);
     // console.log('props en form', this.props.skillsList)
 
@@ -250,7 +244,7 @@ class Form extends Component {
                         type="radio"
                         name="typography"
                         value="2"
-                        defaultChecked 
+                        defaultChecked
                         data-font="comic-card"
                         onChange={this.props.handleInputRadioTipo}
                       />
@@ -339,17 +333,17 @@ class Form extends Component {
                     >
                       Añadir imagen
                     </button>
-                      <input 
-                        ref={this.props.refInput} 
-                        onChange ={this.props.handleOnChangePhoto}
-                        className="fill-input__input" 
-                        id="add-image" 
-                        name="photo" 
-                        type="file"
-                      />
+                    <input
+                      ref={this.props.refInput}
+                      onChange={this.props.handleOnChangePhoto}
+                      className="fill-input__input"
+                      id="add-image"
+                      name="photo"
+                      type="file"
+                    />
                     <div className="square__white">
-                    <img className="little-witch" src={this.props.miniPhoto || littleWitch} alt="miniprofil">
-                    </img>
+                      <img className="little-witch" src={this.props.miniPhoto || littleWitch} alt="miniprofil">
+                      </img>
                     </div>
                   </div>
                   <label
@@ -452,7 +446,7 @@ class Form extends Component {
                   <p className="phrase">
                     La tarjeta ha sido creada:
                   </p>
-                    <a className="link-awesome" href={`${this.props.createdLink}`}> {this.props.createdLink}</a> 
+                  <a className="link-awesome" href={`${this.props.createdLink}`}> {this.props.createdLink}</a>
                   <a
                     href="#"
                     className="link-awesome linkTwitter"

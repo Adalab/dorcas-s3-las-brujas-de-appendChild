@@ -8,9 +8,9 @@ class Preview extends Component {
     super(props);
     console.log('props', props);
   }
-  
+
   render() {
-    const {photo} = this.props;
+    const { photo } = this.props;
     return (
       <section className="section-card">
         <button onClick={this.props.handleReset}
@@ -39,11 +39,11 @@ class Preview extends Component {
               </p>
             </div>
           </div>
-          <div 
+          <div
             className="card__image"
-            style={{backgroundImage: `url(${photo || littleWitch})`}}
+            style={{ backgroundImage: `url(${photo || littleWitch})` }}
           >
-          
+
           </div>
           <ul className="card__social">
             <Icon
@@ -76,16 +76,14 @@ class Preview extends Component {
           </ul>
           <div className="card__skills">
             <ul className="card_skills--list js-card_skills--list">
-              {this.props.skills.map((skill, index) => {
-                return(
-                  <li 
-                    className="js-skill skill"
-                    key={index}
-                  >
+              {this.props.selectedSkills.map((skill, index) => {
+                return (
+                  <li className="js-skill skill" key={index}>
                     {skill}
                   </li>
                 )
-              })}
+              })
+              }
             </ul>
           </div>
         </div>
