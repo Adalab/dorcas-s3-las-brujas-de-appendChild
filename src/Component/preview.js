@@ -82,8 +82,7 @@ class Preview extends Component {
                     {skill}
                   </li>
                 )
-              })
-              }
+              })}
             </ul>
           </div>
         </div>

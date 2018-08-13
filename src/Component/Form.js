@@ -17,7 +17,6 @@ class Form extends Component {
     this.handleCollapsibleFill = this.handleCollapsibleFill.bind(this);
     this.handleCollapsibleShare = this.handleCollapsibleShare.bind(this);
   }
-  maxSelects = 3;
 
   handleCollapsibleDesign(event) {
     const { openCollapsibleDesign } = this.state
@@ -73,28 +72,6 @@ class Form extends Component {
     console.log("soy twitter");
   }
 
-  handleSelect(skill, i) {
-    this.setState({
-      selectsArr: this.state.selectsArr.slice(0, i).concat(skill, this.state.selectsArr.slice(i + 1))
-    })
-  }
-
-  addSelect() {
-    if (this.state.selectsArr.length < this.maxSelects) {
-      this.setState({
-        selectsArr: this.state.selectsArr.concat(this.props.skillsList[0])
-      })
-    } else {
-      console.log('Máximo 3 habilidades')
-    }
-  }
-
-  removeSelect(i) {
-    this.setState({
-      selectsArr: this.state.selectsArr.slice(0, i).concat(this.state.selectsArr.slice(i + 1))
-    })
-
-  }
 
   render() {
     const selects = this.props.selectedSkills.map((skill, i) => {

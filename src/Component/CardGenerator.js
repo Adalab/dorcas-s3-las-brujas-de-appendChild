@@ -15,6 +15,8 @@ const fonts = {
     '3': 'montse-card'
 }
 
+const maxSelects = 3
+
 let fr = new FileReader();
 
 class CardGenerator extends Component {
@@ -22,7 +24,8 @@ class CardGenerator extends Component {
         super(props);
         this.state = {
             skillsList: [],
-            url:"",
+            selectedSkills: [],
+            url: "",
             data: {
                 email: "",
                 github: "",
@@ -33,10 +36,10 @@ class CardGenerator extends Component {
                 phone: "",
                 photo: "",
                 typography: "2",
-                skills: ['HTML','git'],
+                skills: ['HTML', 'git'],
             },
         }
-        
+
         this.getPhoto = this.getPhoto.bind(this);
         this.handleChangeInputRadioColor = this.handleChangeInputRadioColor.bind(this);
         this.handleChangeInputRadioTipo = this.handleChangeInputRadioTipo.bind(this);
@@ -51,45 +54,48 @@ class CardGenerator extends Component {
         // this.retrievedLocalStorage = this.retrievedLocalStorage.bind(this);
         this.saveLocalStorage = this.saveLocalStorage.bind(this);
         this.jsonResponse = this.jsonResponse.bind(this);
-        this.createCard= this.createCard.bind(this);
+        this.createCard = this.createCard.bind(this);
         this.handleReset = this.handleReset.bind(this);
+        this.handleSelect = this.handleSelect.bind(this)
+        this.addSelect = this.addSelect.bind(this)
+        this.removeSelect = this.removeSelect.bind(this)
         this.callingAbilities()
-        this.profilePhoto= React.createRef();
+        this.profilePhoto = React.createRef();
         // this.retrievedLocalStorage();
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.retrievedLocalStorage();
     }
     //fetch 
     createCard() {
-        const {data}= this.state
+        const { data } = this.state
         fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
-            'content-type': 'application/json'
+                'content-type': 'application/json'
             },
-            
+
+        })
+            .then(function (resp) {
+                console.log("resp", resp);
+                return resp.json();
             })
-        .then(function (resp) {
-            console.log("resp",resp);
-            return resp.json();
-        })
-        .then((resp) =>{
-            console.log(resp.cardURL);
-            this.setState({
-            url: resp.cardURL,
-            });
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
+            .then((resp) => {
+                console.log(resp.cardURL);
+                this.setState({
+                    url: resp.cardURL,
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
     }
 
     //Recuperar localStorage
-    retrievedLocalStorage(){
-        console.log('y');console.log('local')
+    retrievedLocalStorage() {
+        console.log('y'); console.log('local')
         // if (localStorage.length>0) {
         //     let savedData = JSON.parse(localStorage.getItem('dataStoraged'));
         // this.setState(
@@ -97,39 +103,41 @@ class CardGenerator extends Component {
         // )
         // }
         let retrievedData = localStorage.getItem('dataStoraged');
-        console.log( 'datarecuperada',retrievedData);
-        if (retrievedData !== null){
+        console.log('datarecuperada', retrievedData);
+        if (retrievedData !== null) {
             let dataParsed = JSON.parse(retrievedData);
-            console.log('parseando',dataParsed);
+            console.log('parseando', dataParsed);
             this.setState(
-                {data : dataParsed}
+                { data: dataParsed }
             )
         }
-        
+
     }
 
     //Crear loccalStorage
-    saveLocalStorage(){
+    saveLocalStorage() {
         localStorage.setItem('dataStoraged', JSON.stringify(this.state.data));
-        console.log('localStorage',localStorage);
+        console.log('localStorage', localStorage);
     }
 
-    handleReset(event){
+    handleReset(event) {
         localStorage.clear();
 
         this.setState(
-            {data: {
-                email: "",
-                github: "",
-                job: "",
-                linkedin: "",
-                name: "",
-                palette: "1",
-                phone: "",
-                photo: "",
-                typography: "2",
-                skills: ['HTML','git'],
-            }}
+            {
+                data: {
+                    email: "",
+                    github: "",
+                    job: "",
+                    linkedin: "",
+                    name: "",
+                    palette: "1",
+                    phone: "",
+                    photo: "",
+                    typography: "2",
+                    skills: ['HTML', 'git'],
+                }
+            }
         )
     }
 
@@ -141,25 +149,25 @@ class CardGenerator extends Component {
             }
         })
     }
-//   input file
-    getPhoto(event){
+    //   input file
+    getPhoto(event) {
         console.log('BUBUBU', this.profilePhoto.current)
         this.profilePhoto.current.click();
     }
 
-    
-    handleLoadPhoto(event){   
-        console.log('HOLAHOLA'); 
+
+    handleLoadPhoto(event) {
+        console.log('HOLAHOLA');
 
         this.profilePhoto.current.files[0];
-        
-        console.log('FR',fr);
-        
-        const writePhoto = ()=>{
-            console.log('fr after load',fr);
+
+        console.log('FR', fr);
+
+        const writePhoto = () => {
+            console.log('fr after load', fr);
             this.setState(
                 {
-                    data:{
+                    data: {
                         ...this.state.data,
                         photo: fr.result
                     }
@@ -170,7 +178,7 @@ class CardGenerator extends Component {
         fr.readAsDataURL(this.profilePhoto.current.files[0]);
     }
 
-    
+
     handleChangeInputRadioTipo(event) {
         this.setState({
             data: {
@@ -251,26 +259,62 @@ class CardGenerator extends Component {
 
     jsonResponse(json) {
         this.setState(
-            { skillsList: json.skills }
+            {
+                skillsList: json.skills,
+                selectedSkills: [json.skills[0]]
+            }
         )
     }
 
+    handleSelect(skill, i) {
+        this.setState({
+            //update element
+            selectedSkills: this.state.selectedSkills
+                .slice(0, i)
+                .concat(skill, this.state.selectedSkills.slice(i + 1)),
+        })
+    }
+
+    addSelect() {
+        if (this.state.selectedSkills.length < maxSelects) {
+            this.setState({
+                selectedSkills: this.state.selectedSkills.concat(this.state.skillsList[0]),
+            })
+        } else {
+            console.log('Máximo 3 habilidades')
+        }
+    }
+
+    removeSelect(i) {
+        this.setState({
+            selectedSkills: this.state.selectedSkills
+                .slice(0, i)
+                .concat(this.state.selectedSkills.slice(i + 1)),
+        })
+    }
+
+
     render() {
-        console.log('111111111111localStorage',localStorage);
-        setTimeout(this.saveLocalStorage,500);
+        console.log('111111111111localStorage', localStorage);
+        setTimeout(this.saveLocalStorage, 500);
         // localStorage.setItem('dataStoraged', JSON.stringify(this.state.data));
-        
+
         console.log('state data', this.state.data);
         return (
             <Fragment>
                 <Header />
                 {
-                    this.state.skillsList.length > 0 
-                        ?<Main 
+                    this.state.skillsList.length > 0
+                        ? <Main
                             color={colors[this.state.data.palette]}
                             font={fonts[this.state.data.typography]}
                             data={this.state.data}
                             skillsList={this.state.skillsList}
+                            selectedSkills={this.state.selectedSkills}
+                            maxSelects={maxSelects}
+                            handleSelect={this.handleSelect}
+                            addSelect={this.addSelect}
+                            removeSelect={this.removeSelect}
                             handleOnChangeColor={this.handleChangeInputRadioColor}
                             handleOnChangeTipo={this.handleChangeInputRadioTipo}
                             handleOnChangeGithub={this.handleChangeInputGithub}
@@ -278,7 +322,7 @@ class CardGenerator extends Component {
                             handleOnChangeTelf={this.handleChangeInputTelf}
                             handleOnChangeMail={this.handleChangeInputMail}
                             handleOnChangeLinkedin={this.handleChangeInputLinkedin}
-                            handleOnChangeJob={this.handleChangeInputJob} 
+                            handleOnChangeJob={this.handleChangeInputJob}
                             handleOnChangePhoto={this.handleLoadPhoto}
                             handleReset={this.handleReset}
                             getPhoto={this.getPhoto}
@@ -286,8 +330,8 @@ class CardGenerator extends Component {
                             miniPhoto={this.state.data.photo}
                             createCard={this.createCard}
                             createdLink={this.state.url}
-                            /> 
-                            : <div>Cargando...</div>
+                        />
+                        : <div className="LoadingPage">Cargando...</div>
                 }
                 <Footer />
             </Fragment>
