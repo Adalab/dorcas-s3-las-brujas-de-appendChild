@@ -24,7 +24,7 @@ class CardGenerator extends Component {
         super(props);
         this.state = {
             skillsList: [],
-            selectedSkills: [],
+            selectedSkills: ['HTML'],
             url: "",
             data: {
                 email: "",
@@ -36,7 +36,7 @@ class CardGenerator extends Component {
                 phone: "",
                 photo: "",
                 typography: "2",
-                skills: [],
+                skills: ['HTML'],
             },
         }
 
@@ -94,19 +94,15 @@ class CardGenerator extends Component {
     }
 
     //Recuperar localStorage
-    retrievedLocalStorage() {
-        console.log('y'); console.log('local')
-        
+    retrievedLocalStorage() {   
         let retrievedData = localStorage.getItem('dataStoraged');
         console.log('datarecuperada', retrievedData);
         if (retrievedData !== null) {
             let dataParsed = JSON.parse(retrievedData);
-            console.log('parseando', dataParsed);
             this.setState(
                 { data: dataParsed }
             )
         }
-
     }
 
     //Crear loccalStorage
@@ -130,7 +126,7 @@ class CardGenerator extends Component {
                     phone: "",
                     photo: "",
                     typography: "2",
-                    skills: [],
+                    skills: ['HTML'],
                 }
             }
         )
@@ -151,14 +147,8 @@ class CardGenerator extends Component {
 
 
     handleLoadPhoto(event) {
-        console.log('HOLAHOLA');
-
         this.profilePhoto.current.files[0];
-
-        console.log('FR', fr);
-
         const writePhoto = () => {
-            console.log('fr after load', fr);
             this.setState(
                 {
                     data: {
@@ -171,7 +161,6 @@ class CardGenerator extends Component {
         fr.addEventListener('load', writePhoto);
         fr.readAsDataURL(this.profilePhoto.current.files[0]);
     }
-
 
     handleChangeInputRadioTipo(event) {
         this.setState({
@@ -189,8 +178,8 @@ class CardGenerator extends Component {
                 github: e.target.value
             }
         }, )
-
     }
+
     handleChangeInputName(e) {
         this.setState({
             data: {
@@ -198,57 +187,51 @@ class CardGenerator extends Component {
                 name: e.target.value
             }
         }, )
-
     }
-    handleChangeInputMail(e) {
 
+    handleChangeInputMail(e) {
         this.setState({
             data: {
                 ...this.state.data,
                 email: e.target.value
             }
         }, )
-
     }
-    handleChangeInputTelf(e) {
 
+    handleChangeInputTelf(e) {
         this.setState({
             data: {
                 ...this.state.data,
                 phone: e.target.value
             }
         }, )
-
     }
-    handleChangeInputJob(e) {
 
+    handleChangeInputJob(e) {
         this.setState({
             data: {
                 ...this.state.data,
                 job: e.target.value
             }
         }, )
-
     }
-    handleChangeInputLinkedin(e) {
 
+    handleChangeInputLinkedin(e) {
         this.setState({
             data: {
                 ...this.state.data,
                 linkedin: e.target.value
             }
         }, )
-
     }
+
     //hacer método y bind de funcion json dentro de constructor
     callingAbilities() {
-
         fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
             .then(function (response) {
                 return response.json();
             })
             .then(this.jsonResponse)
-
     }
 
     jsonResponse(json) {
@@ -256,28 +239,28 @@ class CardGenerator extends Component {
             {
                 skillsList: json.skills,
                 selectedSkills: [json.skills[0]],
-
             }
         )
     }
 
     handleSelect(skill, i) {
+        const prevSkills = [...this.state.selectedSkills];
+        prevSkills.splice(i,1,skill);
         this.setState({
-            //update element
-            selectedSkills: this.state.selectedSkills
-                .slice(0, i)
-                .concat(skill, this.state.selectedSkills.slice(i + 1)),
-            data: {
+            selectedSkills: prevSkills,
+            data : {
                 ...this.state.data,
-                skills: this.state.selectedSkills
-                }
+                skills: prevSkills
+            }
         })
     }
 
     addSelect() {
+        const nextElem = this.state.skillsList[0];
+        console.log('next elem:   ', nextElem);
         if (this.state.selectedSkills.length < maxSelects) {
             this.setState({
-                selectedSkills: this.state.selectedSkills.concat(this.state.skillsList[0]),
+                selectedSkills: this.state.selectedSkills.concat(nextElem),
             })
         } else {
             console.log('Máximo 3 habilidades')
@@ -292,12 +275,8 @@ class CardGenerator extends Component {
         })
     }
 
-
     render() {
-        console.log('111111111111localStorage', localStorage);
         setTimeout(this.saveLocalStorage, 500);
-        // localStorage.setItem('dataStoraged', JSON.stringify(this.state.data));
-
         console.log('state data', this.state.data);
         return (
             <Fragment>

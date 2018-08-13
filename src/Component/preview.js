@@ -6,7 +6,6 @@ import littleWitch from '../images/joan.jpg';
 class Preview extends Component {
   constructor(props) {
     super(props);
-    console.log('props', props);
   }
 
   render() {
