@@ -36,7 +36,7 @@ class CardGenerator extends Component {
                 phone: "",
                 photo: "",
                 typography: "2",
-                skills: ['HTML', 'git'],
+                skills: [],
             },
         }
 
@@ -96,12 +96,7 @@ class CardGenerator extends Component {
     //Recuperar localStorage
     retrievedLocalStorage() {
         console.log('y'); console.log('local')
-        // if (localStorage.length>0) {
-        //     let savedData = JSON.parse(localStorage.getItem('dataStoraged'));
-        // this.setState(
-        //     {data : savedData}
-        // )
-        // }
+        
         let retrievedData = localStorage.getItem('dataStoraged');
         console.log('datarecuperada', retrievedData);
         if (retrievedData !== null) {
@@ -135,7 +130,7 @@ class CardGenerator extends Component {
                     phone: "",
                     photo: "",
                     typography: "2",
-                    skills: ['HTML', 'git'],
+                    skills: [],
                 }
             }
         )
@@ -260,7 +255,8 @@ class CardGenerator extends Component {
         this.setState(
             {
                 skillsList: json.skills,
-                selectedSkills: [json.skills[0]]
+                selectedSkills: [json.skills[0]],
+
             }
         )
     }
@@ -271,6 +267,10 @@ class CardGenerator extends Component {
             selectedSkills: this.state.selectedSkills
                 .slice(0, i)
                 .concat(skill, this.state.selectedSkills.slice(i + 1)),
+            data: {
+                ...this.state.data,
+                skills: this.state.selectedSkills
+                }
         })
     }
 
