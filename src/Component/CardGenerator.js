@@ -151,7 +151,6 @@ class CardGenerator extends Component {
     }
     //   input file
     getPhoto(event) {
-        console.log('BUBUBU', this.profilePhoto.current)
         this.profilePhoto.current.click();
     }
 
